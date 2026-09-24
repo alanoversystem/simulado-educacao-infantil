@@ -1,4 +1,18 @@
-# Arquivos temporários de download
-pci_*.html
-furb_prova_real.html
-furb-extracted.json
+# Arquivos temporários de download e scripts auxiliares
+*.html
+!index.html
+*.json
+build-*.js
+batch-*.js
+curate-*.js
+crawler.js
+fetch-*.js
+parse-*.js
+print-*.js
+diag.js
+scan-*.js
+check-*.js
+inspect-*.js
+test-*.js
+get-*.js
+extract-*.js

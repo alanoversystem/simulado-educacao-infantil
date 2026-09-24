@@ -582,15 +582,19 @@
         </div>
         <div class="mode-btn active" onclick="selectMode(30)" id="mode-30">
           <strong>🎯 30 Questões (Padrão)</strong>
-          <span>Simulado Completo • ~2h</span>
+          <span>Simulado Completo • ~1h30</span>
         </div>
         <div class="mode-btn" onclick="selectMode(40)" id="mode-40">
           <strong>🏆 40 Questões (Oficial)</strong>
           <span>Padrão Prova FURB • 3h</span>
         </div>
+        <div class="mode-btn" onclick="selectMode(60)" id="mode-60">
+          <strong>🔥 60 Questões</strong>
+          <span>Maratona • ~4h</span>
+        </div>
         <div class="mode-btn" onclick="selectMode(0)" id="mode-0">
-          <strong>📚 Todas do Banco</strong>
-          <span>Treino Geral Extensivo</span>
+          <strong>📚 Todas (200 Questões)</strong>
+          <span>Banco Oficial Completo</span>
         </div>
       </div>
     </div>
@@ -607,21 +611,20 @@
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><strong id="total-bank-count">59</strong><span>No Banco</span></div>
+      <div class="info-card"><strong id="total-bank-count">200</strong><span>No Banco</span></div>
       <div class="info-card"><strong id="display-selected-q">30</strong><span>Neste Simulado</span></div>
       <div class="info-card"><strong>60%</strong><span>Mínimo aprovação</span></div>
       <div class="info-card"><strong>A–E</strong><span>Opções Embaralhadas</span></div>
     </div>
 
     <div class="source-list">
-      <strong>📋 Fontes Oficiais das Provas Cadastradas:</strong>
+      <strong>📋 Fontes Oficiais das 200 Provas Cadastradas:</strong>
       <ul>
-        <li>FURB 2024 — Prefeitura Municipal de Blumenau/SC (Professor de Educação Infantil)</li>
-        <li>FURB 2024 — Prefeitura Municipal de Gaspar/SC (Professor de Educação Infantil)</li>
-        <li>FURB 2024 — Prefeitura Municipal de Brusque/SC (Professor de Educação Infantil)</li>
-        <li>FURB 2023/2022 — Prefeitura de Blumenau/SC (Concurso Magistério)</li>
-        <li>FEPESE — Concursos de Educação de Santa Catarina (Florianópolis e São José)</li>
-        <li>Legislação: LDB (Lei 9.394/96), ECA (Lei 8.069/90), DCNEI (Res. 5/2009), BNCC e Currículo de Blumenau</li>
+        <li>FURB (Blumenau 2024/2023/2022, Gaspar 2024, Brusque 2024, Florianópolis 2023, Ilhota 2023, Camboriú)</li>
+        <li>FEPESE (Florianópolis 2024, Balneário Camboriú 2024, Palhoça 2024, São José)</li>
+        <li>AMEOSC (Belmonte/SC 2025, São Miguel do Oeste/SC) e bancas municipais oficiais de SC</li>
+        <li>Textos de apoio originais na íntegra para interpretação de texto da Banca FURB</li>
+        <li>Legislação Educacional: LDB 9.394/96, ECA, DCNEI (Res. 5/2009) e BNCC da Educação Infantil</li>
       </ul>
     </div>
 
@@ -674,6 +677,13 @@
 
 <script>
 // ════════════════════════════════════════════════════════════════
+//  BANCO DE QUESTÕES MESTRE
+// ════════════════════════════════════════════════════════════════
+const MASTER_QUESTION_BANK = (typeof QUESTIONS_BANK !== 'undefined' && Array.isArray(QUESTIONS_BANK))
+  ? QUESTIONS_BANK
+  : [];
+
+// ════════════════════════════════════════════════════════════════
 //  ESTADO GLOBAL
 // ════════════════════════════════════════════════════════════════
 let selectedQuantity = 30; // padrão
@@ -688,7 +698,7 @@ let endTime          = null;
 
 // Inicialização da interface
 window.addEventListener('DOMContentLoaded', () => {
-  const bankSize = (typeof MASTER_QUESTION_BANK !== 'undefined') ? MASTER_QUESTION_BANK.length : 59;
+  const bankSize = MASTER_QUESTION_BANK.length || 200;
   const countEl = document.getElementById('total-bank-count');
   if (countEl) countEl.textContent = bankSize;
 });
@@ -700,7 +710,7 @@ function selectMode(qty) {
   const target = document.getElementById('mode-' + qty);
   if (target) target.classList.add('active');
 
-  const bankSize = (typeof MASTER_QUESTION_BANK !== 'undefined') ? MASTER_QUESTION_BANK.length : 59;
+  const bankSize = MASTER_QUESTION_BANK.length || 200;
   const disp = qty === 0 ? bankSize : Math.min(qty, bankSize);
   document.getElementById('display-selected-q').textContent = disp;
 }
