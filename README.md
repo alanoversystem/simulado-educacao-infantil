@@ -8,34 +8,50 @@ Simulado interativo e responsivo construído especificamente para concursos púb
 
 ---
 
-## 🎯 Destaques do Banco Oficial (200 Questões)
+## 🎯 Distribuição Temática do Banco Oficial (200 Questões)
 
-1. **200 Questões 100% Oficiais e Homologadas**:
-   - Questões literais extraídas dos cadernos oficiais da **Banca FURB** (Blumenau 2024/2023/2022, Gaspar 2024, Brusque 2024, Florianópolis 2023, Ilhota 2023, Camboriú), **FEPESE** e bancas municipais de Santa Catarina.
-   - **Textões reais de Língua Portuguesa** na íntegra para interpretação de texto, crase, concordância, orações e regência no estilo autêntico da FURB.
-   - **Legislação e Autores Fundamentais**: LDB 9.394/96, DCNEI (Resolução CNE/CEB nº 5/2009), BNCC da Educação Infantil, ECA, Maria Carmem Barbosa, Lev Vigotski, Jean Piaget, Henri Wallon, William Corsaro, Gilles Brougère, Manuel Sarmento, Emmi Pikler, entre outros.
+O banco dá ênfase massiva à **Legislação Educacional e Diretrizes Normativas** (80 questões de LDB, ECA e BNCC = 40% do banco), combinadas com os **Textões da FURB** e teorias do desenvolvimento infantil:
 
-2. **🎲 Modo Anti-Decoreba Dinâmico**:
-   - A cada nova tentativa, o sistema **sorteia aleatoriamente** as questões do banco de dados oficial.
-   - As **alternativas (A, B, C, D, E) são embaralhadas dinamicamente via algoritmo Fisher-Yates**, recalculando o gabarito. A resposta certa nunca permanece na mesma letra, impedindo a memorização de posições.
+| Área Temática | Quantidade | Conteúdos Principais |
+| :--- | :---: | :--- |
+| **📖 BNCC (Educação Infantil)** | **40** | 6 Direitos de Aprendizagem, 5 Campos de Experiências, transição para o fundamental, faixas etárias |
+| **📜 LDB (Lei 9.394/96)** | **25** | Art. 29 a 31 (específicos da Educ. Infantil), creche/pré-escola, 800h/200 dias, 60% frequência, avaliação sem retenção |
+| **📄 Língua Portuguesa (FURB)** | **23** | **Textões reais da banca**, crase, concordância verbal/nominal, orações, regência e coesão |
+| **🧒 Currículo, Tempos e Rotinas** | **23** | Maria Carmem Barbosa, organização dos espaços, rotina pedagógica e acolhimento |
+| **🧩 Desenvolvimento Infantil** | **22** | Lev Vigotski, Jean Piaget, Henri Wallon, Emmi Pikler |
+| **🛡️ ECA (Lei 8.069/90)** | **15** | Doutrina da Proteção Integral, direito à educação pública e gratuita próxima da residência, notificação ao Conselho Tutelar |
+| **📋 DCNEI (Res. CNE/CEB 5/2009)** | **15** | Princípios éticos, estéticos e políticos; interações e brincadeira como eixos estruturantes |
+| **🎲 Ludicidade e o Brincar** | **11** | O brincar como linguagem da infância, Gilles Brougère, Tizuko Kishimoto |
+| **📊 Avaliação e Documentação** | **9** | Observação contínua, registros pedagógicos, pareceres e portfólios formativos |
+| **🧸 Educação Infantil Geral** | **14** | Função social da creche e pré-escola, relação família-escola e práticas integradas |
+| **Outras (Inclusão, RLM, etc.)** | **3** | Educação inclusiva, AEE e noções de raciocínio lógico da banca |
+| **TOTAL** | **200** | **100% de Questões Oficiais Homologadas** |
 
-3. **💡 Explicações e Justificativas Detalhadas**:
-   - A cada questão respondida (certa ou errada), o candidato recebe feedback imediato com:
-     - Indicação clara da alternativa assinalada;
-     - Por que está errada (ou por que está certa);
+---
+
+## ✨ Recursos do Simulado
+
+1. **🎲 Modo Anti-Decoreba Dinâmico**:
+   - A cada nova tentativa, o sistema **sorteia aleatoriamente** as questões do banco.
+   - As **alternativas (A, B, C, D, E) são embaralhadas dinamicamente via algoritmo Fisher-Yates**, recalculando o gabarito. A resposta certa nunca permanece na mesma letra!
+
+2. **💡 Explicações Detalhadas em 4 Blocos**:
+   - A cada questão respondida (certa ou errada), você recebe imediatamente:
+     - Qual opção marcou;
+     - Por que errou ou acertou;
      - A alternativa correta do gabarito oficial;
-     - Justificativa pedagógica e fundamentação legal aprofundada.
+     - Fundamentação pedagógica e legal aprofundada.
 
-4. **⚙️ Seleção de Modos de Treino**:
+3. **⚙️ Seleção de Modos de Treino**:
    - ⚡ **15 Questões** (Treino Rápido • ~30 min)
    - 🎯 **30 Questões** (Simulado Completo • ~1h30)
    - 🏆 **40 Questões** (Padrão Prova Oficial FURB • 3h)
    - 🔥 **60 Questões** (Maratona de Estudos • ~4h)
    - 📚 **Todas as 200 Questões** (Banco Completo)
 
-5. **📊 Painel de Desempenho e Gabarito Visual**:
+4. **📊 Painel de Desempenho e Gabarito Visual**:
    - Cronômetro de prova em tempo real.
    - Grade de navegação rápida entre questões.
    - Gráfico de aproveitamento percentual com mínimo para aprovação (60%).
-   - Desempenho categorizado por área de conhecimento (BNCC, Currículo, Desenvolvimento Infantil, Português, LDB, etc.).
+   - Desempenho categorizado por área de conhecimento.
    - Gabarito visual com botões para **"🎲 Novo Simulado (Sortear Novas Questões)"** ou **"🔁 Refazer Estas Mesmas Questões"**.
