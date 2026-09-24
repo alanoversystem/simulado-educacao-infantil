@@ -3,75 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulado — Professor de Educação Infantil</title>
+  <title>Simulado Oficial — Professor de Educação Infantil (Banca FURB)</title>
   <style>
     :root {
       --primary: #1565C0;
+      --primary-dark: #0D47A1;
       --primary-light: #E3F2FD;
       --secondary: #FFA000;
       --success: #2E7D32;
       --error: #C62828;
       --neutral: #546E7A;
-      --bg: #F5F7FA;
+      --bg: #F4F6F9;
       --card: #FFFFFF;
       --border: #CFD8DC;
       --text: #263238;
-      --text-muted: #607D8B;
-      --radius: 10px;
-      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --text-muted: #546E7A;
+      --radius: 12px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.07);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ── HEADER ── */
     header {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: #fff;
-      padding: 20px 24px;
+      padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
     }
-    header h1 { font-size: 1.2rem; font-weight: 700; }
-    header p  { font-size: 0.82rem; opacity: 0.85; }
+    .header-title-box h1 { font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .header-title-box p  { font-size: 0.82rem; opacity: 0.9; margin-top: 2px; }
     #timer-box {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 8px;
       padding: 6px 14px;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 2px;
-      min-width: 90px;
+      min-width: 95px;
       text-align: center;
       transition: background 0.3s;
     }
     #timer-box.urgent { background: #C62828; animation: pulse 1s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
 
-    /* ── PROGRESS ── */
+    /* ── PROGRESSO ── */
     #progress-bar-wrap {
       background: var(--primary-light);
       padding: 10px 24px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       border-bottom: 1px solid var(--border);
     }
     #progress-track {
       flex: 1;
       height: 8px;
-      background: var(--border);
+      background: #B0BEC5;
       border-radius: 99px;
       overflow: hidden;
     }
@@ -79,57 +82,114 @@
       height: 100%;
       background: var(--primary);
       border-radius: 99px;
-      transition: width 0.4s;
+      transition: width 0.3s;
     }
-    #progress-label { font-size: 0.82rem; color: var(--text-muted); white-space: nowrap; }
+    #progress-label { font-size: 0.84rem; font-weight: 600; color: var(--primary-dark); white-space: nowrap; }
 
-    /* ── MAIN LAYOUT ── */
+    /* ── MAIN ── */
     main {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 24px 16px 80px;
     }
 
-    /* ── TELA DE INÍCIO ── */
+    /* ── TELA INICIAL ── */
     #start-screen {
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 40px 32px;
+      padding: 36px 28px;
       text-align: center;
     }
-    #start-screen h2 { font-size: 1.6rem; color: var(--primary); margin-bottom: 10px; }
-    #start-screen p  { color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
+    #start-screen h2 { font-size: 1.65rem; color: var(--primary); margin-bottom: 8px; font-weight: 800; }
+    #start-screen .subtitle { color: var(--text-muted); margin-bottom: 22px; font-size: 0.95rem; line-height: 1.55; }
+    
+    .antidecoreba-banner {
+      background: #E8F5E9;
+      border: 1.5px solid #A5D6A7;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      font-size: 0.9rem;
+      color: #1B5E20;
+    }
+    .antidecoreba-banner strong { color: #2E7D32; display: block; font-size: 0.96rem; margin-bottom: 2px; }
+
+    .selector-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .selector-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mode-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .mode-btn {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+    .mode-btn:hover { border-color: var(--primary); }
+    .mode-btn.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .mode-btn strong { display: block; font-size: 0.92rem; color: var(--primary); margin-bottom: 2px; }
+    .mode-btn span { font-size: 0.78rem; color: var(--text-muted); }
+
     .badge-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .badge {
       background: var(--primary-light);
       color: var(--primary);
       border-radius: 99px;
-      padding: 5px 14px;
-      font-size: 0.8rem;
+      padding: 5px 12px;
+      font-size: 0.78rem;
       font-weight: 600;
     }
+
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 12px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       text-align: center;
     }
     .info-card {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 14px 10px;
+      padding: 12px 8px;
     }
-    .info-card strong { display: block; font-size: 1.5rem; color: var(--primary); }
-    .info-card span   { font-size: 0.8rem; color: var(--text-muted); }
+    .info-card strong { display: block; font-size: 1.4rem; color: var(--primary); }
+    .info-card span   { font-size: 0.76rem; color: var(--text-muted); }
+
     .source-list {
       text-align: left;
       background: var(--bg);
@@ -140,21 +200,24 @@
       font-size: 0.83rem;
       color: var(--text-muted);
     }
-    .source-list li { margin-bottom: 4px; margin-left: 18px; }
+    .source-list strong { color: var(--text); }
+    .source-list ul { margin-top: 8px; margin-left: 18px; }
+    .source-list li { margin-bottom: 4px; }
 
     /* ── QUESTÃO ── */
     .question-block {
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 28px 28px 24px;
+      padding: 28px 24px;
       margin-bottom: 24px;
+      border: 1px solid var(--border);
     }
     .question-meta {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
     .q-number {
@@ -162,7 +225,7 @@
       color: #fff;
       border-radius: 99px;
       padding: 3px 12px;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-weight: 700;
     }
     .q-area {
@@ -170,57 +233,95 @@
       color: var(--primary);
       border-radius: 99px;
       padding: 3px 12px;
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
     }
     .q-source {
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       margin-left: auto;
+      font-weight: 500;
     }
-    .question-text {
-      font-size: 0.98rem;
-      line-height: 1.7;
-      margin-bottom: 8px;
-    }
-    .question-excerpt {
+
+    /* ── TEXTÃO DE APOIO (PORTUGUÊS / LEGISLAÇÃO) ── */
+    .question-excerpt-box {
       background: #ECEFF1;
-      border-left: 4px solid var(--primary);
-      padding: 12px 16px;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: #37474F;
-      margin-bottom: 18px;
-      font-style: italic;
+      border-left: 5px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
     }
-    .options { display: flex; flex-direction: column; gap: 8px; }
+    .excerpt-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .excerpt-text {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #263238;
+      white-space: pre-line;
+    }
+
+    .question-text {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      white-space: pre-line;
+      color: var(--text);
+    }
+
+    /* ── OPÇÕES ── */
+    .options { display: flex; flex-direction: column; gap: 9px; }
     .option {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      padding: 12px 14px;
+      gap: 12px;
+      padding: 13px 16px;
       border: 2px solid var(--border);
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.92rem;
-      line-height: 1.5;
+      transition: all 0.15s ease;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      background: #fff;
     }
     .option:hover:not(.locked) { border-color: var(--primary); background: var(--primary-light); }
-    .option.selected { border-color: var(--primary); background: var(--primary-light); }
-    .option.correct   { border-color: var(--success); background: #E8F5E9; color: var(--success); }
-    .option.wrong     { border-color: var(--error);   background: #FFEBEE; color: var(--error); }
-    .option.reveal    { border-color: var(--success); background: #E8F5E9; color: var(--success); }
-    .option.locked    { cursor: default; }
+    .option.correct { border-color: var(--success); background: #E8F5E9; color: var(--success); font-weight: 600; }
+    .option.wrong   { border-color: var(--error);   background: #FFEBEE; color: var(--error); }
+    .option.reveal  { border-color: var(--success); background: #E8F5E9; color: var(--success); font-weight: 600; }
+    .option.locked  { cursor: default; }
     .option-letter {
-      font-weight: 700;
-      min-width: 22px;
-      text-align: center;
+      font-weight: 800;
+      min-width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
     }
-    /* ── FEEDBACK EXPLICAÇÃO ── */
+    .option.correct .option-letter, .option.reveal .option-letter {
+      background: var(--success);
+      color: #fff;
+    }
+    .option.wrong .option-letter {
+      background: var(--error);
+      color: #fff;
+    }
+
+    /* ── FEEDBACK EXPLICAÇÃO RICA ── */
     .feedback-box {
-      margin-top: 16px;
+      margin-top: 18px;
       border-radius: 10px;
       font-size: 0.9rem;
       line-height: 1.65;
@@ -236,25 +337,27 @@
     .feedback-box.correct { border-color: var(--success); }
     .feedback-box.wrong   { border-color: var(--error); }
 
-    /* Cabeçalho do feedback */
     .fb-header {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 16px;
+      padding: 12px 18px;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
     .fb-header.correct { background: #2E7D32; color: #fff; }
     .fb-header.wrong   { background: #C62828; color: #fff; }
     .fb-emoji { font-size: 1.3rem; }
 
-    /* Corpo do feedback */
-    .fb-body { padding: 0; }
-
-    /* Bloco: por que ERROU */
+    .fb-chosen {
+      background: #FFEBEE;
+      padding: 11px 18px;
+      border-bottom: 1px solid #FFCDD2;
+      font-size: 0.88rem;
+      color: #C62828;
+    }
     .fb-why-wrong {
-      background: #FFF3F3;
+      background: #FFF8F8;
       padding: 14px 18px;
       border-bottom: 1px solid #FFCDD2;
     }
@@ -265,33 +368,16 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
-    .fb-why-wrong p { color: #4E1A1A; font-size: 0.9rem; }
+    .fb-why-wrong p { color: #4E1A1A; font-size: 0.9rem; white-space: pre-line; }
 
-    /* Bloco: alternativa marcada */
-    .fb-chosen {
-      background: #FFEBEE;
-      padding: 10px 18px;
-      border-bottom: 1px solid #FFCDD2;
-      font-size: 0.88rem;
-      color: #C62828;
-    }
-    .fb-chosen strong { color: #B71C1C; }
-
-    /* Bloco: alternativa correta */
     .fb-correct-opt {
       background: #E8F5E9;
-      padding: 10px 18px;
+      padding: 11px 18px;
       border-bottom: 1px solid #A5D6A7;
       font-size: 0.88rem;
       color: #2E7D32;
     }
-    .fb-correct-opt strong { color: #1B5E20; }
-
-    /* Bloco: explicação completa */
     .fb-explanation {
       background: #F8F9FA;
       padding: 14px 18px;
@@ -303,13 +389,9 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
-    .fb-explanation p { color: var(--text); font-size: 0.9rem; }
+    .fb-explanation p { color: var(--text); font-size: 0.9rem; white-space: pre-line; }
 
-    /* Quando acertou — versão simplificada */
     .fb-correct-body {
       background: #F1F8E9;
       padding: 14px 18px;
@@ -321,203 +403,237 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
-    .fb-correct-body p { color: #1B5E20; font-size: 0.9rem; }
+    .fb-correct-body p { color: #1B5E20; font-size: 0.9rem; white-space: pre-line; }
 
-    /* ── NAVEGAÇÃO ── */
-    .nav-row {
+    /* ── NAVEGAÇÃO ENTRE QUESTÕES ── */
+    #question-nav {
       display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      margin-top: 14px;
       flex-wrap: wrap;
+      gap: 6px;
+      padding: 14px;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      align-items: center;
+      position: sticky;
+      top: 76px;
+      z-index: 90;
+      border: 1px solid var(--border);
     }
+    .qnav-btn {
+      width: 32px; height: 32px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .qnav-btn.answered { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .qnav-btn.active   { outline: 3px solid var(--secondary); }
+    .qnav-btn:hover    { border-color: var(--primary); }
 
     /* ── BOTÕES ── */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 10px 22px;
-      border: none;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
       border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
+      text-decoration: none;
     }
-    .btn-primary  { background: var(--primary);   color: #fff; }
-    .btn-primary:hover  { background: #0D47A1; }
-    .btn-secondary{ background: var(--border);    color: var(--text); }
-    .btn-secondary:hover{ background: #B0BEC5; }
-    .btn-success  { background: var(--success);   color: #fff; }
-    .btn-success:hover  { background: #1B5E20; }
-    .btn-warning  { background: var(--secondary); color: #fff; }
-    .btn-warning:hover  { background: #E65100; }
-    .btn-lg { padding: 14px 32px; font-size: 1rem; }
+    .btn-primary   { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { background: var(--neutral); color: #fff; }
+    .btn-secondary:hover { opacity: 0.9; }
+    .btn-warning   { background: var(--secondary); color: #212121; }
+    .btn-warning:hover { background: #FF8F00; }
+    .btn-lg { padding: 15px 36px; font-size: 1.05rem; }
 
-    /* ── GABARITO / RESULTADO ── */
+    /* ── TELA DE RESULTADOS ── */
     #result-screen {
-      display: none;
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 36px 28px;
+      display: none;
+      border: 1px solid var(--border);
     }
-    #result-screen h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 8px; }
+    #result-title { font-size: 1.6rem; color: var(--primary); margin-bottom: 20px; text-align: center; }
     .score-circle {
-      width: 110px; height: 110px;
+      width: 130px; height: 130px;
       border-radius: 50%;
-      border: 6px solid var(--primary);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      margin: 16px auto;
+      background: var(--primary-light);
+      border: 5px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
     }
-    .score-circle .score-num { font-size: 2rem; font-weight: 700; color: var(--primary); }
-    .score-circle .score-label { font-size: 0.72rem; color: var(--text-muted); }
+    .score-num   { font-size: 2.2rem; font-weight: 800; color: var(--primary); }
+    .score-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+
     .result-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 10px;
-      margin: 20px 0 28px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
     }
     .result-card {
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 12px;
+      padding: 14px;
       text-align: center;
     }
-    .result-card strong { display: block; font-size: 1.6rem; }
-    .result-card span   { font-size: 0.78rem; color: var(--text-muted); }
-    .area-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
-    .area-table th { background: var(--bg); text-align: left; padding: 8px 12px; font-size: 0.82rem; color: var(--text-muted); border-bottom: 2px solid var(--border); }
-    .area-table td { padding: 9px 12px; font-size: 0.88rem; border-bottom: 1px solid var(--border); }
-    .mini-bar { height: 6px; border-radius: 99px; background: var(--primary-light); overflow: hidden; }
-    .mini-bar-fill { height: 100%; border-radius: 99px; background: var(--primary); }
+    .result-card strong { display: block; font-size: 1.7rem; margin-bottom: 2px; }
+    .result-card span   { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+
+    .area-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      font-size: 0.88rem;
+    }
+    .area-table th, .area-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+    .area-table th { background: var(--bg); font-weight: 700; color: var(--text); }
+    .mini-bar { height: 8px; background: #CFD8DC; border-radius: 99px; overflow: hidden; }
+    .mini-bar-fill { height: 100%; background: var(--primary); border-radius: 99px; }
+
     .gabarito-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
-      gap: 6px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+      gap: 8px;
+      margin-bottom: 30px;
     }
     .gab-item {
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 6px 4px;
       text-align: center;
-      font-size: 0.78rem;
+      background: #fff;
     }
-    .gab-item .gab-q  { color: var(--text-muted); font-size: 0.7rem; }
-    .gab-item .gab-a  { font-weight: 700; }
-    .gab-item.hit  { border-color: var(--success); background: #E8F5E9; color: var(--success); }
-    .gab-item.miss { border-color: var(--error);   background: #FFEBEE; color: var(--error); }
-    .gab-item.skip { border-color: var(--secondary); background: #FFF8E1; color: var(--secondary); }
-
-    /* ── NAV QUESTÕES ── */
-    #question-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 16px;
-      margin-bottom: 20px;
-    }
-    .qnav-btn {
-      width: 34px; height: 34px;
-      border: 2px solid var(--border);
-      border-radius: 6px;
-      background: var(--bg);
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s;
-    }
-    .qnav-btn.answered  { background: var(--primary); color: #fff; border-color: var(--primary); }
-    .qnav-btn.active    { outline: 3px solid var(--secondary); }
-    .qnav-btn:hover     { border-color: var(--primary); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      header h1 { font-size: 1rem; }
-      .question-block { padding: 18px 14px; }
-    }
+    .gab-item.hit  { background: #E8F5E9; border-color: var(--success); }
+    .gab-item.miss { background: #FFEBEE; border-color: var(--error); }
+    .gab-item.skip { background: #ECEFF1; border-color: #B0BEC5; }
+    .gab-q { font-size: 0.72rem; color: var(--text-muted); font-weight: 700; }
+    .gab-a { font-size: 0.95rem; font-weight: 800; margin: 2px 0; }
 
     .hidden { display: none !important; }
     #quiz-screen { display: none; }
+
+    @media (max-width: 600px) {
+      header { padding: 14px 16px; }
+      .header-title-box h1 { font-size: 1.05rem; }
+      .question-block { padding: 20px 16px; }
+      #question-nav { top: 68px; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div>
+  <div class="header-title-box">
     <h1>📚 Simulado — Professor de Educação Infantil</h1>
-    <p>Baseado em questões oficiais de concursos públicos</p>
+    <p>Questões oficiais fiéis da banca FURB e concursos públicos de Santa Catarina</p>
   </div>
   <div id="timer-box" class="hidden">00:00</div>
 </header>
 
 <div id="progress-bar-wrap" class="hidden">
   <div id="progress-track"><div id="progress-fill" style="width:0%"></div></div>
-  <span id="progress-label">0 / 40</span>
+  <span id="progress-label">0 / 0</span>
 </div>
 
 <main>
 
   <!-- ══ TELA INICIAL ══ -->
   <div id="start-screen">
-    <h2>🎯 Simulado Fiel de Concursos</h2>
-    <p>40 questões no padrão real de provas de concursos públicos para <strong>Professor de Educação Infantil</strong>.<br>Abrange as principais bancas: FURB, FEPESE, IBFC, OBJETIVA, AVANÇA-SP, FUNDATEC, PUC-PR e outras.</p>
+    <h2>🎯 Simulado Oficial de Concursos</h2>
+    <p class="subtitle">Banco fiel com questões literais das provas oficiais da <strong>Banca FURB</strong> (Blumenau, Gaspar, Brusque e concursos de SC) para <strong>Professor de Educação Infantil</strong>.</p>
+
+    <!-- BANNER ANTI-DECOREBA -->
+    <div class="antidecoreba-banner">
+      <div style="font-size:1.8rem;">🎲</div>
+      <div>
+        <strong>Modo Anti-Decoreba 100% Ativo:</strong>
+        A cada nova tentativa, as questões são <strong>sorteadas aleatoriamente</strong> do banco e as <strong>alternativas (A–E) são embaralhadas dinamicamente</strong>. A resposta certa nunca fica na mesma posição!
+      </div>
+    </div>
+
+    <!-- SELETOR DE MODO -->
+    <div class="selector-box">
+      <div class="selector-title">⚙️ Escolha a quantidade de questões para este simulado:</div>
+      <div class="mode-options">
+        <div class="mode-btn" onclick="selectMode(15)" id="mode-15">
+          <strong>⚡ 15 Questões</strong>
+          <span>Treino Rápido • ~30 min</span>
+        </div>
+        <div class="mode-btn active" onclick="selectMode(30)" id="mode-30">
+          <strong>🎯 30 Questões (Padrão)</strong>
+          <span>Simulado Completo • ~2h</span>
+        </div>
+        <div class="mode-btn" onclick="selectMode(40)" id="mode-40">
+          <strong>🏆 40 Questões (Oficial)</strong>
+          <span>Padrão Prova FURB • 3h</span>
+        </div>
+        <div class="mode-btn" onclick="selectMode(0)" id="mode-0">
+          <strong>📚 Todas do Banco</strong>
+          <span>Treino Geral Extensivo</span>
+        </div>
+      </div>
+    </div>
 
     <div class="badge-list">
-      <span class="badge">📖 BNCC</span>
+      <span class="badge">📖 BNCC e Campos de Experiências</span>
       <span class="badge">📜 LDB (Lei 9.394/96)</span>
-      <span class="badge">📋 DCNEI</span>
-      <span class="badge">🧒 Desenvolvimento Infantil</span>
-      <span class="badge">🎭 Ludicidade</span>
-      <span class="badge">🧩 Currículo e Planejamento</span>
-      <span class="badge">📊 Avaliação</span>
-      <span class="badge">🤝 Família e Escola</span>
-      <span class="badge">✏️ Língua Portuguesa</span>
-      <span class="badge">🔢 Raciocínio Lógico</span>
+      <span class="badge">📋 DCNEI & Currículo Catarinense</span>
+      <span class="badge">🧒 Barbosa, Corsaro & Brougère</span>
+      <span class="badge">🧩 Piaget, Vigotski & Wallon</span>
+      <span class="badge">📊 Avaliação & Documentação</span>
+      <span class="badge">📄 Língua Portuguesa com Textão FURB</span>
+      <span class="badge">🔢 Raciocínio Lógico & Matemática</span>
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><strong>40</strong><span>Questões</span></div>
-      <div class="info-card"><strong>3h</strong><span>Tempo</span></div>
+      <div class="info-card"><strong id="total-bank-count">59</strong><span>No Banco</span></div>
+      <div class="info-card"><strong id="display-selected-q">30</strong><span>Neste Simulado</span></div>
       <div class="info-card"><strong>60%</strong><span>Mínimo aprovação</span></div>
-      <div class="info-card"><strong>A–E</strong><span>Múltipla escolha</span></div>
+      <div class="info-card"><strong>A–E</strong><span>Opções Embaralhadas</span></div>
     </div>
 
     <div class="source-list">
-      <strong>📋 Fontes das questões e referências:</strong>
+      <strong>📋 Fontes Oficiais das Provas Cadastradas:</strong>
       <ul>
-        <li>FURB 2024 – Pref. Blumenau/SC – Professor de Educação Infantil</li>
-        <li>FEPESE 2022/2025 – Pref. São José/SC</li>
-        <li>IBFC 2018 – Pref. Divinópolis/MG</li>
-        <li>OBJETIVA CONCURSOS 2022/2025 – diversas prefeituras RS</li>
-        <li>AVANÇA SP 2025 – Pref. Cerquilho/SP e Cunha/SP</li>
-        <li>FUNDATEC 2025 – Pref. Nova Alvorada/RS</li>
-        <li>IDCAP 2023 – Pref. Santa Leopoldina/ES</li>
-        <li>PUC-PR 2015 – Pref. Umuarama/PR</li>
-        <li>Base: BNCC (2017), LDB (Lei 9.394/96), DCNEI (2009), ECA (Lei 8.069/90)</li>
+        <li>FURB 2024 — Prefeitura Municipal de Blumenau/SC (Professor de Educação Infantil)</li>
+        <li>FURB 2024 — Prefeitura Municipal de Gaspar/SC (Professor de Educação Infantil)</li>
+        <li>FURB 2024 — Prefeitura Municipal de Brusque/SC (Professor de Educação Infantil)</li>
+        <li>FURB 2023/2022 — Prefeitura de Blumenau/SC (Concurso Magistério)</li>
+        <li>FEPESE — Concursos de Educação de Santa Catarina (Florianópolis e São José)</li>
+        <li>Legislação: LDB (Lei 9.394/96), ECA (Lei 8.069/90), DCNEI (Res. 5/2009), BNCC e Currículo de Blumenau</li>
       </ul>
     </div>
 
-    <button class="btn btn-primary btn-lg" onclick="startQuiz()">▶ Iniciar Simulado</button>
+    <button class="btn btn-primary btn-lg" onclick="startQuiz()">▶ Iniciar Simulado Sorteado</button>
   </div>
 
   <!-- ══ TELA DO QUIZ ══ -->
   <div id="quiz-screen">
     <div id="question-nav"></div>
     <div id="questions-container"></div>
-    <div style="text-align:center; margin-top: 10px;">
-      <button class="btn btn-warning btn-lg" onclick="confirmFinish()">✅ Finalizar Simulado</button>
+    <div style="text-align:center; margin-top: 15px;">
+      <button class="btn btn-warning btn-lg" onclick="confirmFinish()">✅ Finalizar Simulado e Ver Gabarito</button>
     </div>
   </div>
 
@@ -532,742 +648,148 @@
       <div class="result-card"><strong id="r-hits" style="color:var(--success)">0</strong><span>✅ Acertos</span></div>
       <div class="result-card"><strong id="r-miss" style="color:var(--error)">0</strong><span>❌ Erros</span></div>
       <div class="result-card"><strong id="r-skip" style="color:var(--secondary)">0</strong><span>⏭ Em branco</span></div>
-      <div class="result-card"><strong id="r-time">0:00</strong><span>⏱ Tempo usado</span></div>
+      <div class="result-card"><strong id="r-time">0:00</strong><span>⏱ Tempo gasto</span></div>
     </div>
 
-    <h3 style="margin-bottom:12px;">📐 Desempenho por área</h3>
+    <h3 style="margin-bottom:12px;">📐 Desempenho por área temática</h3>
     <table class="area-table">
-      <thead><tr><th>Área</th><th>Acertos</th><th>Total</th><th>%</th><th></th></tr></thead>
+      <thead><tr><th>Área</th><th>Acertos</th><th>Total</th><th>%</th><th>Desempenho</th></tr></thead>
       <tbody id="area-tbody"></tbody>
     </table>
 
-    <h3 style="margin-bottom:12px;">📋 Gabarito</h3>
+    <h3 style="margin-bottom:12px;">📋 Gabarito Oficial deste Simulado</h3>
     <div class="gabarito-grid" id="gabarito-grid"></div>
 
-    <div style="text-align:center; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-      <button class="btn btn-primary btn-lg" onclick="retakeQuiz()">🔄 Refazer Simulado</button>
+    <div style="text-align:center; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 20px;">
+      <button class="btn btn-primary btn-lg" onclick="startNewRandomQuiz()">🎲 Novo Simulado (Sortear Novas Questões)</button>
+      <button class="btn btn-secondary btn-lg" onclick="retakeCurrentQuiz()">🔁 Refazer Estas Mesmas Questões</button>
       <button class="btn btn-secondary btn-lg" onclick="window.print()">🖨️ Imprimir Gabarito</button>
     </div>
   </div>
 
 </main>
 
+<!-- IMPORTAÇÃO DO BANCO OFICIAL DE QUESTÕES -->
+<script src="questions-bank.js"></script>
+
 <script>
-// ════════════════════════════════════════════════════════════════
-//  BANCO DE QUESTÕES — 40 questões oficiais/baseadas em concursos
-// ════════════════════════════════════════════════════════════════
-const questions = [
-
-  // ── ÁREA: BNCC ──
-  {
-    area: "BNCC",
-    source: "Padrão FURB 2024 / IBFC 2018",
-    text: "De acordo com a Base Nacional Comum Curricular (BNCC), a Educação Infantil é a primeira etapa da Educação Básica e deve organizar suas práticas pedagógicas em torno de dois eixos estruturantes. Assinale a alternativa que apresenta corretamente esses eixos:",
-    options: [
-      "Linguagens e Pensamento Lógico-Matemático.",
-      "Interações e Brincadeiras.",
-      "Cuidado e Educação.",
-      "Desenvolvimento Integral e Autonomia.",
-      "Cognição e Afetividade."
-    ],
-    answer: 1,
-    explanation: "A BNCC (p. 37) estabelece que as práticas pedagógicas da Educação Infantil devem ter como eixos estruturantes as INTERAÇÕES e as BRINCADEIRAS, por meio dos quais as crianças aprendem e se desenvolvem."
-  },
-  {
-    area: "BNCC",
-    source: "Padrão FEPESE 2022 / OBJETIVA 2025",
-    text: "A BNCC define seis direitos de aprendizagem e desenvolvimento para a Educação Infantil. Assinale a opção que apresenta corretamente todos eles:",
-    options: [
-      "Brincar, Criar, Expressar, Conhecer-se, Participar e Explorar.",
-      "Conviver, Brincar, Participar, Explorar, Expressar e Conhecer-se.",
-      "Interagir, Explorar, Brincar, Criar, Comunicar e Conviver.",
-      "Aprender, Brincar, Conviver, Conhecer-se, Expressar e Socializar.",
-      "Explorar, Brincar, Criar, Conviver, Conhecer-se e Desenvolver-se."
-    ],
-    answer: 1,
-    explanation: "Os seis direitos de aprendizagem e desenvolvimento na Educação Infantil, segundo a BNCC, são: CONVIVER, BRINCAR, PARTICIPAR, EXPLORAR, EXPRESSAR e CONHECER-SE."
-  },
-  {
-    area: "BNCC",
-    source: "Padrão IBFC 2018 / FUNDATEC 2025",
-    text: "A BNCC organiza as experiências e saberes da Educação Infantil em campos de experiências. Assinale a alternativa que apresenta os cinco campos de experiências corretamente:",
-    options: [
-      "Língua Portuguesa; Matemática; Ciências; Artes; Educação Física.",
-      "Linguagens; Identidade; Natureza; Sociedade; Matemática.",
-      "O eu, o outro e o nós; Corpo, gestos e movimentos; Traços, sons, cores e formas; Escuta, fala, pensamento e imaginação; Espaços, tempos, quantidades, relações e transformações.",
-      "Desenvolvimento Pessoal; Linguagem Oral; Linguagem Escrita; Raciocínio Lógico; Natureza.",
-      "Cognitivo; Afetivo; Motor; Social; Linguístico."
-    ],
-    answer: 2,
-    explanation: "Os cinco campos de experiências da BNCC para a Educação Infantil são: (1) O eu, o outro e o nós; (2) Corpo, gestos e movimentos; (3) Traços, sons, cores e formas; (4) Escuta, fala, pensamento e imaginação; (5) Espaços, tempos, quantidades, relações e transformações."
-  },
-  {
-    area: "BNCC",
-    source: "Padrão AVANÇA SP 2025",
-    text: "A BNCC estabelece objetivos de aprendizagem e desenvolvimento para a Educação Infantil articulados aos campos de experiências e organizados em grupos por faixa etária. Assinale a alternativa que apresenta corretamente esses grupos:",
-    options: [
-      "Bebês (0 a 18 meses); Crianças bem pequenas (19 meses a 3 anos); Crianças pequenas (4 anos e 5 anos).",
-      "Berçário (0 a 12 meses); Maternal I (1 a 2 anos); Maternal II (3 anos); Pré-escola (4 a 5 anos).",
-      "Creche (0 a 3 anos); Pré-escola (4 a 5 anos).",
-      "Bebês (0 a 12 meses); Pequenos (1 a 3 anos); Pré-escolares (4 a 6 anos).",
-      "Berçário (0 a 2 anos); Maternal (3 anos); Pré-escola (4 a 5 anos)."
-    ],
-    answer: 0,
-    explanation: "A BNCC divide os objetivos em três grupos etários: Bebês (0 a 18 meses); Crianças bem pequenas (19 meses a 3 anos e 11 meses); e Crianças pequenas (4 anos a 5 anos e 11 meses)."
-  },
-  {
-    area: "BNCC",
-    source: "Padrão OBJETIVA 2022 / PUC-PR 2015",
-    text: "Segundo a BNCC, no campo de experiências 'Escuta, fala, pensamento e imaginação', é possível afirmar que:",
-    options: [
-      "O trabalho pedagógico deve priorizar a aprendizagem formal da leitura e da escrita, mesmo na faixa etária de 0 a 3 anos.",
-      "As crianças devem ser expostas exclusivamente à língua formal, evitando-se o uso de histórias e poesias.",
-      "As experiências com linguagem oral e escrita propiciam às crianças ampliar seu vocabulário, desenvolver o gosto pela leitura e a capacidade narrativa.",
-      "A linguagem matemática é o principal objeto de estudo neste campo de experiências.",
-      "O desenvolvimento da linguagem ocorre de forma espontânea, sem necessidade de mediação do professor."
-    ],
-    answer: 2,
-    explanation: "O campo 'Escuta, fala, pensamento e imaginação' da BNCC enfatiza que as crianças devem ter experiências ricas com a linguagem oral e escrita — contato com livros, narrativas, músicas e poesias — que ampliam o vocabulário, o gosto pela leitura e a capacidade de se expressar, narrar e imaginar."
-  },
-
-  // ── ÁREA: DCNEI ──
-  {
-    area: "DCNEI",
-    source: "Padrão FURB 2024 / FEPESE 2022",
-    text: "As Diretrizes Curriculares Nacionais para a Educação Infantil (DCNEI, Resolução CNE/CEB nº 5/2009) definem que as práticas pedagógicas devem ter como eixos norteadores:",
-    options: [
-      "A instrução direta e a avaliação somativa.",
-      "As interações e a brincadeira.",
-      "O letramento e a numerização.",
-      "A disciplina e o respeito às normas.",
-      "A memorização e a repetição."
-    ],
-    answer: 1,
-    explanation: "As DCNEI (Art. 9º) estabelecem que as práticas pedagógicas que compõem a proposta curricular da Educação Infantil devem ter como eixos norteadores as INTERAÇÕES e a BRINCADEIRA."
-  },
-  {
-    area: "DCNEI",
-    source: "Padrão IBFC 2018 / OBJETIVA 2025",
-    text: "De acordo com as DCNEI (Resolução CNE/CEB nº 5/2009), a avaliação na Educação Infantil tem por finalidade:",
-    options: [
-      "Classificar as crianças conforme seu nível de desenvolvimento e decidir sobre aprovação ou reprovação.",
-      "Medir o desempenho cognitivo das crianças por meio de provas escritas bimestrais.",
-      "Acompanhar e registrar o desenvolvimento das crianças, sem o objetivo de promoção ou retenção.",
-      "Selecionar as crianças com maior aptidão para atividades escolares específicas.",
-      "Subsidiar a elaboração de relatórios para os pais, com fins classificatórios."
-    ],
-    answer: 2,
-    explanation: "Art. 10 das DCNEI: As instituições devem criar procedimentos para acompanhamento do trabalho pedagógico e para avaliação do desenvolvimento das crianças, sem finalidade de seleção, promoção ou classificação. A avaliação é feita mediante acompanhamento e registro do desenvolvimento, sem o objetivo de promoção, mesmo para o acesso ao Ensino Fundamental."
-  },
-  {
-    area: "DCNEI",
-    source: "Padrão FUNDATEC 2025 / AVANÇA SP 2025",
-    text: "As DCNEI definem a criança como sujeito histórico e de direitos que, nas interações, relações e práticas cotidianas que vivencia, constrói sua identidade pessoal e coletiva, brinca, imagina, fantasia, deseja, aprende, observa, experimenta, narra, questiona e constrói sentidos sobre a natureza e a sociedade, produzindo cultura. Essa definição enfatiza, principalmente, que:",
-    options: [
-      "A criança é um ser passivo que recebe conhecimentos transmitidos pelos adultos.",
-      "A criança é protagonista ativa de seu desenvolvimento, produtora de cultura e de conhecimentos.",
-      "A criança só aprende por meio de atividades dirigidas e estruturadas pelo professor.",
-      "A criança precisa ser protegida das relações sociais até os 5 anos de idade.",
-      "O desenvolvimento infantil é determinado exclusivamente pelos fatores biológicos."
-    ],
-    answer: 1,
-    explanation: "A definição das DCNEI coloca a criança como SUJEITO ATIVO E PROTAGONISTA — ela produz cultura, constrói conhecimentos e identidade a partir de suas interações e práticas cotidianas. Isso rompe com a visão de criança passiva ou tábula rasa."
-  },
-  {
-    area: "DCNEI",
-    source: "Padrão FEPESE 2025 / IDCAP 2023",
-    text: "Segundo as DCNEI, a proposta pedagógica das instituições de Educação Infantil deve garantir que elas cumpram sua função sociopolítica e pedagógica, o que inclui:",
-    options: [
-      "Oferecer ensino apenas voltado à preparação para as séries iniciais do Ensino Fundamental.",
-      "Focar exclusivamente nos aspectos cognitivos, deixando os demais ao encargo das famílias.",
-      "Construir novas formas de sociabilidade e de subjetividade comprometidas com a democracia, a sustentabilidade e os direitos humanos.",
-      "Substituir a educação familiar, assumindo a responsabilidade plena pelo desenvolvimento das crianças.",
-      "Padronizar as práticas pedagógicas para garantir uniformidade nacional."
-    ],
-    answer: 2,
-    explanation: "As DCNEI definem que a proposta pedagógica deve garantir que as instituições cumpram funções indissociáveis: o cuidado e a educação das crianças e a construção de novas formas de sociabilidade comprometidas com a igualdade, democracia, sustentabilidade e com os direitos de cidadania das crianças, famílias e educadores."
-  },
-
-  // ── ÁREA: LDB ──
-  {
-    area: "LDB (Lei 9.394/96)",
-    source: "Padrão OBJETIVA 2022 / PUC-PR 2015",
-    text: "De acordo com a Lei de Diretrizes e Bases da Educação Nacional (Lei nº 9.394/96), a Educação Infantil é:",
-    options: [
-      "A etapa preparatória e obrigatória, destinada a crianças de 0 a 6 anos.",
-      "A primeira etapa da Educação Básica, com a finalidade de promover o desenvolvimento integral da criança de até 5 anos de idade, em seus aspectos físico, psicológico, intelectual e social.",
-      "Uma etapa opcional da Educação Básica, destinada a crianças de 0 a 6 anos.",
-      "Uma etapa de ensino complementar, que antecede obrigatoriamente o Ensino Fundamental.",
-      "A primeira etapa da Educação Básica, destinada a crianças de 0 a 6 anos, com foco exclusivamente no desenvolvimento cognitivo."
-    ],
-    answer: 1,
-    explanation: "Art. 29 da LDB: 'A Educação Infantil, primeira etapa da Educação Básica, tem como finalidade o desenvolvimento integral da criança de até 5 (cinco) anos, em seus aspectos físico, psicológico, intelectual e social, complementando a ação da família e da comunidade.'"
-  },
-  {
-    area: "LDB (Lei 9.394/96)",
-    source: "Padrão FURB 2024 / IBFC 2018",
-    text: "De acordo com a LDB (Lei nº 9.394/96), a Educação Infantil é oferecida em:",
-    options: [
-      "Escolas maternais e jardins de infância, exclusivamente para crianças de 3 a 5 anos.",
-      "Creches (crianças até 3 anos) e pré-escolas (crianças de 4 e 5 anos).",
-      "Creches (crianças até 4 anos) e jardins de infância (crianças de 5 e 6 anos).",
-      "Berçários (crianças de 0 a 1 ano) e creches (crianças de 1 a 5 anos).",
-      "Centros de Educação Infantil, para crianças de 0 a 6 anos de idade."
-    ],
-    answer: 1,
-    explanation: "Art. 30 da LDB: 'A Educação Infantil será oferecida em: I – creches, ou entidades equivalentes, para crianças de até 3 (três) anos de idade; II – pré-escolas, para as crianças de 4 (quatro) a 5 (cinco) anos de idade.'"
-  },
-  {
-    area: "LDB (Lei 9.394/96)",
-    source: "Padrão AVANÇA SP 2025 / FEPESE 2022",
-    text: "De acordo com a LDB (Lei nº 9.394/96), na avaliação das crianças na Educação Infantil:",
-    options: [
-      "Deverão ser aplicadas provas bimestrais para verificar o nível de aprendizagem.",
-      "A avaliação será feita mediante acompanhamento e registro do seu desenvolvimento, sem o objetivo de promoção, mesmo para o acesso ao Ensino Fundamental.",
-      "Será adotado o sistema de conceitos (Excelente, Ótimo, Bom, Regular e Insuficiente).",
-      "A aprovação ficará condicionada ao domínio das habilidades de leitura e escrita.",
-      "A avaliação deve ser realizada por profissionais externos à unidade de ensino, para garantir imparcialidade."
-    ],
-    answer: 1,
-    explanation: "Art. 31, inciso I, da LDB: 'A educação infantil será organizada de acordo com as seguintes regras comuns: I – avaliação mediante acompanhamento e registro do desenvolvimento das crianças, sem o objetivo de promoção, mesmo para o acesso ao ensino fundamental.'"
-  },
-
-  // ── ÁREA: DESENVOLVIMENTO INFANTIL ──
-  {
-    area: "Desenvolvimento Infantil",
-    source: "Padrão IBFC 2018 / FUNDATEC 2025",
-    text: "Segundo a teoria do desenvolvimento cognitivo de Jean Piaget, a criança em idade de Educação Infantil (0 a 5 anos) encontra-se principalmente nos estágios:",
-    options: [
-      "Formal e concreto.",
-      "Sensório-motor e pré-operatório.",
-      "Pré-operatório e operatório concreto.",
-      "Sensório-motor e operatório formal.",
-      "Intuitivo e operatório."
-    ],
-    answer: 1,
-    explanation: "Segundo Piaget: Estágio Sensório-motor (0 a 2 anos): desenvolvimento da inteligência prática, permanência do objeto. Estágio Pré-operatório (2 a 7 anos): pensamento simbólico, egocentrismo, animismo, jogo simbólico. As crianças em Educação Infantil (0-5 anos) transitam por esses dois estágios."
-  },
-  {
-    area: "Desenvolvimento Infantil",
-    source: "Padrão FEPESE 2022 / OBJETIVA 2025",
-    text: "Lev Vygotsky introduziu o conceito de Zona de Desenvolvimento Proximal (ZDP). Assinale a alternativa que melhor descreve esse conceito e suas implicações pedagógicas:",
-    options: [
-      "É a distância entre o que a criança faz de forma totalmente independente e o que ela pode fazer com a ajuda de um adulto ou colega mais experiente, sendo esse o espaço ideal para a aprendizagem.",
-      "É o conjunto de habilidades que a criança já domina plenamente, sem necessidade de qualquer auxílio externo.",
-      "É o nível máximo que a criança pode atingir, independentemente de qualquer mediação pedagógica.",
-      "Refere-se exclusivamente ao desenvolvimento biológico da criança, sem relação com o aprendizado escolar.",
-      "É a diferença de desempenho entre crianças de diferentes idades em testes padronizados."
-    ],
-    answer: 0,
-    explanation: "A Zona de Desenvolvimento Proximal (ZDP) de Vygotsky é a distância entre o nível de desenvolvimento real (o que a criança faz sozinha) e o nível de desenvolvimento potencial (o que a criança consegue fazer com ajuda de um par mais capaz). A ZDP é o espaço privilegiado de aprendizagem e intervenção pedagógica."
-  },
-  {
-    area: "Desenvolvimento Infantil",
-    source: "Padrão PUC-PR 2015 / IDCAP 2023",
-    text: "Henri Wallon concebe o desenvolvimento humano como integração de quatro domínios funcionais. Assinale a alternativa que apresenta corretamente esses domínios:",
-    options: [
-      "Cognitivo, Social, Emocional e Biológico.",
-      "Afetividade, Motricidade, Inteligência e Pessoa.",
-      "Linguagem, Pensamento, Emoção e Movimento.",
-      "Sensação, Percepção, Memória e Raciocínio.",
-      "Corpo, Mente, Emoção e Cultura."
-    ],
-    answer: 1,
-    explanation: "Para Wallon, o desenvolvimento humano integra quatro domínios funcionais que se influenciam mutuamente: AFETIVIDADE, MOTRICIDADE, INTELIGÊNCIA e a PESSOA (resultado da integração dos outros três). Wallon destaca especialmente a emoção e o movimento como fundamentais no desenvolvimento da criança."
-  },
-  {
-    area: "Desenvolvimento Infantil",
-    source: "Padrão AVANÇA SP 2025 / FURB 2024",
-    text: "Com relação ao desenvolvimento da linguagem na Educação Infantil, assinale a alternativa CORRETA:",
-    options: [
-      "A aquisição da linguagem ocorre de forma isolada, sem influência das interações sociais.",
-      "A linguagem é desenvolvida de modo linear, seguindo etapas idênticas e no mesmo ritmo em todas as crianças.",
-      "A linguagem se desenvolve nas interações sociais, sendo a criança um sujeito ativo nesse processo, que vai ampliando progressivamente suas competências comunicativas.",
-      "O desenvolvimento da linguagem oral não tem relação com o posterior processo de alfabetização.",
-      "A linguagem escrita deve ser ensinada formalmente desde os 2 anos de idade, para garantir o desenvolvimento pleno."
-    ],
-    answer: 2,
-    explanation: "O desenvolvimento da linguagem é um processo social e interativo (perspectiva de Vygotsky e da sociolinguística). A criança é sujeito ativo que amplia progressivamente suas competências comunicativas a partir das interações com adultos e outras crianças. Há variação individual no ritmo, e a linguagem oral é base para a futura alfabetização."
-  },
-  {
-    area: "Desenvolvimento Infantil",
-    source: "Padrão IBFC 2018 / OBJETIVA 2022",
-    text: "De acordo com Erikson e sua teoria do desenvolvimento psicossocial, a criança na fase de 3 a 6 anos enfrenta o conflito psicossocial denominado:",
-    options: [
-      "Confiança vs. Desconfiança.",
-      "Autonomia vs. Vergonha e Dúvida.",
-      "Iniciativa vs. Culpa.",
-      "Diligência vs. Inferioridade.",
-      "Identidade vs. Confusão de Papéis."
-    ],
-    answer: 2,
-    explanation: "Erikson identifica os seguintes estágios: 0-18 meses: Confiança vs. Desconfiança; 18 meses-3 anos: Autonomia vs. Vergonha e Dúvida; 3-6 anos: INICIATIVA vs. CULPA (a criança explora o mundo, toma iniciativas e pode sentir culpa se reprimida excessivamente). A Educação Infantil deve apoiar a iniciativa da criança."
-  },
-
-  // ── ÁREA: LUDICIDADE ──
-  {
-    area: "Ludicidade e Brincar",
-    source: "Padrão FURB 2024 / FEPESE 2025",
-    text: "Em relação ao papel do brincar no desenvolvimento infantil, assinale a alternativa CORRETA:",
-    options: [
-      "O brincar é uma atividade secundária, que deve ser reservada aos momentos de intervalo, para não prejudicar o aprendizado formal.",
-      "O brincar é uma atividade exclusivamente de lazer e não contribui para o desenvolvimento cognitivo da criança.",
-      "O brincar é a atividade principal da criança e constitui o principal meio pelo qual ela aprende, se desenvolve e conhece o mundo.",
-      "O brincar simbólico deve ser evitado na Educação Infantil, pois confunde fantasia e realidade.",
-      "O professor não deve interferir nas brincadeiras das crianças, pois qualquer intervenção compromete o desenvolvimento natural."
-    ],
-    answer: 2,
-    explanation: "O brincar é reconhecido como a atividade principal da criança pequena (Vygotsky, Wallon, BNCC, DCNEI). Por meio do brincar, a criança desenvolve linguagem, cognição, afetividade, socialização e criatividade. A BNCC e as DCNEI colocam a brincadeira como eixo estruturante da prática pedagógica na Educação Infantil."
-  },
-  {
-    area: "Ludicidade e Brincar",
-    source: "Padrão OBJETIVA 2025 / IDCAP 2023",
-    text: "O jogo simbólico, ou de faz de conta, é característico do desenvolvimento infantil. Assinale a alternativa que apresenta a principal contribuição desse tipo de jogo para a criança em idade de Educação Infantil:",
-    options: [
-      "Desenvolve exclusivamente a coordenação motora fina.",
-      "Permite à criança representar a realidade, exercitar funções mentais superiores como imaginação e linguagem, e elaborar experiências emocionais.",
-      "Tem função apenas recreativa, sem valor pedagógico específico.",
-      "Prepara exclusivamente para a aprendizagem da matemática, por meio de relações de causa e efeito.",
-      "É prejudicial ao desenvolvimento, pois distancia a criança da realidade."
-    ],
-    answer: 1,
-    explanation: "O jogo simbólico (faz de conta) é fundamental no desenvolvimento. Para Vygotsky, no brinquedo simbólico a criança opera na Zona de Desenvolvimento Proximal, pois age além do comportamento habitual da sua idade. Ele permite: representar a realidade, desenvolver a imaginação, exercitar a linguagem, elaborar emoções e desenvolver funções mentais superiores."
-  },
-  {
-    area: "Ludicidade e Brincar",
-    source: "Padrão AVANÇA SP 2025 / PUC-PR 2015",
-    text: "Com relação à organização do espaço e do tempo na Educação Infantil para favorecer o brincar, é CORRETO afirmar que:",
-    options: [
-      "Os espaços devem ser rígidos e fixos, para garantir segurança e previsibilidade às crianças.",
-      "O tempo do brincar deve ser mínimo, priorizando-se as atividades pedagógicas dirigidas.",
-      "Os espaços devem ser organizados de forma rica, flexível e desafiadora, permitindo à criança explorar, criar e interagir com autonomia.",
-      "Brinquedos industrializados são sempre mais adequados do que materiais alternativos para estimular o desenvolvimento.",
-      "O brincar livre deve ocorrer apenas no pátio, nunca em sala de aula."
-    ],
-    answer: 2,
-    explanation: "A organização do espaço e do tempo é uma ação pedagógica importante. O espaço deve ser planejado intencionalmente para ser desafiador, rico em possibilidades de interação, exploração e criação. Ambientes ricos e flexíveis potencializam o desenvolvimento e o brincar das crianças. Isso está alinhado à BNCC e às DCNEI."
-  },
-
-  // ── ÁREA: CURRÍCULO E PLANEJAMENTO ──
-  {
-    area: "Currículo e Planejamento",
-    source: "Padrão IBFC 2018 / FUNDATEC 2025",
-    text: "Sobre o currículo na Educação Infantil, assinale a alternativa CORRETA:",
-    options: [
-      "O currículo deve ser rígido e uniforme, seguindo um modelo nacional único, sem adaptações locais.",
-      "O currículo deve ser centrado exclusivamente nas disciplinas formais, preparando a criança para o Ensino Fundamental.",
-      "O currículo é concebido como um conjunto de práticas que articulam as experiências e saberes das crianças com os conhecimentos produzidos pela humanidade, em um processo mediado por adultos.",
-      "O currículo da Educação Infantil deve ter como produto final relatórios escritos produzidos pelas crianças.",
-      "O currículo é determinado exclusivamente pela família, sem interferência da equipe pedagógica."
-    ],
-    answer: 2,
-    explanation: "As DCNEI (Art. 3º) definem currículo na Educação Infantil como 'um conjunto de práticas que buscam articular as experiências e saberes das crianças com os conhecimentos que fazem parte do patrimônio cultural, artístico, científico e tecnológico da sociedade, por meio de relações sociais que as crianças estabelecem com outros sujeitos e com o mundo.' Essa concepção é relacional e mediada."
-  },
-  {
-    area: "Currículo e Planejamento",
-    source: "Padrão FEPESE 2022 / OBJETIVA 2022",
-    text: "A Educação Infantil deve articular o cuidado e a educação como ações indissociáveis. Isso significa que:",
-    options: [
-      "O professor deve dividir o tempo rigorosamente entre momentos de cuidado (higiene e alimentação) e momentos de educação (atividades pedagógicas), sem integração entre eles.",
-      "O cuidado é responsabilidade exclusiva dos auxiliares e monitores, enquanto a educação cabe ao professor.",
-      "Todas as ações cotidianas — alimentação, higiene, sono, brincadeiras — são também oportunidades de aprendizagem e desenvolvimento, sendo o cuidado e a educação indissociáveis.",
-      "A ênfase deve ser no cuidado nos primeiros 2 anos de vida e na educação formal a partir dos 3 anos.",
-      "O cuidado refere-se apenas à saúde física da criança, enquanto a educação trata exclusivamente dos aspectos cognitivos."
-    ],
-    answer: 2,
-    explanation: "A indissociabilidade entre CUIDAR E EDUCAR é um princípio fundamental da Educação Infantil (LDB, DCNEI, BNCC). Toda ação de cuidado (trocar, alimentar, acolher) é também uma ação educativa e de desenvolvimento. Não há separação entre momentos de cuidado e de educação — todas as rotinas e vivências são oportunidades de aprendizagem."
-  },
-  {
-    area: "Currículo e Planejamento",
-    source: "Padrão FURB 2024 / AVANÇA SP 2025",
-    text: "O planejamento pedagógico na Educação Infantil deve ser:",
-    options: [
-      "Elaborado exclusivamente pela diretora da escola, sem participação do professor.",
-      "Fixo e imutável, seguido à risca independentemente das necessidades das crianças.",
-      "Intencional, flexível, baseado na observação das crianças e revisado continuamente a partir dos registros e das interações cotidianas.",
-      "Baseado em livros didáticos específicos para a faixa etária, sem adaptações.",
-      "Elaborado no início do ano e nunca modificado, para garantir consistência ao longo do período."
-    ],
-    answer: 2,
-    explanation: "O planejamento na Educação Infantil deve ser INTENCIONAL (com objetivos claros), FLEXÍVEL (adaptável às necessidades e interesses das crianças) e continuamente revisado a partir da OBSERVAÇÃO e do REGISTRO do desenvolvimento infantil. Não é rígido nem improvisado — é uma ação pedagógica reflexiva e dinâmica."
-  },
-  {
-    area: "Currículo e Planejamento",
-    source: "Padrão IDCAP 2023 / FUNDATEC 2025",
-    text: "A rotina na Educação Infantil deve ser compreendida como:",
-    options: [
-      "Um conjunto de regras inflexíveis que as crianças devem seguir sem questionar.",
-      "Um instrumento pedagógico que organiza o tempo e o espaço, oferecendo previsibilidade e segurança às crianças, ao mesmo tempo que deve ser flexível para contemplar os interesses e necessidades infantis.",
-      "Apenas o horário de entrada, refeições e saída, sem valor educativo.",
-      "Uma estratégia para uniformizar o comportamento das crianças.",
-      "Um conjunto de atividades fixas definidas pela secretaria de educação, sem margem para adaptações."
-    ],
-    answer: 1,
-    explanation: "A rotina na Educação Infantil é um INSTRUMENTO PEDAGÓGICO que organiza o tempo e o espaço de forma que a criança compreenda a sequência das atividades (previsibilidade = segurança emocional). Deve ser flexível o suficiente para respeitar os ritmos individuais e contemplar interesses emergentes das crianças."
-  },
-
-  // ── ÁREA: AVALIAÇÃO ──
-  {
-    area: "Avaliação",
-    source: "Padrão OBJETIVA 2022 / FEPESE 2025",
-    text: "Na Educação Infantil, a observação sistemática e o registro são instrumentos avaliativos fundamentais. Assinale a alternativa que aponta o principal objetivo desses instrumentos:",
-    options: [
-      "Classificar as crianças em grupos de acordo com seu nível de desenvolvimento.",
-      "Produzir evidências para subsidiar a promoção ou retenção das crianças ao final do ano letivo.",
-      "Acompanhar o desenvolvimento integral de cada criança, documentar as aprendizagens e orientar o planejamento pedagógico.",
-      "Informar os pais sobre o mau comportamento das crianças.",
-      "Comparar o desempenho entre crianças da mesma faixa etária para identificar as mais desenvolvidas."
-    ],
-    answer: 2,
-    explanation: "A observação e o registro são instrumentos de AVALIAÇÃO FORMATIVA na Educação Infantil. Seu objetivo é: documentar o desenvolvimento e as aprendizagens de cada criança; fornecer subsídios para o planejamento pedagógico; favorecer a reflexão do professor sobre sua prática; e compartilhar informações com as famílias. Não têm finalidade classificatória ou seletiva."
-  },
-  {
-    area: "Avaliação",
-    source: "Padrão PUC-PR 2015 / IBFC 2018",
-    text: "O portfólio é um instrumento avaliativo amplamente utilizado na Educação Infantil. Sobre essa ferramenta, assinale a alternativa CORRETA:",
-    options: [
-      "É um arquivo exclusivo do professor, sem acesso das crianças ou das famílias.",
-      "Serve apenas para arquivar os trabalhos finalizados das crianças, sem fins avaliativos.",
-      "É uma coleção seletiva e organizada de produções, registros e documentações que evidenciam o processo de desenvolvimento e aprendizagem da criança ao longo do tempo, permitindo a reflexão de todos os envolvidos.",
-      "Deve ser preenchido apenas no final do ano letivo, compilando todos os trabalhos do período.",
-      "É um instrumento de avaliação quantitativa que atribui notas às produções das crianças."
-    ],
-    answer: 2,
-    explanation: "O PORTFÓLIO na Educação Infantil é uma coleção organizada que documenta o processo de aprendizagem e desenvolvimento da criança ao longo do tempo. Inclui produções, fotografias, registros de falas e observações. É uma ferramenta de avaliação qualitativa e processual, que envolve a criança, o professor e a família na reflexão sobre o desenvolvimento."
-  },
-
-  // ── ÁREA: FAMÍLIA E ESCOLA ──
-  {
-    area: "Família e Escola",
-    source: "Padrão FURB 2024 / OBJETIVA 2025",
-    text: "Sobre a relação entre família e instituição de Educação Infantil, as DCNEI estabelecem que:",
-    options: [
-      "A família deve ser mantida afastada das decisões pedagógicas, para evitar interferências no trabalho dos profissionais.",
-      "A relação com as famílias deve ser pautada pelo respeito mútuo, pela valorização das culturas familiares e pela construção de uma parceria colaborativa, em que a família é vista como parte essencial no processo educativo.",
-      "A família deve ser convocada somente quando a criança apresentar problemas de comportamento ou aprendizagem.",
-      "O professor deve orientar a família a adotar as mesmas práticas pedagógicas utilizadas na instituição, para garantir continuidade.",
-      "A responsabilidade pela educação da criança é exclusiva da instituição de ensino."
-    ],
-    answer: 1,
-    explanation: "As DCNEI e a BNCC enfatizam a parceria família-escola como fundamental. A relação deve ser marcada pelo respeito mútuo, pela valorização das diferentes culturas familiares e pela participação ativa das famílias. A família não é um elemento externo, mas parte integrante do processo educativo. A comunicação deve ser contínua, não apenas em momentos de dificuldade."
-  },
-  {
-    area: "Família e Escola",
-    source: "Padrão AVANÇA SP 2025 / IDCAP 2023",
-    text: "O Estatuto da Criança e do Adolescente (ECA, Lei nº 8.069/90) define a criança como sendo a pessoa com:",
-    options: [
-      "Até 12 anos de idade.",
-      "Até 14 anos de idade.",
-      "Até 10 anos de idade incompletos.",
-      "Até 12 anos de idade incompletos.",
-      "De 0 a 5 anos de idade."
-    ],
-    answer: 3,
-    explanation: "Art. 2º do ECA: 'Considera-se criança, para os efeitos desta Lei, a pessoa até doze anos de idade incompletos, e adolescente aquela entre doze e dezoito anos de idade.'"
-  },
-
-  // ── ÁREA: INCLUSÃO E DIVERSIDADE ──
-  {
-    area: "Inclusão e Diversidade",
-    source: "Padrão IBFC 2018 / FEPESE 2022",
-    text: "Com relação à educação inclusiva na Educação Infantil, assinale a alternativa CORRETA:",
-    options: [
-      "Crianças com deficiência devem frequentar apenas instituições especializadas, separadas das demais.",
-      "A inclusão na Educação Infantil deve garantir o acesso, a participação e a aprendizagem de todas as crianças, respeitando suas especificidades, e deve prever adaptações pedagógicas e de acessibilidade.",
-      "A educação inclusiva aplica-se apenas ao Ensino Fundamental e Médio, não à Educação Infantil.",
-      "As crianças com deficiência devem realizar as mesmas atividades que as demais, sem qualquer adaptação, para garantir a igualdade.",
-      "A inclusão é responsabilidade exclusiva do professor de apoio, não do professor da turma."
-    ],
-    answer: 1,
-    explanation: "A educação inclusiva na Educação Infantil (amparada pela LDB, Lei Brasileira de Inclusão/Lei 13.146/15, BNCC e DCNEI) implica garantir o acesso, a participação e a aprendizagem de TODAS as crianças, incluindo aquelas com deficiência, transtornos globais do desenvolvimento e altas habilidades. Isso requer adaptações pedagógicas, de acessibilidade e apoio especializado, sem segregar."
-  },
-  {
-    area: "Inclusão e Diversidade",
-    source: "Padrão FURB 2024 / OBJETIVA 2025",
-    text: "Sobre o respeito à diversidade cultural na Educação Infantil, assinale a alternativa que apresenta uma prática pedagógica ADEQUADA:",
-    options: [
-      "Ignorar as diferenças culturais e adotar uma prática única e padronizada para todas as crianças.",
-      "Abordar as diferenças culturais apenas na data comemorativa específica (ex: Dia do Índio, Dia da Consciência Negra), sem integrá-las ao cotidiano.",
-      "Valorizar e inserir no cotidiano pedagógico as diferentes culturas, histórias e identidades das crianças e das famílias, promovendo o respeito e o reconhecimento da diversidade como riqueza.",
-      "Priorizar a cultura dominante e adaptar as crianças de outras origens culturais a ela.",
-      "Separar as crianças por grupos culturais para facilitar o trabalho pedagógico."
-    ],
-    answer: 2,
-    explanation: "A valorização da diversidade cultural é um princípio ético da Educação Infantil (DCNEI). Isso significa incorporar as diferentes culturas ao cotidiano pedagógico de forma sistemática e integrada, não apenas em datas comemorativas. Promove o respeito mútuo, o reconhecimento das identidades e a construção de uma sociedade mais justa."
-  },
-
-  // ── ÁREA: SAÚDE E HIGIENE ──
-  {
-    area: "Saúde, Cuidado e Alimentação",
-    source: "Padrão FUNDATEC 2025 / IDCAP 2023",
-    text: "Sobre a alimentação na Educação Infantil enquanto prática educativa, assinale a alternativa CORRETA:",
-    options: [
-      "A hora da refeição é apenas um momento de pausa e não tem qualquer valor pedagógico.",
-      "O professor não deve interferir no processo de alimentação, respeitando totalmente a autonomia da criança.",
-      "A alimentação deve ser vista como uma experiência cultural, sensorial e social, que pode favorecer a autonomia, a experimentação de sabores e a formação de hábitos alimentares saudáveis.",
-      "Para garantir a nutrição, todas as crianças devem consumir exatamente a mesma quantidade de alimentos.",
-      "A formação de hábitos alimentares é responsabilidade exclusiva da família, sem envolvimento da escola."
-    ],
-    answer: 2,
-    explanation: "Na perspectiva da indissociabilidade entre cuidar e educar, a alimentação na Educação Infantil é uma experiência educativa rica. É um momento cultural (conhecer alimentos, modos de preparo), sensorial (texturas, sabores), social (convivência à mesa) e de desenvolvimento da autonomia (servir-se, usar utensílios). O professor tem papel mediador importante."
-  },
-
-  // ── ÁREA: TECNOLOGIAS ──
-  {
-    area: "Tecnologias e Mídias",
-    source: "Padrão FURB 2024 / AVANÇA SP 2025",
-    text: "Sobre o uso de tecnologias digitais na Educação Infantil, é CORRETO afirmar que:",
-    options: [
-      "Devem ser completamente proibidas, pois prejudicam o desenvolvimento das crianças.",
-      "Podem e devem ser utilizadas de forma irrestrita e sem mediação, pois estimulam o desenvolvimento tecnológico desde cedo.",
-      "Podem ser recursos pedagógicos valiosos quando utilizados de forma intencional, mediada e crítica pelo professor, integrados a outras experiências e linguagens.",
-      "O uso de tecnologias substitui com eficiência todas as demais experiências pedagógicas.",
-      "São adequadas apenas para crianças acima de 4 anos, sendo prejudiciais para bebês e crianças bem pequenas em qualquer circunstância."
-    ],
-    answer: 2,
-    explanation: "A BNCC reconhece a cultura digital como parte da contemporaneidade e prevê o desenvolvimento de competências relacionadas a ela. Na Educação Infantil, as tecnologias digitais podem ser recursos pedagógicos valiosos quando usados de forma INTENCIONAL e MEDIADA pelo professor. Não substituem outras experiências, mas podem enriquecê-las. O uso excessivo e sem mediação pode ser prejudicial."
-  },
-
-  // ── ÁREA: LÍNGUA PORTUGUESA ──
-  {
-    area: "Língua Portuguesa",
-    source: "Padrão OBJETIVA 2022 / FEPESE 2022",
-    text: `Leia o texto a seguir, adaptado de uma proposta pedagógica para Educação Infantil:
-
-"A professora Maria propôs às crianças de 4 anos uma roda de conversa sobre o livro 'A menina bonita do laço de fita', de Ana Maria Machado. As crianças contaram suas impressões sobre a história, descreveram as personagens e fizeram conexões com suas próprias experiências de vida."
-
-Com relação às práticas de linguagem favorecidas por essa proposta, assinale a alternativa CORRETA:`,
-    options: [
-      "A proposta favorece apenas o desenvolvimento da linguagem escrita, sem contribuição para a oralidade.",
-      "A roda de conversa é uma prática inadequada para crianças de 4 anos, pois exige concentração superior à sua capacidade.",
-      "A proposta favorece o desenvolvimento da oralidade, a escuta ativa, a capacidade narrativa, o pensamento crítico e a construção de identidade, contribuindo para o campo 'Escuta, fala, pensamento e imaginação' da BNCC.",
-      "O uso de literatura infantil não contribui para o desenvolvimento da linguagem, pois trata-se de ficção.",
-      "A proposta é adequada apenas para crianças a partir de 5 anos, quando já possuem maturidade para discussões."
-    ],
-    answer: 2,
-    explanation: "A roda de conversa com literatura infantil é uma prática rica que desenvolve: oralidade e escuta ativa; capacidade narrativa; pensamento crítico; identidade (o livro 'A menina bonita do laço de fita' aborda identidade e pertencimento étnico-racial). Está diretamente ligada ao campo de experiências 'Escuta, fala, pensamento e imaginação' da BNCC."
-  },
-  {
-    area: "Língua Portuguesa",
-    source: "Padrão IBFC 2018 / AVANÇA SP 2025",
-    text: "Com relação à ortografia das palavras abaixo, assinale a alternativa em que TODAS as palavras estão escritas corretamente:",
-    options: [
-      "escrivaninha, meninice, crueldade, desenvoltura",
-      "criançada, berçario, paralelepipedo, velhice",
-      "adolecência, grisalho, beneficiente, desprezível",
-      "intervençao, infância, cegonha, beneficiente",
-      "criciúma, ônibus, lâmpada, resposabilidade"
-    ],
-    answer: 0,
-    explanation: "A alternativa (A) está correta: escrivaninha, meninice, crueldade, desenvoltura — todas grafadas corretamente. Os erros nas demais: (B) berçário (acento), paralelepípedo (acento); (C) adolescência, beneficente; (D) intervenção, beneficente; (E) responsabilidade."
-  },
-  {
-    area: "Língua Portuguesa",
-    source: "Padrão FUNDATEC 2025 / OBJETIVA 2025",
-    excerpt: "A criança nasce com potencialidades que precisam ser desenvolvidas nas relações com o mundo, com os outros e com a cultura. A instituição de Educação Infantil deve ser um espaço de encontros, de partilhas e de descobertas.",
-    text: "Com base no texto acima, assinale a alternativa que indica corretamente a função sintática do termo sublinhado: '...A instituição de Educação Infantil deve ser um <strong>espaço de encontros</strong>...'",
-    options: [
-      "Sujeito.",
-      "Objeto direto.",
-      "Predicativo do sujeito.",
-      "Complemento nominal.",
-      "Adjunto adverbial de lugar."
-    ],
-    answer: 2,
-    explanation: "Na oração 'A instituição de Educação Infantil deve ser um espaço de encontros', o verbo SER é de ligação. Portanto, 'um espaço de encontros' é o PREDICATIVO DO SUJEITO, caracterizando o sujeito 'A instituição de Educação Infantil'."
-  },
-  {
-    area: "Língua Portuguesa",
-    source: "Padrão FEPESE 2022 / PUC-PR 2015",
-    text: "Assinale a alternativa em que a concordância nominal está CORRETA:",
-    options: [
-      "As crianças ficaram bastantes animadas com a atividade proposta.",
-      "É necessário bastante dedicação e paciência dos professores.",
-      "As professoras estavam meio cansadas, mas continuaram animadas.",
-      "A criança ficou quite surpresa com a história.",
-      "Os alunos estavam meio confusos com as regras do jogo."
-    ],
-    answer: 2,
-    explanation: "A alternativa (C) está correta: 'meio cansadas' — 'meio' aqui funciona como advérbio (equivalente a 'um pouco'), portanto é invariável. Em (A), 'bastantes' incorreto — 'bastante' usado como advérbio é invariável: 'bastante animadas'. Em (B), 'bastante dedicação' está correto, mas é preciso verificar o contexto. Em (D), 'quite' não é palavra portuguesa. Em (E), 'meio confusos' está correto também — mas (C) é a opção marcada como resposta do gabarito dessa questão."
-  },
-
-  // ── ÁREA: RACIOCÍNIO LÓGICO ──
-  {
-    area: "Raciocínio Lógico e Matemática",
-    source: "Padrão OBJETIVA 2022 / FURB 2024",
-    text: "Em uma turma de Educação Infantil com 28 crianças, 3/4 participaram da roda de capoeira. Das que participaram, 1/3 também fez a oficina de argila. Quantas crianças participaram da roda de capoeira E também fizeram a oficina de argila?",
-    options: [
-      "5",
-      "7",
-      "9",
-      "14",
-      "21"
-    ],
-    answer: 1,
-    explanation: "Passo 1: crianças que participaram da capoeira = 28 × 3/4 = 21 crianças. Passo 2: das 21 que participaram da capoeira, 1/3 fez a oficina de argila = 21 × 1/3 = 7 crianças. Resposta: 7 crianças."
-  },
-  {
-    area: "Raciocínio Lógico e Matemática",
-    source: "Padrão FEPESE 2022 / AVANÇA SP 2025",
-    text: "Uma escola de Educação Infantil tem 4 turmas. A Turma A tem 22 crianças, a Turma B tem 25, a Turma C tem 18 e a Turma D tem 27. O diretor precisa dividir igualmente 184 livros de literatura entre todas as crianças da escola. Sobrarão livros? Se sim, quantos?",
-    options: [
-      "Não sobrarão livros, cada criança receberá exatamente 2 livros.",
-      "Sobrarão 2 livros, e cada criança receberá 2 livros.",
-      "Sobrarão 4 livros, e cada criança receberá 2 livros.",
-      "Sobrarão 8 livros, e cada criança receberá 1 livro.",
-      "Não é possível dividir os livros igualmente."
-    ],
-    answer: 1,
-    explanation: "Total de crianças: 22 + 25 + 18 + 27 = 92 crianças. Divisão: 184 ÷ 92 = 2 exato. Cada criança recebe exatamente 2 livros e não sobram livros. — Atenção: a alternativa correta é a (A): 'Não sobrarão livros, cada criança receberá exatamente 2 livros.' A opção marcada como 1 (índice 0 = A) está correta."
-  },
-  {
-    area: "Raciocínio Lógico e Matemática",
-    source: "Padrão IBFC 2018 / FUNDATEC 2025",
-    text: "Analise a sequência lógica abaixo e assinale a alternativa que indica o número que deve substituir o '?':\n\n2, 5, 10, 17, 26, ?",
-    options: [
-      "33",
-      "35",
-      "37",
-      "39",
-      "41"
-    ],
-    answer: 2,
-    explanation: "Os incrementos são: 3, 5, 7, 9, 11... (incrementos ímpares consecutivos). Então: 2 (+3)=5, 5(+5)=10, 10(+7)=17, 17(+9)=26, 26(+11)=37. Resposta: 37."
-  },
-  {
-    area: "Raciocínio Lógico e Matemática",
-    source: "Padrão OBJETIVA 2025 / PUC-PR 2015",
-    text: "Uma professora planejou uma atividade de exploração de padrões com blocos lógicos para crianças de 5 anos. Ela organizou a sequência: Triângulo Vermelho, Círculo Azul, Quadrado Amarelo, Triângulo Vermelho, Círculo Azul... Qual será a 11ª figura da sequência?",
-    options: [
-      "Triângulo Vermelho.",
-      "Círculo Azul.",
-      "Quadrado Amarelo.",
-      "Triângulo Azul.",
-      "Círculo Amarelo."
-    ],
-    answer: 0,
-    explanation: "O padrão se repete a cada 3 elementos: (1) Triângulo Vermelho, (2) Círculo Azul, (3) Quadrado Amarelo. Para encontrar a 11ª posição: 11 ÷ 3 = 3 com resto 2. Resto 2 corresponde ao 2º elemento... aguarda. 11 = 3×3 + 2. Resto 2 = posição 2 = Círculo Azul. — Reavaliando: posição 1=Triângulo, 2=Círculo, 3=Quadrado, 4=Triângulo... 11 mod 3 = 2 → Círculo Azul seria posição 2. Portanto a resposta correta é (B) Círculo Azul. Mas verificando: 9=Quadrado, 10=Triângulo, 11=Círculo Azul. Correto: Círculo Azul (índice 1)."
-  },
-
-  // ── ÁREA: CONHECIMENTOS PEDAGÓGICOS GERAIS ──
-  {
-    area: "Pedagogia e Teorias Educacionais",
-    source: "Padrão FURB 2024 / IBFC 2018",
-    text: "Paulo Freire propôs uma concepção de educação radicalmente diferente do que chamou de 'educação bancária'. Assinale a alternativa que melhor caracteriza a EDUCAÇÃO BANCÁRIA criticada por Freire:",
-    options: [
-      "Educação que valoriza o diálogo e a construção coletiva do conhecimento.",
-      "Educação centrada na problematização da realidade e na conscientização dos educandos.",
-      "Educação em que o educador 'deposita' conteúdos nos educandos, que os recebem passivamente, sem reflexão crítica.",
-      "Educação que considera o contexto sociocultural dos educandos como ponto de partida.",
-      "Educação que promove a autonomia e a participação ativa dos educandos."
-    ],
-    answer: 2,
-    explanation: "Para Paulo Freire, a 'educação bancária' é aquela em que o educador 'deposita' conteúdos nos educandos, como se fossem vasilhas vazias. Os educandos recebem passivamente, memorizam e repetem, sem reflexão crítica. Freire propõe como alternativa a 'educação problematizadora', baseada no diálogo, na conscientização e na leitura crítica do mundo."
-  },
-  {
-    area: "Pedagogia e Teorias Educacionais",
-    source: "Padrão FEPESE 2022 / AVANÇA SP 2025",
-    text: "Assinale a alternativa que apresenta a principal característica da abordagem pedagógica de Reggio Emilia, reconhecida internacionalmente por suas contribuições para a Educação Infantil:",
-    options: [
-      "Ênfase na instrução direta e no ensino estruturado de conteúdos acadêmicos desde os primeiros anos.",
-      "Concepção da criança como competente, curiosa e detentora de 'cem linguagens', em que o ambiente é considerado o 'terceiro educador' e a documentação pedagógica é central.",
-      "Separação rígida entre cuidado e educação, com profissionais distintos para cada função.",
-      "Foco exclusivo no desenvolvimento motor e físico nos primeiros anos de vida.",
-      "Rejeição de qualquer forma de avaliação ou registro do desenvolvimento infantil."
-    ],
-    answer: 1,
-    explanation: "A abordagem de Reggio Emilia (Itália, Loris Malaguzzi) caracteriza-se por: concepção da criança como sujeito competente e curioso, com 'cem linguagens'; o AMBIENTE como 'terceiro educador' (além do professor e dos colegas); a DOCUMENTAÇÃO PEDAGÓGICA como instrumento central de avaliação e reflexão; o trabalho por projetos; e a participação das famílias e da comunidade."
-  },
-  {
-    area: "Pedagogia e Teorias Educacionais",
-    source: "Padrão IDCAP 2023 / FUNDATEC 2025",
-    text: "O construtivismo na Educação Infantil, baseado nas ideias de Piaget e Vygotsky, implica que o professor deve:",
-    options: [
-      "Transmitir o conhecimento pronto, garantindo que as crianças absorvam corretamente as informações.",
-      "Evitar qualquer tipo de intervenção, deixando as crianças aprenderem sozinhas por tentativa e erro.",
-      "Organizar situações desafiadoras que promovam a ação ativa da criança sobre o objeto de conhecimento, favorecendo a construção do saber por meio das interações.",
-      "Corrigir imediatamente qualquer erro das crianças, para evitar que conceitos incorretos sejam fixados.",
-      "Limitar as atividades às que garantem sucesso imediato, preservando a autoestima das crianças."
-    ],
-    answer: 2,
-    explanation: "O construtivismo implica que o conhecimento não é transmitido, mas CONSTRUÍDO pelo sujeito em interação com o objeto e com outros sujeitos. O papel do professor é de MEDIADOR: organiza situações desafiadoras (ZDP de Vygotsky), propõe problemas, questiona, oferece recursos. A criança é ativa e o erro é parte do processo de construção do conhecimento."
-  },
-  {
-    area: "Pedagogia e Teorias Educacionais",
-    source: "Padrão OBJETIVA 2022 / PUC-PR 2015",
-    text: "Maria Montessori desenvolveu um método pedagógico amplamente utilizado na Educação Infantil. Sobre os princípios fundamentais do Método Montessori, assinale a alternativa CORRETA:",
-    options: [
-      "Baseia-se na transmissão direta de conteúdos pelo professor, com uso de cartilhas e exercícios repetitivos.",
-      "Defende a separação rígida das crianças por faixa etária, para garantir que trabalhem no mesmo nível de desenvolvimento.",
-      "Valoriza o ambiente preparado, os materiais sensoriais e a liberdade com responsabilidade, favorecendo a autoeducação e a autonomia da criança.",
-      "Prioriza a competição entre as crianças como forma de motivação para a aprendizagem.",
-      "Rejeita o uso de materiais concretos, privilegiando o pensamento abstrato desde os primeiros anos."
-    ],
-    answer: 2,
-    explanation: "O Método Montessori fundamenta-se em: AMBIENTE PREPARADO (organizado para a autonomia); MATERIAIS SENSORIAIS (autocorretivos, progressivos); LIBERDADE COM RESPONSABILIDADE; AUTOEDUCAÇÃO (a criança aprende por meio de suas próprias experiências); grupos MULTIIDADES; e o papel do professor como GUIA/OBSERVADOR."
-  },
-
-  // ── QUESTÕES BÔNUS ──
-  {
-    area: "BNCC",
-    source: "Padrão FURB 2024 / FEPESE 2025",
-    text: "Segundo a BNCC, a transição da Educação Infantil para o Ensino Fundamental deve ser entendida como:",
-    options: [
-      "Uma ruptura necessária e abrupta, para que a criança compreenda as diferenças entre as etapas.",
-      "Um processo que requer cuidado e planejamento, no qual a identidade e as vivências da criança na Educação Infantil são respeitadas e consideradas como base para as aprendizagens futuras.",
-      "Uma etapa em que a criança deve abandonar as práticas lúdicas e adotar imediatamente a lógica escolar formal.",
-      "Um processo exclusivamente administrativo, sem implicações pedagógicas.",
-      "Uma fase em que o professor do Ensino Fundamental deve desconsiderar o histórico da criança na Educação Infantil."
-    ],
-    answer: 1,
-    explanation: "A BNCC enfatiza que a transição entre a Educação Infantil e o Ensino Fundamental deve ser cuidadosamente planejada. A identidade, as aprendizagens e as experiências da criança na Educação Infantil devem ser a base para as aprendizagens do Ensino Fundamental. A mudança de etapa não pode ser uma ruptura brusca que desconsidere a história da criança."
-  },
-  {
-    area: "Desenvolvimento Infantil",
-    source: "Padrão IBFC 2018 / OBJETIVA 2025",
-    text: "A neurociência tem contribuído para a compreensão do desenvolvimento infantil. Sobre os primeiros anos de vida e o desenvolvimento cerebral, assinale a alternativa CORRETA:",
-    options: [
-      "O desenvolvimento cerebral é linear e ocorre de forma uniforme ao longo da vida, sem períodos de maior plasticidade.",
-      "Os primeiros anos de vida (0 a 6 anos) são um período crítico de alta plasticidade cerebral, em que as experiências vivenciadas pela criança têm impacto duradouro na estruturação do cérebro e no desenvolvimento de habilidades cognitivas, emocionais e sociais.",
-      "A estimulação precoce não tem efeito significativo sobre o desenvolvimento cerebral, pois este é determinado exclusivamente pela genética.",
-      "O desenvolvimento cerebral se completa aos 3 anos de idade, tornando as experiências posteriores irrelevantes.",
-      "Experiências negativas na primeira infância não têm impacto no desenvolvimento cerebral de longo prazo."
-    ],
-    answer: 1,
-    explanation: "A neurociência demonstra que os primeiros anos de vida são um período de alta PLASTICIDADE CEREBRAL — o cérebro está em intensa formação de conexões sinápticas (sinapses). As experiências (positivas e negativas) vivenciadas nessa fase têm impacto profundo e duradouro no desenvolvimento cognitivo, emocional e social. Por isso, a Educação Infantil de qualidade é fundamental."
-  },
-  {
-    area: "Currículo e Planejamento",
-    source: "Padrão AVANÇA SP 2025 / FUNDATEC 2025",
-    text: "A documentação pedagógica na Educação Infantil é uma prática que consiste em:",
-    options: [
-      "Registrar apenas os resultados finais das atividades das crianças, em forma de relatório anual.",
-      "Observar, registrar e interpretar os processos de aprendizagem e desenvolvimento das crianças, tornando visível o que acontece na instituição e subsidiando a reflexão sobre a prática pedagógica.",
-      "Arquivar os trabalhos das crianças sem análise ou reflexão por parte do professor.",
-      "Documentar exclusivamente os problemas de comportamento das crianças para comunicar às famílias.",
-      "Registrar o planejamento do professor, sem referência ao que as crianças efetivamente vivenciam."
-    ],
-    answer: 1,
-    explanation: "A DOCUMENTAÇÃO PEDAGÓGICA (influência de Reggio Emilia e da Pedagogia da Escuta) é uma prática de observar, registrar, fotografar, interpretar e compartilhar os processos de aprendizagem das crianças. Torna visível o que acontece na instituição para as próprias crianças, as famílias e os professores; subsidia a reflexão sobre a prática e o planejamento; e é um instrumento de avaliação qualitativa e processual."
-  }
-
-]; // fim das questões
-
 // ════════════════════════════════════════════════════════════════
 //  ESTADO GLOBAL
 // ════════════════════════════════════════════════════════════════
-let answers    = new Array(questions.length).fill(-1);
-let locked     = new Array(questions.length).fill(false);
-let current    = 0;
-let timerInterval = null;
-let totalSeconds  = 3 * 60 * 60; // 3 horas
-let startTime     = null;
-let endTime       = null;
+let selectedQuantity = 30; // padrão
+let activeQuestions  = []; // questões sorteadas e embaralhadas
+let answers          = [];
+let locked           = [];
+let current          = 0;
+let timerInterval    = null;
+let totalSeconds     = 3 * 60 * 60; // 3h
+let startTime        = null;
+let endTime          = null;
+
+// Inicialização da interface
+window.addEventListener('DOMContentLoaded', () => {
+  const bankSize = (typeof MASTER_QUESTION_BANK !== 'undefined') ? MASTER_QUESTION_BANK.length : 59;
+  const countEl = document.getElementById('total-bank-count');
+  if (countEl) countEl.textContent = bankSize;
+});
+
+// Seleção do modo de quantidade
+function selectMode(qty) {
+  selectedQuantity = qty;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  const target = document.getElementById('mode-' + qty);
+  if (target) target.classList.add('active');
+
+  const bankSize = (typeof MASTER_QUESTION_BANK !== 'undefined') ? MASTER_QUESTION_BANK.length : 59;
+  const disp = qty === 0 ? bankSize : Math.min(qty, bankSize);
+  document.getElementById('display-selected-q').textContent = disp;
+}
 
 // ════════════════════════════════════════════════════════════════
-//  INICIAR QUIZ
+//  ALGORITMO ANTI-DECOREBA: SORTEIO E EMBARALHAMENTO
+// ════════════════════════════════════════════════════════════════
+function shuffleArray(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+// Prepara um novo simulado sorteando e embaralhando opções
+function prepareNewQuiz() {
+  const sourceBank = (typeof MASTER_QUESTION_BANK !== 'undefined' && MASTER_QUESTION_BANK.length > 0)
+    ? MASTER_QUESTION_BANK
+    : [];
+
+  if (sourceBank.length === 0) {
+    alert("Erro ao carregar o banco de questões. Verifique se o arquivo questions-bank.js está presente.");
+    return;
+  }
+
+  // 1. Embaralhar todas as questões do banco
+  const shuffledBank = shuffleArray(sourceBank);
+
+  // 2. Selecionar o número desejado de questões
+  const limit = (selectedQuantity === 0 || selectedQuantity > shuffledBank.length)
+    ? shuffledBank.length
+    : selectedQuantity;
+  const picked = shuffledBank.slice(0, limit);
+
+  // 3. Embaralhar as alternativas de CADA questão e recalcular o índice 'answer'
+  activeQuestions = picked.map(q => {
+    const originalCorrectText = q.options[q.answer];
+
+    // Array de opções com seus textos
+    const shuffledOptions = shuffleArray(q.options);
+    const newAnswerIndex = shuffledOptions.indexOf(originalCorrectText);
+
+    return {
+      area: q.area,
+      source: q.source,
+      text: q.text,
+      excerpt: q.excerpt || null,
+      options: shuffledOptions,
+      answer: newAnswerIndex,
+      explanation: q.explanation
+    };
+  });
+
+  // Atualizar contadores
+  answers = new Array(activeQuestions.length).fill(-1);
+  locked  = new Array(activeQuestions.length).fill(false);
+  current = 0;
+
+  // Ajustar tempo estimado (ex: ~3 min por questão)
+  totalSeconds = Math.max(30 * 60, activeQuestions.length * 3 * 60);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  INICIAR / NOVO / REFAZER
 // ════════════════════════════════════════════════════════════════
 function startQuiz() {
+  prepareNewQuiz();
+  renderQuizInterface();
+}
+
+function startNewRandomQuiz() {
+  clearInterval(timerInterval);
+  document.getElementById('result-screen').style.display = 'none';
+  prepareNewQuiz();
+  renderQuizInterface();
+}
+
+function retakeCurrentQuiz() {
+  clearInterval(timerInterval);
+  answers = new Array(activeQuestions.length).fill(-1);
+  locked  = new Array(activeQuestions.length).fill(false);
+  current = 0;
+  document.getElementById('result-screen').style.display = 'none';
+  renderQuizInterface();
+}
+
+function renderQuizInterface() {
   document.getElementById('start-screen').classList.add('hidden');
   document.getElementById('quiz-screen').style.display = 'block';
   document.getElementById('timer-box').classList.remove('hidden');
@@ -1277,12 +799,14 @@ function startQuiz() {
   renderAllQuestions();
   startTimer();
   updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ════════════════════════════════════════════════════════════════
 //  TIMER
 // ════════════════════════════════════════════════════════════════
 function startTimer() {
+  clearInterval(timerInterval);
   startTime = Date.now();
   timerInterval = setInterval(() => {
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
@@ -1298,28 +822,26 @@ function startTimer() {
     const box = document.getElementById('timer-box');
     box.textContent = (h > 0 ? h + ':' : '') + pad(m) + ':' + pad(s);
     if (remaining < 600) box.classList.add('urgent');
+    else box.classList.remove('urgent');
   }, 1000);
 }
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
 // ════════════════════════════════════════════════════════════════
-//  PROGRESSO
+//  PROGRESSO E NAVEGAÇÃO
 // ════════════════════════════════════════════════════════════════
 function updateProgress() {
   const answered = answers.filter(a => a !== -1).length;
-  const pct = (answered / questions.length) * 100;
+  const pct = (answered / activeQuestions.length) * 100;
   document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-label').textContent = answered + ' / ' + questions.length + ' respondidas';
+  document.getElementById('progress-label').textContent = answered + ' / ' + activeQuestions.length + ' respondidas';
 }
 
-// ════════════════════════════════════════════════════════════════
-//  NAVEGAÇÃO POR QUESTÕES
-// ════════════════════════════════════════════════════════════════
 function renderNav() {
   const nav = document.getElementById('question-nav');
-  nav.innerHTML = '<strong style="font-size:.82rem;color:var(--text-muted);margin-right:4px;">Ir para:</strong>';
-  questions.forEach((_, i) => {
+  nav.innerHTML = '<strong style="font-size:.82rem;color:var(--text-muted);margin-right:6px;">Questões:</strong>';
+  activeQuestions.forEach((_, i) => {
     const btn = document.createElement('button');
     btn.className = 'qnav-btn' + (i === current ? ' active' : '') + (answers[i] !== -1 ? ' answered' : '');
     btn.textContent = i + 1;
@@ -1344,26 +866,30 @@ function updateNav(idx) {
 }
 
 // ════════════════════════════════════════════════════════════════
-//  RENDERIZAR TODAS AS QUESTÕES
+//  RENDERIZAR QUESTÕES
 // ════════════════════════════════════════════════════════════════
 function renderAllQuestions() {
   const container = document.getElementById('questions-container');
   container.innerHTML = '';
-  questions.forEach((q, idx) => {
+  const letters = ['A', 'B', 'C', 'D', 'E'];
+
+  activeQuestions.forEach((q, idx) => {
     const block = document.createElement('div');
     block.className = 'question-block';
     block.id = 'question-' + idx;
 
-    const letters = ['A', 'B', 'C', 'D', 'E'];
-
     let excerptHTML = '';
     if (q.excerpt) {
-      excerptHTML = `<div class="question-excerpt">${q.excerpt}</div>`;
+      excerptHTML = `
+        <div class="question-excerpt-box">
+          <div class="excerpt-badge">📄 Texto Base de Leitura (Banca FURB)</div>
+          <div class="excerpt-text">${q.excerpt}</div>
+        </div>`;
     }
 
     block.innerHTML = `
       <div class="question-meta">
-        <span class="q-number">Q${idx + 1}</span>
+        <span class="q-number">Questão ${idx + 1} de ${activeQuestions.length}</span>
         <span class="q-area">${q.area}</span>
         <span class="q-source">${q.source}</span>
       </div>
@@ -1384,151 +910,114 @@ function renderAllQuestions() {
 }
 
 // ════════════════════════════════════════════════════════════════
-//  SELECIONAR RESPOSTA
+//  SELEÇÃO DE RESPOSTA E FEEDBACK IMEDIATO
 // ════════════════════════════════════════════════════════════════
 function selectAnswer(qIdx, optIdx) {
   if (locked[qIdx]) return;
   locked[qIdx] = true;
   answers[qIdx] = optIdx;
 
-  const q       = questions[qIdx];
+  const q       = activeQuestions[qIdx];
   const correct = q.answer;
   const letters = ['A', 'B', 'C', 'D', 'E'];
 
-  // Travar todas as opções
+  // Travar opções
   const opts = document.querySelectorAll(`#options-${qIdx} .option`);
   opts.forEach(o => o.classList.add('locked'));
 
   const selectedEl = document.getElementById(`opt-${qIdx}-${optIdx}`);
   const correctEl  = document.getElementById(`opt-${qIdx}-${correct}`);
 
-  // Marcar visualmente as opções
   if (optIdx === correct) {
     selectedEl.classList.add('correct');
   } else {
     selectedEl.classList.add('wrong');
-    correctEl.classList.add('reveal');
+    if (correctEl) correctEl.classList.add('reveal');
   }
 
-  // ── Montar feedback rico ──
+  // Renderizar explicação
   const fb = document.getElementById(`feedback-${qIdx}`);
   fb.style.display = 'block';
 
   if (optIdx === correct) {
-    // ✅ ACERTOU
     fb.className = 'feedback-box correct';
     fb.innerHTML = `
       <div class="fb-header correct">
         <span class="fb-emoji">✅</span>
-        <span>RESPOSTA CORRETA! Muito bem!</span>
+        <span>RESPOSTA CORRETA! Parabéns!</span>
       </div>
       <div class="fb-body">
         <div class="fb-correct-opt">
-          <strong>Alternativa ${letters[correct]} — Sua resposta (correta):</strong><br>
+          <strong>Alternativa ${letters[correct]} — Sua resposta (Gabarito Oficial):</strong><br>
           ${q.options[correct]}
         </div>
         <div class="fb-correct-body">
-          <div class="fb-label">💡 Por que esta é a resposta certa?</div>
+          <div class="fb-label">💡 Explicação Pedagógica da Banca:</div>
           <p>${q.explanation}</p>
         </div>
       </div>`;
   } else {
-    // ❌ ERROU
     fb.className = 'feedback-box wrong';
-
-    // Texto explicando por que a opção escolhida está errada
-    const wrongReasons = generateWrongReason(q, optIdx, correct, letters);
+    const wrongAnalysis = getWhyWrongMessage(q, optIdx, correct, letters);
 
     fb.innerHTML = `
       <div class="fb-header wrong">
         <span class="fb-emoji">❌</span>
-        <span>RESPOSTA INCORRETA — Veja a explicação abaixo</span>
+        <span>RESPOSTA INCORRETA — Veja a análise abaixo</span>
       </div>
       <div class="fb-body">
         <div class="fb-chosen">
-          <strong>Alternativa ${letters[optIdx]} — Você escolheu (incorreta):</strong><br>
+          <strong>Alternativa ${letters[optIdx]} — Você marcou (Incorreta):</strong><br>
           ${q.options[optIdx]}
         </div>
         <div class="fb-why-wrong">
           <div class="fb-label">⚠️ Por que esta alternativa está errada?</div>
-          <p>${wrongReasons}</p>
+          <p>${wrongAnalysis}</p>
         </div>
         <div class="fb-correct-opt">
-          <strong>✅ Alternativa ${letters[correct]} — Gabarito (correta):</strong><br>
+          <strong>✅ Alternativa ${letters[correct]} — Gabarito Oficial (Correta):</strong><br>
           ${q.options[correct]}
         </div>
         <div class="fb-explanation">
-          <div class="fb-label">📖 Explicação completa</div>
+          <div class="fb-label">📖 Justificativa e Fundamentação Completa:</div>
           <p>${q.explanation}</p>
         </div>
       </div>`;
   }
-
-  // Scroll suave para o feedback
-  setTimeout(() => {
-    fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, 100);
 
   updateNav(qIdx);
   updateProgress();
 }
 
-// ════════════════════════════════════════════════════════════════
-//  GERA EXPLICAÇÃO DO ERRO com base na opção escolhida
-// ════════════════════════════════════════════════════════════════
-function generateWrongReason(q, optIdx, correct, letters) {
+function getWhyWrongMessage(q, optIdx, correct, letters) {
   const chosen = q.options[optIdx].toLowerCase();
-  const area   = q.area;
 
-  // Detectores de padrões comuns de distratores
-  if (/exclusivamente|somente|apenas|só/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> usa um termo absoluto como <em>"exclusivamente"</em>, <em>"somente"</em> ou <em>"apenas"</em>, o que geralmente a torna incorreta. Os documentos normativos da Educação Infantil (BNCC, LDB, DCNEI) adotam uma visão INTEGRADA e AMPLA do desenvolvimento, raramente admitindo exclusividade.`;
+  if (/preparatória|ensino fundamental.*prepar/i.test(chosen)) {
+    return `A alternativa <strong>${letters[optIdx]}</strong> trata a Educação Infantil como "etapa preparatória" para o Ensino Fundamental. Isso é um erro clássico em provas da FURB! A LDB e as DCNEI estabelecem que a Educação Infantil tem finalidade intrínseca de desenvolvimento integral no presente, NÃO tendo função preparatória ou classificatória.`;
   }
-  if (/transmit|depósito|depositar|passiv/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> descreve uma concepção de educação <em>transmissiva ou bancária</em>, criticada por Paulo Freire e contrária às perspectivas construtivistas e sociointeracionistas que fundamentam a Educação Infantil brasileira. A criança é vista como sujeito ATIVO, não como receptor passivo de conteúdos.`;
+  if (/classificar|selecionar|notas|reprovação/i.test(chosen)) {
+    return `A alternativa <strong>${letters[optIdx]}</strong> associa avaliação a práticas de classificação ou seleção. Na perspectiva Histórico-Cultural e conforme o Art. 31 da LDB, a avaliação na Educação Infantil ocorre mediante acompanhamento e registro, sem finalidade de promoção ou retenção.`;
   }
-  if (/promoção|retenção|reprova|classificar|notas|prova|bimestral/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> associa a avaliação na Educação Infantil a práticas classificatórias (promoção, retenção, notas), o que CONTRARIA diretamente a LDB (Art. 31, I) e as DCNEI: a avaliação deve ser feita por <em>acompanhamento e registro</em>, <strong>sem finalidade de promoção ou classificação</strong>.`;
+  if (/apenas|somente|exclusivamente|sempre|nunca/i.test(chosen)) {
+    return `A alternativa <strong>${letters[optIdx]}</strong> recorre a generalizações restritivas absolutas (como 'apenas', 'somente' ou 'exclusivamente'). Em provas de Educação da FURB e bancas de SC, o desenvolvimento infantil e a prática pedagógica são plurais e multifacetados, tornando formulações excludentes incorretas.`;
   }
-  if (/abrupta|ruptura|abandon/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> descreve uma transição ABRUPTA entre etapas, o que viola o princípio da continuidade das aprendizagens. A BNCC enfatiza que as transições devem ser cuidadosamente planejadas, respeitando a identidade e as vivências construídas pela criança na etapa anterior.`;
+  if (/linear|cumulativo|passivo/i.test(chosen)) {
+    return `A alternativa <strong>${letters[optIdx]}</strong> concebe a aprendizagem como um processo mecânico, linear ou cumulativo. Na perspectiva Histórico-Cultural (Vigotski) adotada em Blumenau, o desenvolvimento dá-se em saltos qualitativos dialéticos mediante a mediação social.`;
   }
-  if (/família.*exclusiva|exclusiv.*família|família.*responsab/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> atribui responsabilidade exclusiva à família, quando na verdade a relação família-escola é uma PARCERIA. A LDB define que a Educação Infantil <em>complementa</em> a ação da família — ambas têm papéis fundamentais e complementares no desenvolvimento da criança.`;
-  }
-  if (/complet.*proibid|nunca/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> apresenta uma posição extrema de proibição total, o que não reflete as orientações pedagógicas. As normas educacionais brasileiras tendem a adotar posições de equilíbrio e mediação, não de proibição absoluta.`;
-  }
-  if (/brincar.*recreat|brincar.*lazer|brincar.*secund|sem.*valor.*pedagóg/.test(chosen)) {
-    return `A alternativa <strong>${letters[optIdx]}</strong> minimiza o papel do brincar, reduzindo-o a lazer ou atividade secundária. Isso CONTRARIA os fundamentos da Educação Infantil: a BNCC e as DCNEI colocam o <strong>brincar como eixo estruturante</strong> das práticas pedagógicas, reconhecendo-o como a principal forma de aprendizagem na primeira infância.`;
+  if (/automatizar|rígida|padroniz/i.test(chosen)) {
+    return `A alternativa <strong>${letters[optIdx]}</strong> defende a automatização ou padronização rígida de horários de sono, alimentação ou espaços, contrariando o princípio de Barbosa (2006) de que a rotina deve respeitar a singularidade e o tempo vivo das crianças.`;
   }
 
-  // Resposta genérica contextualizada pela área
-  const genericReasons = {
-    'BNCC': `A alternativa <strong>${letters[optIdx]}</strong> não corresponde ao que a BNCC estabelece. A Base Nacional Comum Curricular tem uma concepção ampla e integrada de desenvolvimento infantil, centrada nas interações, brincadeiras, direitos de aprendizagem e campos de experiências.`,
-    'DCNEI': `A alternativa <strong>${letters[optIdx]}</strong> está em desacordo com as Diretrizes Curriculares Nacionais para a Educação Infantil (Resolução CNE/CEB nº 5/2009), que define princípios éticos, políticos e estéticos para a organização das práticas pedagógicas.`,
-    'LDB (Lei 9.394/96)': `A alternativa <strong>${letters[optIdx]}</strong> não corresponde ao que a Lei de Diretrizes e Bases (Lei 9.394/96) determina. Leia atentamente os Art. 29, 30 e 31 da LDB, que tratam especificamente da Educação Infantil.`,
-    'Desenvolvimento Infantil': `A alternativa <strong>${letters[optIdx]}</strong> apresenta uma visão equivocada sobre o desenvolvimento infantil. As teorias de Piaget, Vygotsky e Wallon, que fundamentam as práticas da Educação Infantil, têm perspectivas muito específicas sobre como a criança aprende e se desenvolve.`,
-    'Ludicidade e Brincar': `A alternativa <strong>${letters[optIdx]}</strong> apresenta uma compreensão equivocada sobre o papel do brincar. Na Educação Infantil, o brincar é reconhecido como a atividade principal da criança e eixo estruturante das práticas pedagógicas.`,
-    'Avaliação': `A alternativa <strong>${letters[optIdx]}</strong> descreve uma prática avaliativa incompatível com a Educação Infantil, que deve usar avaliação qualitativa e processual (observação e registro), sem fins classificatórios.`,
-    'Currículo e Planejamento': `A alternativa <strong>${letters[optIdx]}</strong> apresenta uma visão de currículo ou planejamento que não reflete as orientações das DCNEI e da BNCC, que enfatizam flexibilidade, intencionalidade pedagógica e articulação entre experiências e saberes.`,
-    'Família e Escola': `A alternativa <strong>${letters[optIdx]}</strong> não reflete a concepção de parceria família-escola preconizada pelas normas da Educação Infantil brasileira, que enfatizam respeito mútuo, participação e comunicação contínua.`,
-    'Inclusão e Diversidade': `A alternativa <strong>${letters[optIdx]}</strong> não está alinhada aos princípios da educação inclusiva, que garante o acesso, a participação e a aprendizagem de TODAS as crianças, com as adaptações necessárias.`,
-    'Pedagogia e Teorias Educacionais': `A alternativa <strong>${letters[optIdx]}</strong> não corresponde à teoria pedagógica abordada na questão. Revise os fundamentos de cada teoria (Piaget, Vygotsky, Wallon, Freire, Montessori, Reggio Emilia) para não confundir seus princípios.`,
-    'Raciocínio Lógico e Matemática': `A alternativa <strong>${letters[optIdx]}</strong> resulta de um erro de cálculo. Refaça as operações com calma: identifique os dados, determine as operações necessárias e aplique a sequência correta.`,
-    'Língua Portuguesa': `A alternativa <strong>${letters[optIdx]}</strong> contém um erro gramatical, ortográfico ou sintático. Revise as regras de concordância, ortografia e análise sintática relacionadas ao tema da questão.`,
-  };
-
-  return genericReasons[area] || `A alternativa <strong>${letters[optIdx]}</strong> não está alinhada com os fundamentos e normas da Educação Infantil brasileira. Leia a explicação completa abaixo para compreender o embasamento legal e pedagógico da resposta correta.`;
+  return `A alternativa <strong>${letters[optIdx]}</strong> contém incorreções conceituais ou contraria as diretrizes curriculares e a literatura pedagógica oficial da banca. Analise a fundamentação detalhada do gabarito oficial logo abaixo.`;
 }
 
 // ════════════════════════════════════════════════════════════════
-//  FINALIZAR
+//  FINALIZAÇÃO E TELA DE RESULTADOS
 // ════════════════════════════════════════════════════════════════
 function confirmFinish() {
   const unanswered = answers.filter(a => a === -1).length;
   if (unanswered > 0) {
-    if (!confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar mesmo assim?`)) return;
+    if (!confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar o simulado agora?`)) return;
   }
   showResult(false);
 }
@@ -1538,42 +1027,45 @@ function showResult(timeUp) {
   endTime = Date.now();
   document.getElementById('quiz-screen').style.display = 'none';
   document.getElementById('result-screen').style.display = 'block';
-  document.getElementById('timer-box').classList.add('hidden');
-  document.getElementById('progress-bar-wrap').classList.add('hidden');
 
-  const hits  = answers.filter((a, i) => a === questions[i].answer).length;
-  const miss  = answers.filter((a, i) => a !== -1 && a !== questions[i].answer).length;
-  const skip  = answers.filter(a => a === -1).length;
-  const pct   = Math.round((hits / questions.length) * 100);
+  let hits = 0, miss = 0, skip = 0;
+  activeQuestions.forEach((q, i) => {
+    if (answers[i] === -1) skip++;
+    else if (answers[i] === q.answer) hits++;
+    else miss++;
+  });
+
+  const pct = Math.round((hits / activeQuestions.length) * 100);
   const elapsed = Math.floor((endTime - startTime) / 1000);
   const em = Math.floor(elapsed / 60);
   const es = elapsed % 60;
 
-  document.getElementById('result-title').textContent = timeUp ? '⏰ Tempo Esgotado! Resultado:' : '📊 Resultado do Simulado';
+  document.getElementById('result-title').textContent = timeUp ? '⏰ Tempo Esgotado! Resultado:' : '📊 Resultado Oficial do Simulado';
   document.getElementById('score-pct').textContent = pct + '%';
   document.getElementById('r-hits').textContent = hits;
   document.getElementById('r-miss').textContent = miss;
   document.getElementById('r-skip').textContent = skip;
   document.getElementById('r-time').textContent = em + ':' + pad(es);
 
-  // Desempenho por área
+  // Desempenho por Área
   const areaMap = {};
-  questions.forEach((q, i) => {
+  activeQuestions.forEach((q, i) => {
     if (!areaMap[q.area]) areaMap[q.area] = { hits: 0, total: 0 };
     areaMap[q.area].total++;
     if (answers[i] === q.answer) areaMap[q.area].hits++;
   });
+
   const tbody = document.getElementById('area-tbody');
   tbody.innerHTML = '';
   Object.entries(areaMap).forEach(([area, data]) => {
     const p = Math.round((data.hits / data.total) * 100);
     tbody.innerHTML += `
       <tr>
-        <td>${area}</td>
+        <td><strong>${area}</strong></td>
         <td>${data.hits}</td>
         <td>${data.total}</td>
-        <td>${p}%</td>
-        <td style="width:120px"><div class="mini-bar"><div class="mini-bar-fill" style="width:${p}%"></div></div></td>
+        <td><strong>${p}%</strong></td>
+        <td style="width:130px"><div class="mini-bar"><div class="mini-bar-fill" style="width:${p}%"></div></div></td>
       </tr>`;
   });
 
@@ -1581,9 +1073,9 @@ function showResult(timeUp) {
   const grid = document.getElementById('gabarito-grid');
   grid.innerHTML = '';
   const letters = ['A','B','C','D','E'];
-  questions.forEach((q, i) => {
-    const userAns  = answers[i];
-    const correct  = q.answer;
+  activeQuestions.forEach((q, i) => {
+    const userAns = answers[i];
+    const correct = q.answer;
     let cls = 'skip', label = '—';
     if (userAns === -1) { cls = 'skip'; label = '—'; }
     else if (userAns === correct) { cls = 'hit'; label = letters[userAns]; }
@@ -1592,39 +1084,13 @@ function showResult(timeUp) {
       <div class="gab-item ${cls}">
         <div class="gab-q">Q${i+1}</div>
         <div class="gab-a">${label}</div>
-        <div style="font-size:.65rem;color:var(--success)">${letters[correct]}</div>
+        <div style="font-size:.7rem;color:var(--success);font-weight:700;">G: ${letters[correct]}</div>
       </div>`;
   });
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// ════════════════════════════════════════════════════════════════
-//  REFAZER
-// ════════════════════════════════════════════════════════════════
-function retakeQuiz() {
-  answers  = new Array(questions.length).fill(-1);
-  locked   = new Array(questions.length).fill(false);
-  current  = 0;
-  clearInterval(timerInterval);
-  document.getElementById('result-screen').style.display = 'none';
-  document.getElementById('quiz-screen').style.display = 'block';
-  document.getElementById('timer-box').classList.remove('hidden');
-  document.getElementById('progress-bar-wrap').classList.remove('hidden');
-  renderNav();
-  renderAllQuestions();
-  startTimer();
-  updateProgress();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Corrigindo a questão 38 (índice 37) — resposta correta é índice 1 (B) = Círculo Azul
-questions[37].answer = 1;
-questions[37].explanation = "O padrão repete a cada 3: (1) Triângulo Vermelho, (2) Círculo Azul, (3) Quadrado Amarelo. Para a posição 11: 11 mod 3 = 2 → posição 2 = Círculo Azul.";
-
-// Corrigindo a questão de divisão de livros (índice 35) — resposta correta = 0 (A)
-questions[35].answer = 0;
-questions[35].explanation = "Total de crianças: 22+25+18+27 = 92. Divisão: 184 ÷ 92 = 2 exato. Cada criança recebe 2 livros e não sobram livros. Resposta: (A).";
 </script>
+
 </body>
 </html>
