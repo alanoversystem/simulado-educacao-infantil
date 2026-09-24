@@ -17,4 +17,5 @@ test-*.js
 get-*.js
 find-*.js
 rebalance-*.js
+count-*.js
 extract-*.js
