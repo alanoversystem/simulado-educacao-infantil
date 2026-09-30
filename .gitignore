@@ -19,3 +19,8 @@ find-*.js
 rebalance-*.js
 count-*.js
 extract-*.js
+audit-*.js
+search-*.js
+analyze-*.js
+review-*.js
+comprehensive-*.js

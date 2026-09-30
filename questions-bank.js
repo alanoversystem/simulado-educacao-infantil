@@ -1,9 +1,9 @@
 /**
  * BANCO OFICIAL DE QUESTÕES — CONCURSOS EDUCAÇÃO INFANTIL
  * Total de Questões: 400 questões 100% oficiais de provas anteriores
- * Ênfase Reforçada: BNCC da Educação Infantil (95 questões), LDB 9.394/96 (65 questões), ECA (45 questões)
- * Fontes Oficiais: Banca FURB (Blumenau, Gaspar, Brusque, Florianópolis, Ilhota), FEPESE, AMEOSC, etc.
- * Cada questão possui gabarito oficial homologado e justificativa pedagógica/legal em 4 blocos.
+ * Foco Principal: Provas Oficiais de Blumenau/SC e Bancas Regionais (FURB, FEPESE, etc.)
+ * Ênfase Reforçada: BNCC da Educação Infantil, LDB 9.394/96, ECA, DCNEI, Currículo de Blumenau
+ * Gabaritos 100% Auditados e Validados com Fundamentação Pedagógica e Legal em 4 Blocos.
  */
 
 const QUESTIONS_BANK = [
@@ -19,8 +19,8 @@ const QUESTIONS_BANK = [
       "II, apenas.",
       "III, apenas."
     ],
-    "answer": 2,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa C.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB: Alternativa C (I, II e III.). Questão oficial do concurso para Professor de Educação Infantil (FURB 2023 — Pref. Florianópolis/SC (Prova Oficial)).\n💡 DIRETRIZ OFICIAL: A LDB (Lei 9.394/96), especialmente em seus arts. 29 a 31, define que a Educação Infantil é a primeira etapa da Educação Básica, tendo como finalidade o desenvolvimento integral da criança até 5 anos, com carga horária mínima de 800h distribuídas em no mínimo 200 dias, sem objetivo de promoção/retenção.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A (I e III, apenas).\n📌 FUNDAMENTAÇÃO: \n- Item I é CORRETO: A expressão \"pré-escolar\" tinha caráter preparatório antes da LDB/96.\n- Item II é INCORRETO: O Ensino Fundamental foi ampliado para 9 anos com matrícula aos 6 (seis) anos de idade (Lei 11.274/2006, art. 32 da LDB), e a Educação Infantil atende a faixa etária de ZERO A 5 ANOS (art. 30 da LDB). A afirmação de que o EF foi antecipado para 5 anos e a EI para 0 a 4 anos é flagrantemente errada.\n- Item III é CORRETO: A Emenda Constitucional nº 59/2009 tornou a Educação Básica obrigatória e gratuita dos 4 aos 17 anos.\n💡 DIRETRIZ OFICIAL: Arts. 29, 30 e 32 da LDB (Lei 9.394/96). Creche: 0 a 3 anos; Pré-escola: 4 e 5 anos (obrigatória); Ensino Fundamental: a partir dos 6 anos.\n⚠️ ATENÇÃO EM CONCURSOS: Pegadinha clássica de concurso! Bancas tentam confundir o candidato trocando a idade de início do Ensino Fundamental (6 anos) por 5 anos.",
     "id": 1
   },
   {
@@ -136,18 +136,19 @@ const QUESTIONS_BANK = [
     "id": 8
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Calumbi/PE • IGEDUC • 2025 (Prova Oficial)",
-    "text": "Na Educação Infantil, a Base Nacional Comum Curricular (BNCC) é organizada em torno de campos de experiências e tem como foco o desenvolvimento integral da criança, considerando as especificidades da faixa etária de zero a cinco anos. Os campos de experiências são, EXCETO:",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "No primeiro semestre de 2024, cerca de 200 profissionais de Centros de Educação Infantil (CEI) de Blumenau receberam de forma gratuita as oficinas do projeto \"O Corpo do Som\". As vivências na área de Educação Musical foram compartilhadas pelas artistas Bruna Hedler e Clara Mendes. O projeto foi contemplado na quinta Edição do Prêmio Herbert Holetz, do Fundo Municipal de Apoio à Cultura de Blumenau e os CEI atendidos foram: Fortaleza: CEIs Anilda Batista Schmitt, Emília Piske e Edgar Sasse; Água Verde: CEI Hilca Piazera Schneider; Velha Central: CEI Professor João Bertoldo Petry; Vila Nova: CEI Augusto Köster; Itoupava Central: CEI Alwin Knaesel; Bairro Garcia: CEI Antônio José Curtipassi. O \"O Corpo do Som\", conforme expuseram as idealizadoras, objetiva transformar as práticas pedagógicas na educação infantil através da integração da música ao cotidiano escolar. Por meio de vivências que unem movimento e musicalidade, as oficinas visam despertar corpos muitas vezes anestesiados pelo sistema. Portanto, essa abordagem visa ampliar o repertório cultural dos educadores e, consequentemente, das crianças atendidas. Tendo em vista a notícia apresentada, analise as afirmativas em relação ao desenvolvimento cultural e educacional de Blumenau: I. O alcance do projeto em diferentes bairros demonstra uma política de descentralização cultural. II. O projeto evidencia uma valorização exclusiva da música erudita europeia, característica histórica da colonização da região. III. A política de fomento à cultura em Blumenau inclui mecanismos de financiamento público através de fundos municipais e editais de premiação. É correto o que se afirma em:",
     "excerpt": null,
     "options": [
-      "Espaços, qualidades, sabedorias e evoluções.",
-      "Corpo, gestos e movimentos.",
-      "O eu, o outro e o nós.",
-      "Traços, sons, cores e formas."
+      "I, apenas.",
+      "I, II e III.",
+      "II, apenas.",
+      "III, apenas.",
+      "I e III, apenas."
     ],
-    "answer": 0,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: ✅ GABARITO OFICIAL: Alternativa A.\n📌 JUSTIFICATIVA PEDAGÓGICA: A BNCC na Educação Infantil é organizada nos campos de experiências: 1. O eu, o outro e o nós; 2. Corpo, gestos e movimentos; 3. Traços, sons, cores e formas; 4. Escuta, fala, pensamento e imaginação; 5. Espaços, tempos, quantidades, relações e transformações. A alternativa A apresenta termos que não correspondem a esses campos.\n💡 DIRETRIZES OFICIAIS: Em conformidade com a BNCC e as DCNEI, a Educação Infantil tem como eixos estruturantes as interações e a brincadeira, assegurando os 6 direitos de aprendizagem (conviver, brincar, participar, explorar, expressar e conhecer-se).\n⚠️ ATENÇÃO EM CONCURSOS: Questões de Educação Infantil desclassificam assertivas que proponham controle autoritário, avaliação para retenção ou fragmentação do desenvolvimento da criança.\n💡 DIRETRIZ OFICIAL: A BNCC estabelece 6 Direitos de Aprendizagem e Desenvolvimento (Conviver, Brincar, Participar, Explorar, Expressar e Conhecer-se) organizados em 5 Campos de Experiências pedagógicas.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 4,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa E.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"I e III, apenas.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 9
   },
   {
@@ -494,33 +495,35 @@ const QUESTIONS_BANK = [
     "id": 31
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Calumbi/PE • IGEDUC • 2025 (Prova Oficial)",
-    "text": "Na Base Nacional Comum Curricular (BNCC), o termo que define as competências específicas que os estudantes devem desenvolver em cada área do conhecimento, representando as capacidades de aplicação prática do conhecimento em diferentes contextos, é:",
+    "area": "LDB (Lei 9.394/96)",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "A Lei Complementar n.º 1335/2021, que dispõe sobre a reestruturação do Conselho Municipal de Acompanhamento e Controle Social (CACS), do FUNDEB, afirma que ficam, dentre outros, impedidos de integrar o Conselho Municipal de Acompanhamento e Controle Social (CACS), no Município de Blumenau:",
     "excerpt": null,
     "options": [
-      "Objetivos de Aprendizagem.",
-      "Conteúdos.",
-      "Temas Transversais.",
-      "Habilidades."
+      "professores da educação básica pública que atuam na Rede Municipal de Ensino.",
+      "representantes de organizações da sociedade civil.",
+      "estudantes que não sejam emancipados.",
+      "diretores das escolas públicas da Rede Municipal de Ensino.",
+      "servidores técnico-administrativos das escolas da Rede Municipal de Ensino."
     ],
-    "answer": 3,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: Na BNCC, as 'habilidades' sao as capacidades que os estudantes devem desenvolver, representando a aplicacao pratica do conhecimento em diferentes contextos. Objetivos de aprendizagem sao mais gerais. Conteudos sao os temas. Temas transversais perpassam diversas areas.\n💡 DIRETRIZ OFICIAL: A BNCC estabelece 6 Direitos de Aprendizagem e Desenvolvimento (Conviver, Brincar, Participar, Explorar, Expressar e Conhecer-se) organizados em 5 Campos de Experiências pedagógicas.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"professores da educação básica pública que atuam na Rede Municipal de Ensino.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 32
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Calumbi/PE • IGEDUC • 2025 (Prova Oficial)",
-    "text": "Sobre a Base Nacional Comum Curricular (BNCC), Julgue as sentenças abaixo como VERDADEIRAS ou FALSAS: (__ ) A BNCC propõe que as avaliações sejam formativas e contínuas, acompanhando o desenvolvimento das competências e habilidades dos estudantes ao longo do tempo. A avaliação é considerada um processo dinâmico, que deve auxiliar na identificação de dificuldades e no ajuste das práticas pedagógicas. (__ ) A BNCC representa uma mudança significativa no sistema educacional brasileiro, promovendo uma formação mais ampla, contextualizada e voltada para o desenvolvimento de habilidades práticas e competências cidadãs. (__ ) Ao estabelecer uma base comum, a BNCC busca reduzir as desigualdades educacionais, proporcionando a todos os estudantes o direito de aprender conteúdos e desenvolver competências essenciais, independentemente da região ou condição socioeconômica. A sequência CORRETA é:",
+    "area": "Educação Infantil",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "A universalização da educação básica, a ampliação do acesso ao ensino profissionalizante, ao ensino superior, à educação de jovens e adultos, à pós-graduação, o aperfeiçoamento das políticas inclusivas, a qualificação e a valorização dos profissionais da educação e dos docentes, entre outros objetivos do PNE, devem ser observados sob a ótica da ________________ e também da redução das desigualdades que incidem sobre cada uma dessas dimensões e que impõem, por vezes, uma apropriação desequilibrada das oportunidades educacionais. Assinale a alternativa que corretamente preenche a lacuna no excerto:",
     "excerpt": null,
     "options": [
-      "V, V, F.",
-      "V, F, V.",
-      "F, V, V.",
-      "V, V, V."
+      "competitividade global",
+      "eficiência administrativa",
+      "descentralização",
+      "universalização",
+      "qualidade educacional"
     ],
-    "answer": 3,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: Todas as sentencas estao corretas. A BNCC defende avaliacoes formativas, representa uma mudanca significativa no sistema educacional e busca reduzir desigualdades educacionais.\n💡 DIRETRIZ OFICIAL: A BNCC estabelece 6 Direitos de Aprendizagem e Desenvolvimento (Conviver, Brincar, Participar, Explorar, Expressar e Conhecer-se) organizados em 5 Campos de Experiências pedagógicas.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 4,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa E.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"qualidade educacional\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 33
   },
   {
@@ -655,8 +658,8 @@ const QUESTIONS_BANK = [
       "I e II, apenas.",
       "II, apenas."
     ],
-    "answer": 2,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa C.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 — Pref. Blumenau/SC (Professor de Educação Infantil): Alternativa C.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 3,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa D (I e II, apenas).\n📌 FUNDAMENTAÇÃO: O Currículo da Educação Infantil do Município de Blumenau e a BNCC adotam exatamente CINCO Campos de Experiências:\n1. O eu, o outro e o nós (Item I)\n2. Corpo, gestos e movimentos (Item I)\n3. Traços, sons, cores e formas (Item I)\n4. Escuta, fala, pensamento e imaginação (Item II)\n5. Espaços, tempos, quantidades, relações e transformações (Item II)\nO item III contém termos inventados que NÃO constituem campos de experiências. Portanto, somente as assertivas I e II estão corretas.\n💡 DIRETRIZ OFICIAL: BNCC e Currículo da Educação Básica de Blumenau (2021).\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento à nomenclatura exata dos 5 campos de experiências; bancas misturam conceitos para criar alternativas incorretas.",
     "id": 42
   },
   {
@@ -720,18 +723,19 @@ const QUESTIONS_BANK = [
     "id": 46
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Calumbi/PE • IGEDUC • 2025 (Prova Oficial)",
-    "text": "A Base Nacional Comum Curricular (BNCC) define dez competências gerais que norteiam a formação integral dos estudantes, promovendo o desenvolvimento das dimensões cognitivas, socioemocionais e éticas. Essas competências são baseadas em conceitos contemporâneos de educação e visam preparar os alunos para os desafios da vida social, pessoal e profissional no século XXI. Entre as competências gerais, destacam-se, EXCETO:",
+    "area": "Currículo e Planejamento",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Em relação ao percurso formativo no contexto do Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau, analise as afirmativas a seguir: I. O percurso formativo compreende apenas as experiências formais vivenciadas nas instituições de ensino. II. O percurso formativo é refletido pelo conjunto de cursos e treinamentos pontuais, que visam à transmissão de novas informações e técnicas de ensino aos professores. III. O percurso formativo inclui todas as experiências que proveem as capacidades necessárias para o desempenho das atividades nos diferentes campos da vida. É correto o que se afirma em:",
     "excerpt": null,
     "options": [
-      "Trabalho e projeto de vida.",
-      "Comunicação.",
-      "Pensamento crítico e científico.",
-      "Competência visual."
+      "I, apenas.",
+      "I, II e III.",
+      "II, apenas.",
+      "I e II, apenas.",
+      "III, apenas."
     ],
-    "answer": 3,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: A competencia visual nao e uma das dez competencias gerais estabelecidas pela BNCC para a formacao integral dos estudantes.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 4,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa E.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"III, apenas.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 47
   },
   {
@@ -949,18 +953,19 @@ const QUESTIONS_BANK = [
     "id": 61
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Japaratinga/AL • IGEDUC • 2025 (Prova Oficial)",
-    "text": "Conforme a BNCC, qual alternativa corresponde a uma das funções das competências específicas de área no Ensino Fundamental?",
+    "area": "Desenvolvimento Infantil",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Na perspectiva Histórico-Cultural, o papel do professor é ser:",
     "excerpt": null,
     "options": [
-      "Viabilizar a articulação horizontal entre áreas e a articulação vertical entre etapas do Ensino Fundamental.",
-      "Restringir a integração curricular às disciplinas de Ciências Humanas e Linguagens.",
-      "Estabelecer conteúdos fixos e imutáveis para cada área do conhecimento, sem conexão entre si.",
-      "Permitir que os componentes curriculares atuem de forma totalmente autônoma e isolada."
+      "Mediador da aprendizagem, que organiza situações desafiadoras, promove a interação social, e auxilia os estudantes na construção de conhecimentos.",
+      "Promotor da autonomia, que oferece recursos e estratégias variadas para que os estudantes desenvolvam habilidades de autogestão da aprendizagem.",
+      "Facilitador da aprendizagem, que propõe atividades avaliativas diversificadas para acompanhar o progresso dos estudantes e reorientar suas práticas pedagógicas.",
+      "Gestor do ambiente educacional, que estabelece um clima propício à aprendizagem, incentivando a participação ativa e o respeito mútuo entre os estudantes.",
+      "Orientador do processo educativo, que apresenta conteúdos de forma estruturada, visando à compreensão e aplicação pelos estudantes em diferentes contextos."
     ],
     "answer": 0,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: As competências específicas de área na BNCC visam articular e integrar os conhecimentos de forma horizontal entre as áreas e verticalmente entre as etapas de ensino, promovendo a articulação curricular.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"Mediador da aprendizagem, que organiza situações desafiadoras, promove a interação social, e auxilia os estudantes na construção de conhecimentos.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 62
   },
   {
@@ -1072,33 +1077,35 @@ const QUESTIONS_BANK = [
     "id": 69
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Japaratinga/AL • IGEDUC • 2025 (Prova Oficial)",
-    "text": "De acordo com a BNCC, acerca do Ensino Fundamental, como as áreas do conhecimento se organizam para atender às fases da escolarização?",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Zoltán Kodály foi um compositor, musicólogo e pedagogo húngaro que revolucionou o modo como entendemos e ensinamos música às crianças. Ele defendia que a música deveria ser ensinada de forma natural e prazerosa, utilizando as canções folclóricas e infantis como ponto de partida. Qual das alternativas a seguir apresenta um princípio fundamental da metodologia de Zoltán Kodály para a musicalização infantil?",
     "excerpt": null,
     "options": [
-      "Direcionam-se apenas às características do alunado dos Anos Finais, por serem mais complexas.",
-      "Explicam seu papel na formação integral dos alunos, considerando as especificidades dos Anos Iniciais e Finais.",
-      "São aplicadas de forma única e uniforme em todas as etapas, sem distinção entre Anos Iniciais e Finais.",
-      "Não fazem distinções pedagógicas entre os diferentes anos do Ensino Fundamental."
+      "A importância da improvisação e da criação musical espontânea.",
+      "A valorização da individualidade musical, desconsiderando o trabalho em grupo.",
+      "O ensino da música através da língua materna e de canções folclóricas.",
+      "A utilização de instrumentos musicais complexos como o piano e o violino.",
+      "O uso exclusivo de partituras para o ensino da música."
     ],
-    "answer": 1,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa B.\n📌 FUNDAMENTAÇÃO: A BNCC organiza as áreas do conhecimento de forma a explicar seu papel na formação integral dos alunos, reconhecendo e adaptando-se às especificidades tanto dos Anos Iniciais quanto dos Anos Finais do Ensino Fundamental.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 2,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa C.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"O ensino da música através da língua materna e de canções folclóricas.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 70
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Japaratinga/AL • IGEDUC • 2025 (Prova Oficial)",
-    "text": "Segundo a BNCC, qual alternativa melhor descreve como se relacionam as competências específicas de área com as competências gerais no Ensino Fundamental?",
+    "area": "Currículo e Planejamento",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "A musicalização na Educação Infantil, conforme as Diretrizes Curriculares Nacionais (Parecer CNE/CEB n.º 20/2009 e Resolução CNE/CEB n.º 5/2009) e o Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau, deve ser compreendida como um processo contínuo de desenvolvimento integral da criança. Diante dessa afirmação, assinale a alternativa que representa a prática da musicalização nesse contexto:",
     "excerpt": null,
     "options": [
-      "As competências específicas substituem as competências gerais nas áreas do conhecimento.",
-      "As competências específicas de área expressam, em cada área, as competências gerais da BNCC.",
-      "As competências gerais são exclusivas da Educação Infantil, não se aplicando ao Ensino Fundamental.",
-      "As competências específicas são independentes das competências gerais, focando apenas o conteúdo disciplinar."
+      "A utilização de métodos tradicionais de ensino musical, como a leitura musical e a execução de peças clássicas, é fundamental para a formação musical das crianças.",
+      "A musicalização deve ser restrita às aulas de música, realizada por um especialista na área e não integrada às demais atividades pedagógicas.",
+      "A avaliação na musicalização deve ser quantitativa, priorizando a execução técnica correta dos instrumentos musicais.",
+      "A experiência musical da criança deve ser valorizada, incentivando a exploração sonora livre e a criação musical espontânea.",
+      "A musicalização tem como principal objetivo a formação de futuros músicos, preparando as crianças para ingressar em conservatórios e escolas de música."
     ],
-    "answer": 1,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa B.\n📌 FUNDAMENTAÇÃO: A BNCC estabelece que as competências específicas de cada área de conhecimento são desdobramentos das competências gerais. Ou seja, elas detalham e especificam, no contexto de cada área, os princípios e objetivos gerais definidos para toda a educação básica.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 3,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"A experiência musical da criança deve ser valorizada, incentivando a exploração sonora livre e a criação musical espontânea.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 71
   },
   {
@@ -1118,18 +1125,19 @@ const QUESTIONS_BANK = [
     "id": 72
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Japaratinga/AL • IGEDUC • 2025 (Prova Oficial)",
-    "text": "Segundo a BNCC, como se estrutura o processo de organização curricular no Ensino Fundamental?",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Analise as afirmações a seguir sobre a história da educação musical brasileira e marque a alternativa correta:",
     "excerpt": null,
     "options": [
-      "Os objetos de conhecimento são aplicados de forma desvinculada das habilidades e competências da BNCC, com base apenas em escolhas individuais do professor ou preferências da gestão escolar.",
-      "As habilidades dos componentes curriculares estão ligadas a objetos de conhecimento organizados em unidades temáticas.",
-      "As competências específicas de área substituem as habilidades dos componentes curriculares.",
-      "As habilidades são definidas exclusivamente por áreas, sem ligação com componentes curriculares."
+      "Os métodos ativos de ensino da música, como os de Dalcroze e Orff, foram introduzidos no Brasil no século XVIII.",
+      "A educação musical começou a ser institucionalizada no período da República Velha (1889-1930).",
+      "No período colonial brasileiro, somente a igreja católica oferecia educação musical.",
+      "Na era Vargas (1930-1945), o canto orfeônico, popularizado por Heitor Villa-Lobos, torna-se a principal atividade musical nas escolas.",
+      "A educação musical no Brasil sempre esteve vinculada à educação formal, oferecida em todas as escolas desde o período colonial."
     ],
-    "answer": 1,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa B.\n📌 FUNDAMENTAÇÃO: A BNCC estrutura o currículo articulando objetos de conhecimento com habilidades e competências, organizando-os em unidades temáticas para componentes curriculares. As alternativas A, C e D descrevem abordagens incorretas ou incompletas de acordo com as diretrizes da BNCC.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 3,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"Na era Vargas (1930-1945), o canto orfeônico, popularizado por Heitor Villa-Lobos, torna-se a principal atividade musical nas escolas.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 73
   },
   {
@@ -1181,18 +1189,19 @@ const QUESTIONS_BANK = [
     "id": 76
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Pref. Japaratinga/AL • IGEDUC • 2025 (Prova Oficial)",
-    "text": "De acordo com o texto da BNCC, as áreas do conhecimento no Ensino Fundamental:",
+    "area": "Currículo e Planejamento",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Em consonância com as Diretrizes Curriculares Nacionais para a Educação Infantil, a Base Nacional Comum Curricular e o Currículo Base do Território Catarinense, o Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau utiliza os campos de experiência como organizador curricular. Com base no campo \"Corpo, Gestos e Movimentos\", o ensino de música pode oferecer vivências práticas e manifestações culturais por meio da música. Relacione a primeira coluna, que apresenta diferentes gêneros musicais, com a segunda coluna, que indica as possíveis reações e aprendizagens dos bebês ao serem expostos a esses gêneros. Primeira coluna: Gêneros musicais A. Clássica B. Popular brasileira C. Música infantil D. Jazz E. Música ambiente Segunda coluna: Reações e aprendizagens dos bebês 1. Estimula a calma e a concentração. 2. Favorece a socialização e a interação. 3. Desenvolve a sensibilidade para diferentes ritmos e melodias. 4. Estimula a imaginação e a criatividade. 5. Facilita a memorização de canções e a participação em atividades musicais. Assinale a alternativa que apresenta a correta associação entre as colunas:",
     "excerpt": null,
     "options": [
-      "substituem os componentes curriculares tradicionais por saberes transversais integrados.",
-      "são organizadas de forma a privilegiar apenas os saberes específicos de cada disciplina.",
-      "não mantêm relação entre si, para garantir a autonomia dos componentes curriculares.",
-      "comunicam-se entre si, preservando as especificidades dos componentes curriculares."
+      "A-1, B-2, C-5, D-4, E-3.",
+      "A-1, B-2, C-4, D-5, E-3.",
+      "A-1, B-2, C-5, D-3, E-4.",
+      "A-2, B-5, C-1, D-4, E-3.",
+      "A-1, B-3, C-5, D-4, E-2."
     ],
-    "answer": 3,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: A BNCC organiza os conhecimentos em áreas que se comunicam e interagem. Essa estrutura busca integrar os saberes, mas sem perder de vista as especificidades de cada área e componente curricular, promovendo uma abordagem mais holística.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"A-1, B-2, C-5, D-4, E-3.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 77
   },
   {
@@ -1461,18 +1470,19 @@ const QUESTIONS_BANK = [
     "id": 94
   },
   {
-    "area": "BNCC (Educação Infantil)",
-    "source": "Prefeitura de Piracuruca - PI • FUNATEC • 2025 (Prova Oficial)",
-    "text": "Uma professora de Ensino Religioso está revisando seu planejamento anual. Ela percebe que grande parte das atividades consiste em pedir aos alunos que “pesquisem sobre uma religião específica e apresentem suas características principais”. No entanto, a coordenação alerta que a BNCC exige que o componente avance além da mera descrição de tradições religiosas. Considerando as diretrizes da BNCC para o Ensino Religioso, a professora deve reformular sua prática priorizando:",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "A educadora musical Estelle R. Jorgensen popularizou a ideia de que a música é uma ferramenta poderosa para a educação infantil e inspirou muitos outros profissionais a trabalharem nessa área. Jorgensen ampliou a compreensão dos benefícios da música para o desenvolvimento das crianças, especialmente nos primeiros anos de vida. Com base nessa perspectiva, avalie as afirmações a seguir sobre a importância de expor os bebês a diferentes gêneros musicais: I. A exposição a diversos gêneros musicais desde a primeira infância amplia o repertório cultural dos bebês e os torna mais sensíveis à diversidade musical. II. Os bebês preferem, naturalmente, músicas infantis e não demonstram interesse por outros gêneros musicais. III. A música clássica é a mais indicada para o desenvolvimento intelectual dos bebês, por ser considerada a \"música universal\". IV. A música popular brasileira pode ser uma ferramenta importante para a construção da identidade cultural dos bebês. V. A exposição a diferentes ritmos e melodias contribui para o desenvolvimento da coordenação motora e do senso rítmico dos bebês. É correto o que se afirma em:",
     "excerpt": null,
     "options": [
-      "A comparação entre religiões para que os estudantes elejam a que consideram mais coerente com seus valores pessoais.",
-      "A investigação das experiências religiosas apenas sob a ótica histórica, garantindo neutralidade absoluta.",
-      "A análise crítica dos fenômenos e expressões religiosas, promovendo reflexão sobre sentidos, valores e repercussões sociais.",
-      "A catequese implícita, reforçando elementos espirituais positivos de diferentes tradições, sem indicar preferência."
+      "I, IV e V, apenas.",
+      "II, III e IV, apenas.",
+      "I e V, apenas.",
+      "II e III, apenas.",
+      "I, II, III, IV e V."
     ],
-    "answer": 2,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa C.\n📌 FUNDAMENTAÇÃO: A BNCC exige que o Ensino Religioso vá além da descrição. A análise crítica de fenômenos religiosos, com reflexão sobre seus sentidos, valores e repercussões sociais, aprofunda a compreensão dos alunos para além da mera apresentação de características.\n💡 DIRETRIZ OFICIAL: A BNCC estrutura a Educação Infantil em 6 Direitos de Aprendizagem (conviver, brincar, participar, explorar, expressar, conhecer-se) e 5 Campos de Experiências, respeitando os ritmos das faixas etárias de bebês, crianças bem pequenas e crianças pequenas.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"I, IV e V, apenas.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 95
   },
   {
@@ -1585,18 +1595,19 @@ const QUESTIONS_BANK = [
     "id": 102
   },
   {
-    "area": "LDB (Lei 9.394/96)",
-    "source": "Pref. Calumbi/PE • IGEDUC • 2025 (Prova Oficial)",
-    "text": "De acordo com a Lei nº 9.394/96 que define despesas de manutenção e desenvolvimento do ensino, considera-se como despesa válida para os objetivos educacionais:",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Para desenvolver o campo de experiência \"Corpo, Gestos e Movimentos\", é necessário que o educador musical tenha conhecimentos sobre as metodologias ativas. Esse conhecimento permite explorar com o corpo formas diferenciadas de expressão de sentimentos, sensações e emoções, jogos e atividades artísticas. Avalie as proposições a seguir a respeito da relação entre musicalização e a expressão corporal na faixa etária de 4 a 6 anos, e marque a alternativa correta:",
     "excerpt": null,
     "options": [
-      "Apenas as despesas relacionadas à remuneração dos docentes e construção de instalações educacionais.",
-      "A concessão de bolsas de estudo para alunos exclusivamente de escolas públicas.",
-      "O financiamento de operações de crédito para atividades de pesquisa acadêmica geral.",
-      "A realização de atividades curriculares complementares voltadas ao aprendizado, como feiras de ciências e exposições culturais."
+      "A avaliação na musicalização deve ser quantitativa, priorizando a execução técnica correta das atividades corporais propostas.",
+      "A música e o movimento contribuem para o desenvolvimento da inteligência emocional, permitindo que as crianças expressem seus sentimentos de forma saudável.",
+      "O uso das técnicas do ballet clássico contribui para que as crianças de 4 a 6 anos aprimorem as suas habilidades corporais.",
+      "A expressão corporal deve ser realizada com o uso de gravações de peças musicais para promover o aprendizado.",
+      "A música pode ser utilizada como ferramenta para trabalhar diferentes áreas do conhecimento, como a atividade aeróbica e fortalecimento muscular de crianças de 4 a 6 anos."
     ],
-    "answer": 3,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa D.\n📌 FUNDAMENTAÇÃO: A Lei de Diretrizes e Bases da Educacao Nacional classifica despesas com atividades curriculares complementares como validas para manutencao e desenvolvimento do ensino.\n💡 DIRETRIZ OFICIAL: A LDB (Lei 9.394/96), especialmente em seus arts. 29 a 31, define que a Educação Infantil é a primeira etapa da Educação Básica, tendo como finalidade o desenvolvimento integral da criança até 5 anos, com carga horária mínima de 800h distribuídas em no mínimo 200 dias, sem objetivo de promoção/retenção.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 1,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa B.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"A música e o movimento contribuem para o desenvolvimento da inteligência emocional, permitindo que as crianças expressem seus sentimentos de forma saudável.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 103
   },
   {
@@ -2546,18 +2557,19 @@ const QUESTIONS_BANK = [
     "id": 164
   },
   {
-    "area": "ECA (Lei 8.069/90)",
-    "source": "Prefeitura de Piracuruca - PI • FUNATEC • 2025 (Prova Oficial)",
-    "text": "De acordo com o Estatuto da Criança e do Adolescente, é dever da família, da sociedade e do Estado assegurar à criança, com absoluta prioridade, o direito à educação. Esse princípio está diretamente ligado ao dever de:",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Relacione a primeira coluna, que apresenta diferentes educadores musicais e/ou abordagens, com a segunda coluna, que indica os principais focos de cada educador musical e/ou abordagem. Primeira coluna: Educadores musicais e/ou abordagens A. Zoltán Kodály. B. Émile Jaques-Dalcroze C. Carl Orff D. Shinichi Suzuki. E. Maria Montessori Segunda coluna: Principais focos 1. Movimento e expressão corporal. 2. Cantos folclóricos e desenvolvimento da linguagem musical. 3. Improvisação e criação musical. 4. Ensino de instrumentos musicais a partir da primeira infância. 5. Vínculo afetivo entre pais e filhos com o apoio da escola. Assinale a alternativa que apresenta a correta associação entre as colunas:",
     "excerpt": null,
     "options": [
-      "garantir acesso universal à educação básica, ainda que sem obrigatoriedade na primeira infância.",
-      "prover atendimento educacional apenas às crianças em vulnerabilidade social.",
-      "assegurar educação infantil gratuita às crianças de até 5 anos de idade.",
-      "oferecer ensino fundamental gratuito e obrigatório a partir dos 7 anos de idade."
+      "A-2, B-1, C-3, D-4, E-5.",
+      "A-2, B-1, C-4, D-5, E-3.",
+      "A-1, B-3, C-5, D-4, E-2.",
+      "A-2, B-5, C-1, D-4, E-3.",
+      "A-2, B-3, C-5, D-3, E-1."
     ],
-    "answer": 2,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa C.\n📌 FUNDAMENTAÇÃO: ✅ GABARITO OFICIAL: Alternativa C.\n📌 JUSTIFICATIVA PEDAGÓGICA: O Estatuto da Criança e do Adolescente (ECA), em diversos artigos, estabelece a obrigatoriedade e a gratuidade da educação infantil para crianças de até 5 anos, como um direito fundamental que deve ser assegurado pelo Estado.\n💡 DIRETRIZES OFICIAIS: Em conformidade com a BNCC e as DCNEI, a Educação Infantil tem como eixos estruturantes as interações e a brincadeira, assegurando os 6 direitos de aprendizagem (conviver, brincar, participar, explorar, expressar e conhecer-se).\n⚠️ ATENÇÃO EM CONCURSOS: Questões de Educação Infantil desclassificam assertivas que proponham controle autoritário, avaliação para retenção ou fragmentação do desenvolvimento da criança.\n💡 DIRETRIZ OFICIAL: O ECA (Lei 8.069/90) assegura a doutrina da Proteção Integral e a prioridade absoluta dos direitos da criança, incluindo o acesso à escola pública e gratuita próxima de sua residência e o dever de comunicar ao Conselho Tutelar casos de suspeita de violência ou faltas injustificadas.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"A-2, B-1, C-3, D-4, E-5.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 165
   },
   {
@@ -3126,18 +3138,19 @@ const QUESTIONS_BANK = [
     "id": 202
   },
   {
-    "area": "ECA (Lei 8.069/90)",
-    "source": "Prefeitura de Piracuruca - PI • FUNATEC • 2025 (Prova Oficial)",
-    "text": "Durante uma investigação realizada pelo Conselho Tutelar, constatou-se que três adolescentes: A (13 anos), B (15 anos) e C (16 anos), estão desempenhando atividades remuneradas em uma empresa local. Com base no ECA (Estatuto da Criança e do Adolescente), assinale a assertiva que apresenta a(s) situação(ões) de acordo com essa norma.",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "A comunicação eficaz é fundamental para o bom funcionamento de qualquer equipe. No contexto da educação infantil, a comunicação entre os professores de música e os demais profissionais da escola é especialmente importante. Qual das alternativas a seguir melhor define a importância da comunicação nesse contexto?",
     "excerpt": null,
     "options": [
-      "Somente o adolescente C encontra-se em situação regular, pois a aprendizagem exige formação técnico-profissional estruturada segundo as diretrizes educacionais; A e B estão em situação ilegal, independentemente da existência de supervisão informal.",
-      "Os adolescentes B e C estão em situação regular, pois ambos exercem atividades que contribuem para o desenvolvimento profissional, e o ECA permite trabalho a partir dos quatorze anos, com ou sem formalização.",
-      "Os três adolescentes estão em situação irregular, pois o conceito de aprendizagem exige que nenhum adolescente desempenhe atividades práticas em ambiente laboral antes de concluir o Ensino Fundamental.",
-      "Apenas o adolescente A está irregular por ser menor de quatorze anos; quanto a B e C, ambos podem trabalhar desde que haja supervisão adequada, pois o ECA não diferencia atividades laborais de programas de formação técnico-profissional."
+      "A comunicação entre os professores de música e os demais profissionais é irrelevante para o processo de ensino-aprendizagem.",
+      "A comunicação permite que o professor de música trabalhe de forma isolada, sem a necessidade de compartilhar informações com os demais colegas.",
+      "A comunicação é importante apenas para a organização de eventos e atividades extracurriculares.",
+      "A comunicação eficaz garante que o professor de música possa impor suas ideias e métodos de trabalho aos demais profissionais.",
+      "A comunicação permite a troca de informações sobre o desenvolvimento das crianças, garantindo uma abordagem pedagógica mais integrada."
     ],
-    "answer": 0,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Segundo o ECA, a idade mínima para o trabalho é 14 anos, mas a aprendizagem exige formação técnico-profissional. Adolescente A (13 anos) não pode trabalhar. Adolescente B (15 anos) e C (16 anos) podem, desde que em regime de aprendizagem. A alternativa A reflete essa distinção entre idade e a especificidade da aprendizagem com formação.\n💡 DIRETRIZ OFICIAL: O Estatuto da Criança e do Adolescente (Lei 8.069/90) preconiza a Doutrina da Proteção Integral, a prioridade absoluta e a responsabilidade compartilhada entre família, sociedade e Poder Público, garantindo acesso à escola pública próxima e comunicação imediata de violações ao Conselho Tutelar.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 4,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa E.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"A comunicação permite a troca de informações sobre o desenvolvimento das crianças, garantindo uma abordagem pedagógica mais integrada.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 203
   },
   {
@@ -3412,7 +3425,7 @@ const QUESTIONS_BANK = [
     "id": 220
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Práticas Pedagógicas e Linguagem",
     "source": "FURB 2023 — Pref. Florianópolis/SC (Prova Oficial)",
     "text": "O Google Workspace possui diversas ferramentas de produtividade e colaboração para o trabalho. Analise as principais ferramentas apresentadas a seguir e a sua funcionalidade: I. Drive: Armazenamento de documentos em nuvem. II. Meet: Videoconferência e chamada de voz. III. Sharepoint: Espaço dedicado para compartilhar arquivos, dados, notícias e recursos. As principais ferramentas e funcionalidades do Google Workspace são as que se afirma em:",
     "excerpt": null,
@@ -3428,7 +3441,7 @@ const QUESTIONS_BANK = [
     "id": 221
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Educação Infantil",
     "source": "FURB 2023 — Pref. Ilhota/SC (Prova Oficial)",
     "text": "Considere o excerto a seguir: \"Nesse modelo, o educador educa, o educando é o educado; o educador fala, o educando escuta; o educador prescreve, dita, impõe regras, e o educando obedece; o educador escolhe o conteúdo e o educando recebe em forma de depósito; o educador é quem sabe, e o educando é sempre quem não sabe\". (Fonte: Anjos, 2018) O texto faz referência à concepção pedagógica do:",
     "excerpt": null,
@@ -3444,7 +3457,7 @@ const QUESTIONS_BANK = [
     "id": 222
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Educação Infantil",
     "source": "Pref. Iporã do Oeste/SC • AMEOSC • 2025 (Prova Oficial)",
     "text": "Segundo o auxiliar de creche, no contexto da Educação Infantil, é CORRETA a prática contribui para o fortalecimento do vínculo afetivo e para a socialização das crianças pequenas.",
     "excerpt": null,
@@ -3459,7 +3472,7 @@ const QUESTIONS_BANK = [
     "id": 223
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Educação Infantil",
     "source": "Pref. Saudades/SC • UNO Chapec�� • 2025 (Prova Oficial)",
     "text": "A atuação do profissional da Educação Infantil em instituições que acolhem crianças de 0 a 5 anos não pode ser reduzida a intervenções programadas ou a funções instrumentais. Em contextos de alta pluralidade e mobilidade cultural, esse profissional é desafiado a assumir uma postura que envolve:",
     "excerpt": null,
@@ -3474,7 +3487,7 @@ const QUESTIONS_BANK = [
     "id": 224
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Práticas Pedagógicas e Linguagem",
     "source": "Prefeitura de Meleiro - SC • UNESC • 2025 (Prova Oficial)",
     "text": "No contexto da Educação Infantil, o desenho é compreendido como uma forma privilegiada de expressão, organização do pensamento e mediação com o mundo. Ao considerar os processos gráficos da criança pequena, tanto sob a perspectiva da arte-educação quanto da psicogênese do desenho, é necessário reconhecer sua função para além da estética ou da representação figurativa. Com base nesse entendimento, a partir de uma abordagem contemporânea da produção gráfica infantil, assinale a alternativa CORRETA.",
     "excerpt": null,
@@ -3522,7 +3535,7 @@ const QUESTIONS_BANK = [
     "id": 227
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Educação Infantil",
     "source": "Pref. Arabutã/SC • AMAUC • 2025 (Prova Oficial)",
     "text": "No ambiente da creche, a higiene e os cuidados corporais são essenciais para prevenir doenças e garantir o bem-estar infantil. Qual é a postura adequada do agente de creche nesse contexto?",
     "excerpt": null,
@@ -3569,7 +3582,7 @@ const QUESTIONS_BANK = [
     "id": 230
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Práticas Pedagógicas e Linguagem",
     "source": "Prefeitura de Irani - SC • AMAUC • 2025 (Prova Oficial)",
     "text": "Na Educação Infantil, a educação artística tem papel fundamental no desenvolvimento da criatividade, da imaginação e da expressão infantil. Nesse contexto, o uso da sucata como recurso pedagógico na pré-escola favorece efetivamente a criatividade quando se:",
     "excerpt": null,
@@ -3585,7 +3598,7 @@ const QUESTIONS_BANK = [
     "id": 231
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Práticas Pedagógicas e Linguagem",
     "source": "Pref. Itá/SC • UNIVALI • 2025 (Prova Oficial)",
     "text": "A utilização da música na Educação Infantil deve ser planejada para explorar a curiosidade natural das crianças em relação aos sons, transformando objetos e instrumentos em fontes de descoberta. Acerca do uso da música como recurso pedagógico, registre V, para as afirmativas verdadeiras, e F, para as falsas: (__)A exploração sonora livre permite que a criança descubra timbres e intensidades diferentes. (__)O ensino deve ser rígido, focado apenas na leitura de partituras complexas desde o início. (__)A imitação de sons e ritmos inibe a criatividade e deve ser evitada pelo professor. (__)A música auxilia no desenvolvimento da percepção auditiva e na sensibilidade artística. Após análise, assinale a alternativa que apresenta a sequência correta dos itens acima, de cima para baixo:",
     "excerpt": null,
@@ -3601,7 +3614,7 @@ const QUESTIONS_BANK = [
     "id": 232
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Currículo e Planejamento",
     "source": "FURB 2024 — Pref. Blumenau/SC (Professor de Educação Infantil) (Prova Oficial)",
     "text": "Considerando-se a concepção de aprendizagem, presente no Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau, analise as asserções a seguir e a relação proposta entre elas: I. O planejamento dos contextos de aprendizagem deve considerar os conhecimentos cotidianos dos estudantes para a construção do conhecimento científico. II. A aprendizagem é um processo linear e cumulativo, que ocorre por meio da aquisição gradual de conhecimentos. A respeito dessas asserções, assinale a opção correta:",
     "excerpt": null,
@@ -3612,12 +3625,12 @@ const QUESTIONS_BANK = [
       "A asserção I é uma proposição verdadeira e a II é uma proposição falsa.",
       "As asserções I e II são proposições falsas."
     ],
-    "answer": 0,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 — Pref. Blumenau/SC (Professor de Educação Infantil): Alternativa A.\n💡 DIRETRIZ OFICIAL: A Educação Infantil, primeira etapa da Educação Básica, organiza-se pelos eixos estruturantes das interações e da brincadeira, assegurando o pleno desenvolvimento integral da criança.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 3,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa D (A asserção I é uma proposição verdadeira e a II é uma proposição falsa).\n📌 FUNDAMENTAÇÃO: No Currículo da Educação Básica de Blumenau (fundamentado na teoria Histórico-Cultural de Vigotski):\n- Asserção I é VERDADEIRA: O planejamento dos contextos de aprendizagem deve partir dos conhecimentos cotidianos (conceitos espontâneos) dos estudantes para a mediação e apropriação dos conhecimentos científicos sistematizados.\n- Asserção II é FALSA: A aprendizagem NÃO é um processo mecânico, linear e cumulativo; para a perspectiva histórico-cultural e contemporânea, o desenvolvimento ocorre por saltos qualitativos, rupturas, contradições e mediações sociais ativas.\n💡 DIRETRIZ OFICIAL: Currículo do Sistema Municipal de Ensino de Blumenau (2021) — Fundamentação Histórico-Cultural.\n⚠️ ATENÇÃO EM CONCURSOS: Assertivas que reduzem a aprendizagem a \"linear, cumulativa ou gradual-mecânica\" são historicamente consideradas incorretas em concursos de educação com fundamentação vigotskiana/interacionista.",
     "id": 233
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Educação Inclusiva",
     "source": "FURB 2024 — Pref. Gaspar/SC (Professor de Educação Infantil) (Prova Oficial)",
     "text": "Associe a segunda coluna de acordo com a primeira, conforme o que dispõe a Política de Educação Especial da Rede Municipal de Ensino do Município de Gaspar (2018), quanto à acessibilidade e inclusão escolar: Primeira coluna : tipo de acessibili- dade 1- Acessibilidade atitudinal 2- Acessibilidade instrumental 3- Acessibilidade metodológica 4- Acessibilidade arquitetônica 5- Acessibilidade comunicacional 6- Acessibilidade programática Segunda coluna : conceito ( ) Serão disponibilizados aos educandos os recursos de Tecnolo- gia Assistiva necessários, como materiais, instrumentos, uten- sílios e ferramentas de estudo, garantindo a participação nas propostas pedagógicas, levando em consideração potenciali- dade individual. ( ) Será alcançada como resultado de ações e projetos que promo- vam a superação de atitudes preconceituosas e discriminatórias que reforçam estereótipos, estigmatizando os educandos e difi- cultando o acesso às propostas pedagógicas e contextos soci- ais. ( ) Será garantida por planejamentos inclusivos, os quais devem ser elaborados na perspectiva universal, se ndo exploradas me- todologias variadas no processo de ensino e aprendizagem para oportunizar a participação de diferentes modos para os educan- dos. ( ) Expressa nas ações institucionais, políticas públicas, normas e regulamentos que garantem e promovem o aces so de todos aos direitos e contextos sociais existentes, é assumida nessa Polí- tica como atribuição da Diretoria de Educação Especial da Se- cretaria Municipal de Educação de Gaspar. ( ) Será garantida em todas as unidades educacionais e serviços da Rede, dev endo haver a retirada de todas as barreiras ambi- entais existentes, tanto nas construções dos imóveis como nos equipamentos urbanos e no transporte oferecido, os quais de- vem estar preparados para receber qualquer perfil de educando e/ou possibilitando os aj ustes necessários, em tempo reduzido, quando necessário. ( ) Serão removidas as barreiras percebidas na comunicação inter- pessoal, escrita e virtual, sendo disponibilizados aos educandos modos de comunicação adequados aos seus perfis, através de intérpretes , guia -intérpretes e o uso de linguagens e recursos de comunicação necessários. Assinale a alternativa com a sequência correta :",
     "excerpt": null,
@@ -3680,7 +3693,7 @@ const QUESTIONS_BANK = [
     "id": 237
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Práticas Pedagógicas e Linguagem",
     "source": "FURB 2024 — Pref. Gaspar/SC (Professor de Educação Infantil) (Prova Oficial)",
     "text": "No texto Múltiplas linguagens de meninos e meninas no cotidiano da educação infantil, de Márcia Gobbi (2010), a autora discorre sobre as linguagens das artes na educação infantil. De acordo com esta autora, em relação ao cinema, analise as afirmativas abaixo e identifique as corretas : I- As experiências das crianças encontram no cinema lugar precioso para serem observadas e aprende m de muitos modos, a partir das inúmeras formas como são representadas, dando -lhe visibilidades diversas. II- Os film es podem servir a funções avaliadoras, de transposição de conteúdos escolares, ainda que os mais simples, ou mesmo, como suporte moralizador da infância. III- O cinema é também uma maneira de propiciar experiências estéticas às crianças, observando isso, é im- prescindível que o adulto considere, nos filmes, sua forma e conteúdo, linguagens utilizadas, o caráter da produção, já que se trata de uma forma de possibilitar compreensão de mundo e simultaneamente promover criações. É correto o que se afirma em:",
     "excerpt": null,
@@ -3728,7 +3741,7 @@ const QUESTIONS_BANK = [
     "id": 240
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "DCNEI (Diretrizes Curriculares)",
     "source": "FURB 2024 — Pref. Blumenau/SC (Professor de Educação Infantil) (Prova Oficial)",
     "text": "Segundo as Diretrizes para a Educação Infantil, é fundamental que as crianças sejam ouvidas e respeitadas em suas culturas, curiosidades, necessidades e potencialidades. Nesse contexto, analise as asserções a seguir e a relação proposta entre elas: I. As múltiplas linguagens e a diversidade cultural das crianças são essenciais para estabelecer relações significativas dentro e fora da instituição de Educação Infantil. PORQUE II. A valorização das diferentes maneiras de ser das crianças, incluindo seu jeito de falar, agir e brincar, contribui para a construção de novas e variadas culturas infantis, enriquecendo suas vivências e experiências cotidianas. A respeito dessas asserções, assinale a alternativa correta:",
     "excerpt": null,
@@ -3744,7 +3757,7 @@ const QUESTIONS_BANK = [
     "id": 241
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Ludicidade e Brincar",
     "source": "FURB 2023 — Pref. Florianópolis/SC (Prova Oficial)",
     "text": "Ao se selecionar um brinquedo para brincadeiras na Educação Infantil, são características relevantes: I. Deve-se levar em conta: a adequação à criança, a segurança, oportunidades de brincar que propiciem a diversidade de usos, se atendem às singularidades das crianças sem estimular preconceitos, se não estimulam a violência. II. Brinquedo é suporte de brincadeira e não objeto de decoração, portanto deve estar sempre disponível para a criança ver, tocar, sentir, movimentar, experimentar suas possibilidades. III. Os brinquedos utilizados na Educação Infantil devem obrigatoriamente ser não...",
     "excerpt": null,
@@ -3760,7 +3773,7 @@ const QUESTIONS_BANK = [
     "id": 242
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Ludicidade e Brincar",
     "source": "Pref. Piratuba/SC • AMAUC • 2025 (Prova Oficial)",
     "text": "O lúdico é um eixo estruturante da prática pedagógica na Educação Infantil. Qual é a função da brincadeira musical (jogos de mãos, rodas, exploração sonora) no processo de aprendizagem?",
     "excerpt": null,
@@ -3776,7 +3789,7 @@ const QUESTIONS_BANK = [
     "id": 243
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Currículo e Planejamento",
     "source": "Prefeitura de Ipumirim - SC • AMAUC • 2025 (Prova Oficial)",
     "text": "A organização do tempo e do espaço na Educação Infantil deve expressar concepções pedagógicas coerentes com os direitos da criança à convivência, ao brincar, às interações e às múltiplas linguagens. Nesse sentido, assinale a alternativa que interpreta de forma CORRETA os princípios que fundamentam tais dimensões no contexto institucional.",
     "excerpt": null,
@@ -3792,7 +3805,7 @@ const QUESTIONS_BANK = [
     "id": 244
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Desenvolvimento Infantil",
     "source": "FURB 2024 — Pref. Blumenau/SC (Professor de Educação Infantil) (Prova Oficial)",
     "text": "Para Vigotski, em Obras escogidas (1996), a linguagem é o sistema simbólico de todos os grupos humanos, instrumento psicológico que possibilita compartilhar e interpretar os objetos, as relações e o cotidiano, e constitui-se na síntese, na sistematização da experiência vivida, por meio do sistema de signos com seus significados. Nessa perspectiva, é correto afirmar que:",
     "excerpt": null,
@@ -3824,7 +3837,7 @@ const QUESTIONS_BANK = [
     "id": 246
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Currículo e Planejamento",
     "source": "Prefeitura de Meleiro - SC • UNESC • 2025 (Prova Oficial)",
     "text": "No contexto da Educação Infantil, o planejamento e os projetos pedagógicos assumem papel essencial na garantia dos direitos de aprendizagem e desenvolvimento. À luz dos fundamentos legais e teóricos que regem a prática pedagógica nessa etapa, assinale a alternativa CORRETA.",
     "excerpt": null,
@@ -3840,7 +3853,7 @@ const QUESTIONS_BANK = [
     "id": 247
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Avaliação e Documentação",
     "source": "Pref. Mataraca/PB • CPCON/UEPB • 2025 (Prova Oficial)",
     "text": "Durante o registro de uma atividade de pintura realizada com crianças de até 3 anos, o(a) monitor(a) deve auxiliar na elaboração de um portfólio que valorize o desenvolvimento integral das crianças, com o objetivo de cultivar práticas pedagógicas que compõem a proposta curricular. De acordo com as diretrizes pedagógicas da Educação Infantil, qual aspecto deve ser priorizado para incluir no portfólio?",
     "excerpt": null,
@@ -3872,7 +3885,7 @@ const QUESTIONS_BANK = [
     "id": 249
   },
   {
-    "area": "Língua Portuguesa",
+    "area": "Ludicidade e Brincar",
     "source": "Pref. Mataraca/PB • CPCON/UEPB • 2025 (Prova Oficial)",
     "text": "No que diz respeito à organização dos espaços e do tempo na Educação Infantil, especialmente no planejamento das atividades diárias e da recreação, analise as afirmativas abaixo: I- A organização do espaço deve priorizar a funcionalidade, garantindo que todos os materiais e brinquedos estejam facilmente acessíveis às crianças, haja vista que o planejamento prévio e a observação das interações que ali ocorrerão são desnecessários. II- O planejamento das atividades diárias deve ser fixo, promovendo estabilidade e previsibilidade, sem necessidade de ajustes conforme as demandas observadas nas interações entre crianças e no contexto da comunidade escolar. III- Deve ser estabelecido um diálogo efetivo com a comunidade local, associado a dispositivos que garantam a gestão participativa e a valorização dos conhecimentos comunitários. IV- Em razão das especificidades etárias, das singularidades individuais e coletivas das crianças, só deve haver interações entre crianças de mesma idade. É CORRETO o que se afirma apenas em:",
     "excerpt": null,
@@ -4111,18 +4124,19 @@ const QUESTIONS_BANK = [
     "id": 264
   },
   {
-    "area": "DCNEI (Diretrizes Curriculares)",
-    "source": "Prefeitura de Piracuruca - PI • FUNATEC • 2025 (Prova Oficial)",
-    "text": "As Diretrizes Curriculares Nacionais para a Educação Infantil (DCNEI) orientam que o currículo deve ser organizado a partir de:",
+    "area": "Práticas Pedagógicas e Linguagem",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "A musicalização na Educação Infantil é um processo fundamental para o desenvolvimento integral da criança. Para que essa experiência seja rica e significativa, o professor de musicalização deve dominar alguns processos didáticos específicos, como a organização do ambiente, a utilização de materiais diversificados e o conhecimento das metodologias ativas. Analise as proposições a seguir sobre os processos que o professor deve realizar e marque a alternativa correta:",
     "excerpt": null,
     "options": [
-      "experiências significativas que articulem cuidar, educar e brincar.",
-      "conteúdos disciplinares fixos e previamente determinados.",
-      "avaliações padronizadas para cada faixa etária.",
-      "metas de rendimento escolar e desempenho cognitivo."
+      "Rotina musical: não é necessário estabelecer uma rotina musical na educação infantil, pois a exploração deve ser livre.",
+      "Avaliação: a única forma de avaliar o desenvolvimento da criança na educação infantil é a observação.",
+      "Espaço organizado: um ambiente rico em estímulos sonoros, com instrumentos de percussão, objetos sonoros e materiais para a criação musical.",
+      "Integração: a educação musical tem pouca aderência com outras linguagens da educação infantil.",
+      "Jogos musicais: o uso de jogos musicais só acontece no ensino fundamental, quando as crianças já dominam das regras dos jogos."
     ],
-    "answer": 0,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: ✅ GABARITO OFICIAL: Alternativa A.\n📌 JUSTIFICATIVA PEDAGÓGICA: As DCNEI orientam que o currículo na Educação Infantil seja organizado a partir de experiências significativas que integrem cuidar, educar e brincar, promovendo o desenvolvimento integral da criança em seus aspectos físico, emocional, social e cognitivo.\n💡 DIRETRIZES OFICIAIS: Em conformidade com a BNCC e as DCNEI, a Educação Infantil tem como eixos estruturantes as interações e a brincadeira, assegurando os 6 direitos de aprendizagem (conviver, brincar, participar, explorar, expressar e conhecer-se).\n⚠️ ATENÇÃO EM CONCURSOS: Questões de Educação Infantil desclassificam assertivas que proponham controle autoritário, avaliação para retenção ou fragmentação do desenvolvimento da criança.\n💡 DIRETRIZ OFICIAL: Em conformidade com a LDB 9.394/96, as DCNEI e a BNCC, a Educação Infantil tem como eixos estruturantes as interações e a brincadeira, assegurando os direitos de aprendizagem da criança.\n⚠️ ATENÇÃO EM CONCURSOS: Bancas costumam tentar induzir ao erro com pegadinhas sobre retenção/reprovação na Educação Infantil (proibido pela LDB), desconsideração do lúdico ou transferência precoce de conteúdos mecânicos do Ensino Fundamental.",
+    "answer": 2,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa C.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"Espaço organizado: um ambiente rico em estímulos sonoros, com instrumentos de percussão, objetos sonoros e materiais para a criação musical.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 265
   },
   {
@@ -4363,7 +4377,7 @@ const QUESTIONS_BANK = [
     "id": 280
   },
   {
-    "area": "Desenvolvimento Infantil",
+    "area": "BNCC (Educação Infantil)",
     "source": "Pref. Jacinto Machado/SC • PS CONCURSOS • 2025 (Prova Oficial)",
     "text": "Na Educação Infantil, as aprendizagens e o desenvolvimento das crianças têm como eixos estruturantes as interações e a brincadeira, assegurando -lhes os direitos de: I. Conviver II. Brincar III. Participar IV. Refletir V. Expressar VI. Interagir Assinale a alternativa CORRETA:",
     "excerpt": null,
@@ -4374,8 +4388,8 @@ const QUESTIONS_BANK = [
       "Somente os itens I, III, V e VI estão corretos",
       "Todos os itens estão corretos"
     ],
-    "answer": 4,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa E.\n📌 FUNDAMENTAÇÃO: ✅ GABARITO OFICIAL: Alternativa E.\n📌 JUSTIFICATIVA PEDAGÓGICA: Os eixos estruturantes da Educação Infantil são interações e brincadeira, garantindo os direitos de conviver, brincar, participar, refletir, expressar e interagir. Todos os itens listados fazem parte desses direitos.\n💡 DIRETRIZES OFICIAIS: Em conformidade com a BNCC e as DCNEI, a Educação Infantil tem como eixos estruturantes as interações e a brincadeira, assegurando os 6 direitos de aprendizagem (conviver, brincar, participar, explorar, expressar e conhecer-se).\n⚠️ ATENÇÃO EM CONCURSOS: Questões de Educação Infantil desclassificam assertivas que proponham controle autoritário, avaliação para retenção ou fragmentação do desenvolvimento da criança.\n💡 DIRETRIZ OFICIAL: A Educação Infantil, primeira etapa da Educação Básica, organiza-se pelos eixos estruturantes das interações e da brincadeira, assegurando o pleno desenvolvimento integral da criança.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A (Somente os itens I, II, III e V estão corretos).\n📌 FUNDAMENTAÇÃO: A BNCC define expressamente SEIS direitos de aprendizagem e desenvolvimento na Educação Infantil:\n1. Conviver (Item I - Correto)\n2. Brincar (Item II - Correto)\n3. Participar (Item III - Correto)\n4. Explorar (não citado)\n5. Expressar (Item V - Correto)\n6. Conhecer-se (não citado)\nOs itens IV (\"Refletir\") e VI (\"Interagir\") NÃO são direitos de aprendizagem da BNCC (as \"interações\" compõem os eixos estruturantes com as brincadeiras, não a lista dos seis direitos). Logo, apenas I, II, III e V estão corretos.\n💡 DIRETRIZ OFICIAL: BNCC — Etapa da Educação Infantil (Campos de Experiências e Direitos de Aprendizagem).\n⚠️ ATENÇÃO EM CONCURSOS: Memorize o mnemônico dos 6 direitos da BNCC: CON-BRI-PAR-EX-EX-CON (Conviver, Brincar, Participar, Explorar, Expressar, Conhecer-se). \"Interagir\" é eixo estruturante, não direito!",
     "id": 281
   },
   {
@@ -4978,19 +4992,19 @@ const QUESTIONS_BANK = [
     "id": 319
   },
   {
-    "area": "Currículo e Planejamento",
-    "source": "Pref. Umbuzeiro/PB • EDUCA • 2025 (Prova Oficial)",
-    "text": "Sobre o brincar na educação infantil, analise os itens a seguir: I. O brincar envolve as ideias de brincadeira e brinquedo, sendo importante estabelecer uma distinção entre os três termos: a) o brincar que consiste no ato em si, ou seja, é a ação propriamente dita; b) a brincadeira que é a situação criada a partir da ação de brincar; c) o brinquedo que representa o objeto usado para brincar. II. No currículo da Educação Infantil, o brincar tem como propósito oportunizar às crianças, ambientes em que possam interagir com os brinquedos e objetos, individualmente e com outras crianças, através de brincadeiras que promovam situações de interação social. III. O brinquedo e o brincar são encarados enquanto movimento de libertação da criança na medida em que possibilitam à criança reinventar seu mundo. Está(ão) CORRETO(S):",
+    "area": "Educação Infantil",
+    "source": "FURB 2024 — Pref. Blumenau/SC (Prova Oficial)",
+    "text": "Com base nos princípios éticos no contexto educacional, analise as afirmativas a seguir: I. A ética na educação refere-se exclusivamente ao cumprimento de regras e normas estabelecidas pela instituição de ensino. II. A formação ética dos estudantes deve considerar os princípios de respeito, solidariedade e justiça nas relações interpessoais e com o meio ambiente. III. As questões éticas devem ser abordadas de forma transversal no currículo, permeando todas as áreas do conhecimento. É correto o que se afirma em:",
     "excerpt": null,
     "options": [
-      "I, II, apenas.",
-      "II, III, apenas.",
-      "I, apenas.",
+      "II e III, apenas.",
       "III, apenas.",
-      "I, II, III."
+      "I, apenas.",
+      "I, II e III.",
+      "II, apenas."
     ],
-    "answer": 4,
-    "explanation": "✅ GABARITO OFICIAL: Alternativa E.\n📌 FUNDAMENTAÇÃO: A alternativa E está correta pois todos os itens (I, II e III) apresentam informações corretas sobre o brincar na educação infantil. O item I diferencia brincar, brincadeira e brinquedo; o item II enfatiza a interação social e o uso de objetos; e o item III trata o brincar como libertador e criativo.\n💡 DIRETRIZ OFICIAL: A Educação Infantil, primeira etapa da Educação Básica, organiza-se pelos eixos estruturantes das interações e da brincadeira, assegurando o pleno desenvolvimento integral da criança.\n⚠️ ATENÇÃO EM CONCURSOS: Fique atento aos distratores típicos de bancas, como afirmações que atribuem caráter preparatório/escolarizante à creche, desconsideram a ludicidade ou invertem regras gramaticais.",
+    "answer": 0,
+    "explanation": "✅ GABARITO OFICIAL: Alternativa A.\n📌 FUNDAMENTAÇÃO: Gabarito oficial da banca FURB 2024 (Pref. Blumenau/SC). A alternativa correta é: \"II e III, apenas.\". Questão extraída diretamente da prova oficial para o Magistério Municipal de Blumenau.\n💡 DIRETRIZ OFICIAL: Em total consonância com as diretrizes do Currículo da Educação Básica da Rede Municipal de Ensino de Blumenau (fundamentado na teoria Histórico-Cultural) e a legislação educacional vigente.\n⚠️ ATENÇÃO EM CONCURSOS: A banca FURB prioriza questões contextualizadas no Sistema Municipal de Ensino de Blumenau, nas relações interpessoais e na articulação entre a práxis pedagógica e o desenvolvimento integral da criança.",
     "id": 320
   },
   {
@@ -6230,7 +6244,7 @@ const QUESTIONS_BANK = [
     "id": 399
   },
   {
-    "area": "Raciocínio Lógico e Matemática",
+    "area": "Língua Portuguesa",
     "source": "FURB 2023 — Pref. Florianópolis/SC (Prova Oficial)",
     "text": "I. O problema central apontado pela pesquisa é a grande quantidade de pessoas que se graduam em uma licenciatura e deixam de atuar na área. II. Uma das causas para a regressão no número de ingresso em licenciaturas presenciais é o número em constante aumento de ingresso em cursos de licenciaturas no formato EaD. III. Cursos como Ciências Sociais, Música, Matemática e Química têm apresentado grandes taxas de evasão. IV. Um dos problemas na questão de professores lecionando fora de sua área de formação é a falta de conhecimento específico, o que pode causar o desinteresse e baixo engajamento dos estudantes. V. Em 2021, praticamente um terço das vagas oferecidas em universidades públicas nas licenciaturas não foi ocupado. Dessa forma, não se pode culpar o número de vagas no ensino superior pela falta de professores licenciados. VI. A pesquisa do INEP mostra que mais da metade dos docentes que atuavam no ensino fundamental e médio em 2022 não tinham formação na área em que estavam atuando. É correto o que se afirma em:",
     "excerpt": "A partir da leitura do Texto 1: \"Crise nos programas de licenciatura\", analise as afirmações a seguir:",

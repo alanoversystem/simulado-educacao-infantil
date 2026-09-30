@@ -1,6 +1,6 @@
 # 📚 Simulado Oficial — Professor de Educação Infantil (400 Questões Reais)
 
-Simulado interativo e responsivo construído especificamente para concursos públicos de **Professor de Educação Infantil**, com foco estrito no padrão da **Banca FURB** (Prefeitura de Blumenau/SC, Gaspar/SC, Brusque/SC, Florianópolis/SC, Ilhota/SC, etc.) e nos principais concursos municipais de Santa Catarina (FEPESE, AMEOSC, etc.).
+Simulado interativo e responsivo construído especificamente para concursos públicos de **Professor de Educação Infantil**, com foco estrito nas provas oficiais da **Prefeitura Municipal de Blumenau/SC (Banca FURB)**, no Currículo da Educação Básica de Blumenau e nos concursos municipais de Santa Catarina (FEPESE, AMEOSC, AMAUC, UNESC, etc.).
 
 ## 🚀 Acesse Online no Celular ou Computador
 🔗 **[https://alanoversystem.github.io/simulado-educacao-infantil/](https://alanoversystem.github.io/simulado-educacao-infantil/)**  
@@ -8,24 +8,30 @@ Simulado interativo e responsivo construído especificamente para concursos púb
 
 ---
 
+## 🏛️ Provas Reais de Blumenau e Banca FURB
+O banco conta com **46 questões oficiais exclusivas de Blumenau/SC** (extraídas diretamente das provas de Professor de Educação Infantil 2024, Arte/Musicalização na Educação Infantil 2024 e Magistério Municipal) e **mais de 100 questões da banca FURB em Santa Catarina** (Gaspar 2024, Brusque 2024, Florianópolis 2023, Ilhota 2023).
+
+---
+
 ## 🎯 Distribuição Temática do Banco Oficial (400 Questões)
 
-O banco agora possui **400 questões oficiais homologadas**, com ênfase dominante na **Legislação Educacional e Diretrizes Normativas** (255 questões de LDB, ECA e BNCC = **64% de todo o banco**), combinadas com os **Textões da FURB** e as teorias pedagógicas e do desenvolvimento:
+O banco possui **400 questões oficiais homologadas com gabaritos 100% auditados e revisados**, com fundamentação legal e pedagógica minuciosa:
 
 | Área Temática | Quantidade | Conteúdos Principais |
 | :--- | :---: | :--- |
-| **📖 BNCC (Educação Infantil)** | **118** | 6 Direitos de Aprendizagem, 5 Campos de Experiências, transição para o fundamental, faixas etárias de bebês e crianças |
-| **📜 LDB (Lei 9.394/96)** | **76** | Art. 29 a 31 (específicos da Educ. Infantil), creche/pré-escola, 800h/200 dias, 60% frequência, avaliação formativa sem retenção |
-| **🛡️ ECA (Lei 8.069/90)** | **61** | Doutrina da Proteção Integral, prioridade absoluta, direito à escola pública próxima, notificação ao Conselho Tutelar |
-| **📄 Língua Portuguesa (FURB)** | **45** | **Textões reais da banca**, crase, concordância verbal/nominal, orações, regência, coesão e tipologia textual |
-| **🧩 Desenvolvimento Infantil** | **35** | Lev Vigotski, Jean Piaget, Henri Wallon, Emmi Pikler |
-| **🧒 Currículo, Tempos e Rotinas** | **21** | Maria Carmem Barbosa, organização dos espaços, rotina pedagógica e acolhimento |
-| **📋 DCNEI (Res. CNE/CEB 5/2009)** | **16** | Princípios éticos, estéticos e políticos; interações e brincadeira como eixos estruturantes |
-| **🧸 Práticas na Educação Infantil** | **10** | Relação família-escola, função social da creche, práticas integradas e inclusão escolar |
-| **📊 Avaliação e Documentação** | **8** | Observação contínua, registros pedagógicos, pareceres e portfólios formativos |
-| **🎲 Ludicidade e o Brincar** | **7** | O brincar como linguagem da infância, Gilles Brougère, Tizuko Kishimoto |
-| **Raciocínio Lógico e Matemática** | **2** | Noções de raciocínio lógico e resolução de situações-problema do edital |
-| **TOTAL** | **400** | **100% de Questões Oficiais Homologadas** |
+| **📖 BNCC (Educação Infantil)** | **109** | 6 Direitos de Aprendizagem (Conviver, Brincar, Participar, Explorar, Expressar, Conhecer-se), 5 Campos de Experiências, transição para o fundamental, grupos etários (bebês, crianças bem pequenas, crianças pequenas) |
+| **📜 LDB (Lei 9.394/96)** | **76** | Arts. 29 a 31 (Educação Infantil como 1ª etapa da Ed. Básica), creche (0 a 3 anos) e pré-escola (4 e 5 anos obrigatória), 800h/200 dias, 60% frequência mínima, avaliação contínua sem retenção |
+| **🛡️ ECA (Lei 8.069/90)** | **59** | Doutrina da Proteção Integral, prioridade absoluta, direito à escola pública próxima, notificação compulsória ao Conselho Tutelar (Art. 56) |
+| **🧩 Desenvolvimento Infantil** | **36** | Lev Vigotski (ZDP, mediação semiótica, instrumentos e signos), Jean Piaget (psicogenética, jogo simbólico), Henri Wallon (afetividade e movimento) |
+| **🏫 Currículo de Blumenau, Tempos e Rotinas** | **26** | Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau (2021), teoria Histórico-Cultural, Maria Carmem Barbosa, organização dos espaços com intencionalidade pedagógica |
+| **📄 Língua Portuguesa (Banca FURB)** | **27** | **Textões reais da banca**, tipologia e gênero textual, crase, concordância verbal/nominal, regência, colocação pronominal, coesão e coerência |
+| **📋 DCNEI (Res. CNE/CEB 5/2009)** | **16** | Princípios éticos, estéticos e políticos; conceito de criança como sujeito histórico e de direitos; eixos norteadores (interações e brincadeiras) |
+| **🎨 Práticas Pedagógicas e Linguagem** | **14** | Múltiplas linguagens, musicalização infantil, desenho, artes visuais, literatura infantil e práticas não-estereotipadas |
+| **🎲 Ludicidade e o Brincar** | **10** | O brincar como eixo estruturante, jogos simbólicos, brinquedos e brincadeiras significativas |
+| **📊 Avaliação e Documentação Pedagógica** | **9** | Observação atenta, registros cotidianos, relatórios, fotografias, filmagens e portfólios formativos com participação das crianças |
+| **🧸 Conhecimentos da Educação Infantil** | **15** | Função social da creche, indissociabilidade entre cuidar e educar, relações família-escola e percurso formativo |
+| **♿ Educação Inclusiva & RLM** | **3** | Educação especial na perspectiva inclusiva e resolução de situações-problema aplicadas |
+| **TOTAL** | **400** | **100% de Questões Oficiais Homologadas e Auditadas** |
 
 ---
 
@@ -39,19 +45,19 @@ O banco agora possui **400 questões oficiais homologadas**, com ênfase dominan
    - A cada questão respondida (certa ou errada), você recebe imediatamente:
      - Qual opção marcou;
      - Por que errou ou acertou;
-     - A alternativa correta do gabarito oficial;
-     - Fundamentação pedagógica e citação legal aprofundada (LDB, ECA, BNCC, DCNEI).
+     - A alternativa correta do gabarito oficial homologado;
+     - Fundamentação pedagógica e citação legal aprofundada (LDB, ECA, BNCC, DCNEI, Legislação e Currículo de Blumenau).
 
 3. **⚙️ Seleção de Modos de Treino**:
    - ⚡ **15 Questões** (Treino Rápido • ~30 min)
    - 🎯 **30 Questões** (Simulado Completo • ~1h30)
-   - 🏆 **40 Questões** (Padrão Prova Oficial FURB • 3h)
+   - 🏆 **40 Questões** (Padrão Prova Oficial FURB Blumenau • 3h)
    - 🔥 **60 Questões** (Maratona de Estudos • ~4h)
-   - 📚 **Todas as 400 Questões** (Banco Completo)
+   - 📚 **Todas as 400 Questões** (Banco Completo para Estudo Intensivo)
 
 4. **📊 Painel de Desempenho e Gabarito Visual**:
    - Cronômetro de prova em tempo real.
-   - Grade de navegação rápida entre questões.
+   - Grade de navegação rápida entre questões (verde para certas, vermelho para erradas).
    - Gráfico de aproveitamento percentual com mínimo para aprovação (60%).
    - Desempenho categorizado por área de conhecimento.
    - Gabarito visual com botões para **"🎲 Novo Simulado (Sortear Novas Questões)"** ou **"🔁 Refazer Estas Mesmas Questões"**.
