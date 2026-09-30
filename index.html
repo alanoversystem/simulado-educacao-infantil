@@ -561,7 +561,7 @@
   <!-- ══ TELA INICIAL ══ -->
   <div id="start-screen">
     <h2>🎯 Simulado Oficial de Concursos</h2>
-    <p class="subtitle">Banco fiel com questões literais das provas oficiais da <strong>Banca FURB</strong> (Blumenau, Gaspar, Brusque e concursos de SC) para <strong>Professor de Educação Infantil</strong>.</p>
+    <p class="subtitle">Banco fiel com questões literais das provas oficiais da <strong>Banca FURB</strong> (Blumenau, Gaspar, Brusque, Timbó e concursos de SC) para <strong>Professor de Educação Infantil</strong>.</p>
 
     <!-- BANNER ANTI-DECOREBA -->
     <div class="antidecoreba-banner">
@@ -572,7 +572,22 @@
       </div>
     </div>
 
-    <!-- SELETOR DE MODO -->
+    <!-- SELETOR DE ESCOPO / ORIGEM DAS QUESTÕES -->
+    <div class="selector-box" style="background:#F0F7FF; border:2px solid #BFDBFE;">
+      <div class="selector-title" style="color:#1E3A8A;">📍 Escolha o Foco das Questões da Banca FURB:</div>
+      <div class="mode-options" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div class="mode-btn active" onclick="selectOriginFilter('all')" id="filter-all">
+          <strong style="color:#1D4ED8;">🌲 Toda Santa Catarina (Banca FURB)</strong>
+          <span id="label-filter-all">Todas as 236 questões da FURB (Blumenau, Gaspar, Brusque, Timbó, Florianópolis, Ilhota, etc.)</span>
+        </div>
+        <div class="mode-btn" onclick="selectOriginFilter('blumenau')" id="filter-blumenau">
+          <strong style="color:#047857;">🏛️ Apenas Blumenau/SC (Foco Máximo)</strong>
+          <span id="label-filter-blumenau">92 questões exclusivas (Provas 2024, 2021, 2019, Legislação e Currículo Municipal)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SELETOR DE QUANTIDADE -->
     <div class="selector-box">
       <div class="selector-title">⚙️ Escolha a quantidade de questões para este simulado:</div>
       <div class="mode-options">
@@ -593,40 +608,30 @@
           <span>Maratona • ~4h</span>
         </div>
         <div class="mode-btn" onclick="selectMode(0)" id="mode-0">
-          <strong>📚 Todas (400 Questões)</strong>
-          <span>Banco Oficial Completo</span>
+          <strong id="mode-all-title">📚 Todas (236 Questões)</strong>
+          <span id="mode-all-subtitle">Todas do Filtro Ativo</span>
         </div>
       </div>
     </div>
 
-    <div class="badge-list">
-      <span class="badge" style="background:#E3F2FD; color:#0D47A1; font-weight:700;">🏛️ Provas Blumenau & FURB (103 questões)</span>
-      <span class="badge" style="background:#E8F5E9; color:#1B5E20; font-weight:700;">📖 BNCC Infantil (109 questões)</span>
-      <span class="badge" style="background:#FFF3E0; color:#E65100; font-weight:700;">📜 LDB 9.394/96 (76 questões)</span>
-      <span class="badge" style="background:#FBE9E7; color:#BF360C; font-weight:700;">🛡️ ECA Lei 8.069/90 (59 questões)</span>
-      <span class="badge">🧩 Piaget, Vigotski & Wallon (36 questões)</span>
-      <span class="badge">🏫 Currículo Blumenau & Rotinas (26 questões)</span>
-      <span class="badge">📄 Português com Textão FURB (27 questões)</span>
-      <span class="badge">📋 DCNEI (16 questões)</span>
-      <span class="badge">🎨 Práticas & Linguagens (14 questões)</span>
-      <span class="badge">🎲 Ludicidade & Brincar (10 questões)</span>
-      <span class="badge">📊 Avaliação & Documentação (9 questões)</span>
+    <div class="badge-list" id="badge-list-container">
+      <!-- Inserido dinamicamente via JS com base no filtro ativo -->
     </div>
 
     <div class="info-grid">
-      <div class="info-card"><strong id="total-bank-count">400</strong><span>No Banco</span></div>
+      <div class="info-card"><strong id="total-bank-count">236</strong><span>No Filtro Ativo</span></div>
       <div class="info-card"><strong id="display-selected-q">30</strong><span>Neste Simulado</span></div>
       <div class="info-card"><strong>60%</strong><span>Mínimo aprovação</span></div>
       <div class="info-card"><strong>A–E</strong><span>Opções Embaralhadas</span></div>
     </div>
 
     <div class="source-list">
-      <strong>📋 Fontes Oficiais das 400 Provas Cadastradas (Gabaritos Auditados):</strong>
+      <strong>📋 Fontes Oficiais das Provas (100% Banca FURB & Blumenau):</strong>
       <ul>
-        <li><strong>Pref. Blumenau/SC (Banca FURB):</strong> Provas oficiais de Professor de Educação Infantil 2024, Arte/Musicalização 2024 e Magistério — 46 questões diretas de Blumenau.</li>
-        <li><strong>Banca FURB em Santa Catarina:</strong> Concursos de Gaspar 2024, Brusque 2024, Florianópolis 2023, Ilhota 2023 — mais de 100 questões no estilo e padrão da banca.</li>
-        <li><strong>Legislação e Diretrizes Oficiais:</strong> LDB 9.394/96, ECA Lei 8.069/90, DCNEI (Res. CNE/CEB 5/2009), BNCC da Educação Infantil e Legislação Municipal de Blumenau (Lei 5.169/98 e LC 1.335/2021).</li>
-        <li><strong>Gabaritos 100% Revisados:</strong> Todas as questões possuem gabaritos auditados contra as diretrizes legais e comentários pedagógicos em 4 blocos explicativos.</li>
+        <li><strong>Prefeitura de Blumenau/SC:</strong> Provas de Professor de Educação Infantil 2024, Arte/Musicalização na Ed. Infantil 2024, Pedagogia 2021, Educador Social 2019, Pedagogia Aprendiz 2019 e Magistério.</li>
+        <li><strong>Banca FURB em Santa Catarina:</strong> Concursos de Gaspar 2024, Brusque 2024, Timbó 2024 (Educador Infantil), Florianópolis 2023, Ilhota 2023, Guabiruba 2024 e Doutor Pedrinho 2020.</li>
+        <li><strong>Legislação e Currículo de Blumenau:</strong> Lei Municipal 5.169/1998, Lei Complementar 1.335/2021 (CACS-FUNDEB) e Currículo da Educação Básica de Blumenau (Perspectiva Histórico-Cultural).</li>
+        <li><strong>Gabaritos 100% Auditados e Justificados:</strong> Todas as questões contam com gabarito oficial validado e comentários pedagógicos em 4 blocos explicativos.</li>
       </ul>
     </div>
 
@@ -668,6 +673,7 @@
     <div style="text-align:center; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 20px;">
       <button class="btn btn-primary btn-lg" onclick="startNewRandomQuiz()">🎲 Novo Simulado (Sortear Novas Questões)</button>
       <button class="btn btn-secondary btn-lg" onclick="retakeCurrentQuiz()">🔁 Refazer Estas Mesmas Questões</button>
+      <button class="btn btn-secondary btn-lg" onclick="returnToStartScreen()">⚙️ Alterar Foco / Quantidade</button>
       <button class="btn btn-secondary btn-lg" onclick="window.print()">🖨️ Imprimir Gabarito</button>
     </div>
   </div>
@@ -688,8 +694,9 @@ const MASTER_QUESTION_BANK = (typeof QUESTIONS_BANK !== 'undefined' && Array.isA
 // ════════════════════════════════════════════════════════════════
 //  ESTADO GLOBAL
 // ════════════════════════════════════════════════════════════════
-let selectedQuantity = 30; // padrão
-let activeQuestions  = []; // questões sorteadas e embaralhadas
+let originFilter     = 'all'; // 'all' (Toda SC - Banca FURB) ou 'blumenau' (Apenas Blumenau)
+let selectedQuantity = 30;    // padrão
+let activeQuestions  = [];    // questões sorteadas e embaralhadas
 let answers          = [];
 let locked           = [];
 let current          = 0;
@@ -700,20 +707,86 @@ let endTime          = null;
 
 // Inicialização da interface
 window.addEventListener('DOMContentLoaded', () => {
-  const bankSize = MASTER_QUESTION_BANK.length || 400;
-  const countEl = document.getElementById('total-bank-count');
-  if (countEl) countEl.textContent = bankSize;
+  updateUIForFilter();
 });
+
+// Filtro de Escopo: Toda SC vs. Apenas Blumenau
+function selectOriginFilter(filter) {
+  originFilter = filter;
+  document.querySelectorAll('[id^="filter-"]').forEach(b => b.classList.remove('active'));
+  const target = document.getElementById('filter-' + filter);
+  if (target) target.classList.add('active');
+
+  updateUIForFilter();
+}
+
+function getFilteredBank() {
+  if (typeof MASTER_QUESTION_BANK === 'undefined' || !Array.isArray(MASTER_QUESTION_BANK)) return [];
+  if (originFilter === 'blumenau') {
+    return MASTER_QUESTION_BANK.filter(q => q.isBlumenau);
+  }
+  return MASTER_QUESTION_BANK;
+}
+
+function updateUIForFilter() {
+  const filtered = getFilteredBank();
+  const totalAvail = filtered.length;
+
+  const countEl = document.getElementById('total-bank-count');
+  if (countEl) countEl.textContent = totalAvail;
+
+  const modeAllTitle = document.getElementById('mode-all-title');
+  if (modeAllTitle) {
+    modeAllTitle.textContent = `📚 Todas (${totalAvail} Questões)`;
+  }
+
+  const disp = selectedQuantity === 0 ? totalAvail : Math.min(selectedQuantity, totalAvail);
+  const dispEl = document.getElementById('display-selected-q');
+  if (dispEl) dispEl.textContent = disp;
+
+  updateBadges(filtered);
+}
+
+function updateBadges(filteredList) {
+  const container = document.getElementById('badge-list-container');
+  if (!container) return;
+
+  const areaCounts = {};
+  filteredList.forEach(q => {
+    areaCounts[q.area] = (areaCounts[q.area] || 0) + 1;
+  });
+
+  const sortedAreas = Object.entries(areaCounts).sort((a,b) => b[1] - a[1]);
+
+  let html = '';
+  if (originFilter === 'blumenau') {
+    html += `<span class="badge" style="background:#DCFCE7; color:#15803D; font-weight:700;">🏛️ 100% Foco Blumenau/SC (${filteredList.length} questões)</span>`;
+    html += `<span class="badge" style="background:#FEF3C7; color:#B45309; font-weight:700;">🏫 Provas 2024, 2021, 2019 & Legislação</span>`;
+  } else {
+    const blumCount = filteredList.filter(q => q.isBlumenau).length;
+    html += `<span class="badge" style="background:#E3F2FD; color:#0D47A1; font-weight:700;">🏛️ Blumenau (${blumCount} questões)</span>`;
+    html += `<span class="badge" style="background:#EFF6FF; color:#1E40AF; font-weight:700;">🌲 Outras Cidades SC (${filteredList.length - blumCount} questões)</span>`;
+  }
+
+  sortedAreas.forEach(([area, count]) => {
+    html += `<span class="badge">${area} (${count})</span>`;
+  });
+
+  container.innerHTML = html;
+}
 
 // Seleção do modo de quantidade
 function selectMode(qty) {
   selectedQuantity = qty;
-  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.mode-options .mode-btn').forEach(b => {
+    if (b.id && b.id.startsWith('mode-')) b.classList.remove('active');
+  });
   const target = document.getElementById('mode-' + qty);
   if (target) target.classList.add('active');
 
-  const bankSize = MASTER_QUESTION_BANK.length || 400;
-  const disp = qty === 0 ? bankSize : Math.min(qty, bankSize);
+  const filtered = getFilteredBank();
+  const totalAvail = filtered.length;
+  const disp = qty === 0 ? totalAvail : Math.min(qty, totalAvail);
   document.getElementById('display-selected-q').textContent = disp;
 }
 
@@ -731,16 +804,14 @@ function shuffleArray(arr) {
 
 // Prepara um novo simulado sorteando e embaralhando opções
 function prepareNewQuiz() {
-  const sourceBank = (typeof MASTER_QUESTION_BANK !== 'undefined' && MASTER_QUESTION_BANK.length > 0)
-    ? MASTER_QUESTION_BANK
-    : [];
+  const sourceBank = getFilteredBank();
 
   if (sourceBank.length === 0) {
-    alert("Erro ao carregar o banco de questões. Verifique se o arquivo questions-bank.js está presente.");
+    alert("Erro ao carregar o banco de questões para o filtro selecionado.");
     return;
   }
 
-  // 1. Embaralhar todas as questões do banco
+  // 1. Embaralhar todas as questões do filtro ativo
   const shuffledBank = shuffleArray(sourceBank);
 
   // 2. Selecionar o número desejado de questões
@@ -752,14 +823,16 @@ function prepareNewQuiz() {
   // 3. Embaralhar as alternativas de CADA questão e recalcular o índice 'answer'
   activeQuestions = picked.map(q => {
     const originalCorrectText = q.options[q.answer];
-
-    // Array de opções com seus textos
     const shuffledOptions = shuffleArray(q.options);
     const newAnswerIndex = shuffledOptions.indexOf(originalCorrectText);
 
     return {
+      id: q.id,
       area: q.area,
       source: q.source,
+      isBlumenau: q.isBlumenau,
+      municipio: q.municipio,
+      banca: q.banca,
       text: q.text,
       excerpt: q.excerpt || null,
       options: shuffledOptions,
@@ -778,7 +851,7 @@ function prepareNewQuiz() {
 }
 
 // ════════════════════════════════════════════════════════════════
-//  INICIAR / NOVO / REFAZER
+//  INICIAR / NOVO / REFAZER / VOLTAR
 // ════════════════════════════════════════════════════════════════
 function startQuiz() {
   prepareNewQuiz();
@@ -799,6 +872,17 @@ function retakeCurrentQuiz() {
   current = 0;
   document.getElementById('result-screen').style.display = 'none';
   renderQuizInterface();
+}
+
+function returnToStartScreen() {
+  clearInterval(timerInterval);
+  document.getElementById('result-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('start-screen').classList.remove('hidden');
+  document.getElementById('timer-box').classList.add('hidden');
+  document.getElementById('progress-bar-wrap').classList.add('hidden');
+  updateUIForFilter();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function renderQuizInterface() {
@@ -903,7 +987,7 @@ function renderAllQuestions() {
       <div class="question-meta">
         <span class="q-number">Questão ${idx + 1} de ${activeQuestions.length}</span>
         <span class="q-area">${q.area}</span>
-        <span class="q-source">${q.source}</span>
+        <span class="q-source">${q.isBlumenau ? '🏛️ Blumenau/SC • ' : '🌲 ' + (q.municipio || 'SC') + ' • '}${q.source}</span>
       </div>
       ${excerptHTML}
       <div class="question-text">${q.text}</div>
