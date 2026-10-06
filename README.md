@@ -77,17 +77,77 @@ Agora o candidato pode escolher exatamente como deseja treinar no topo da págin
    - Desempenho categorizado por área temática.
    - Botões para **"🎲 Novo Simulado"**, **"🔁 Refazer Estas Mesmas Questões"** e **"⚙️ Alterar Foco / Quantidade"**.
 
-5. **📈 Rastreamento de Desempenho Personalizado (NOVO!)**:
-   - **Identificação da Usuária**: O sistema identifica automaticamente a usuária do simulado através de uma sessão única (`?session=unique-id` na URL). Para projetos pessoais, isso garante que todos os dados sejam atribuídos corretamente.
-   - **Armazenamento Local**: Resultados são salvos no `localStorage` do navegador, permitindo acompanhar o progresso ao longo do tempo sem precisar de cadastro ou backend.
-   - **Dados Salvos por Simulado**:
-     * ✅ Acertos e ❌ Erros por questão;
-     * 📅 Data e hora de cada resposta;
-     * 🎯 Área temática da questão;
-     * 🏛️ Se a questão é de Blumenau ou SC.
-   - **Estatísticas Personalizadas na Tela de Resultados**:
-     * 👤 **Dados Gerais**: Total de simulados realizados, aproveitamento geral acumulado.
-     * 📐 **Desempenho por Área**: Tabela detalhada com acertos/totais/porcentagem para cada área temática.
-     * 🏛️ **Desempenho por Região**: Comparativo entre Blumenau/SC e Santa Catarina (questões oficiais da FURB).
-     * ⚠️ **Pontos Fracos**: Lista das 5 áreas com menor desempenho, ideais para foco nos estudos.
-   - **Como Usar**: Ao finalizar qualquer simulado ("✅ Finalizar Simulado e Ver Gabarito"), todos os resultados são automaticamente salvos e exibidos na tela de resultados. Basta acessar o site no navegador da usuária (celular ou computador) e usar normalmente!
+5. **📈 Desempenho Acumulado e Login para Sincronizar PC e Celular**:
+   - Ao finalizar um simulado (ou quando o tempo acaba), o resultado de cada questão é salvo no `localStorage` do aparelho.
+   - Com login (e-mail e senha, via **Firebase**), o histórico também é gravado na nuvem (Firestore, documento `users/{uid}`), e PC e celular passam a mostrar as mesmas estatísticas.
+   - A tela de resultados mostra: total de simulados, aproveitamento geral acumulado, desempenho por região (Blumenau × demais municípios) e pontos fracos (áreas abaixo de 60%).
+   - **Sem login o simulado funciona normalmente**; os resultados ficam só no aparelho e são enviados na próxima vez que a usuária entrar.
+
+---
+
+## 🔐 Login e Sincronização (Firebase)
+
+O site é estático (GitHub Pages). O login e o armazenamento ficam no **Firebase** (plano gratuito *Spark* é suficiente), usando o SDK oficial carregado direto da CDN — não há etapa de build.
+
+### Passo a passo de configuração (feito uma única vez)
+
+**1. Criar o projeto**
+1. Acesse <https://console.firebase.google.com/> com uma conta Google e clique em **Criar um projeto** (ex.: `simulado-educacao-infantil`). O Google Analytics pode ficar desativado.
+
+**2. Ativar o login por e-mail e senha**
+1. No menu, vá em **Criação → Authentication → Começar**.
+2. Na aba **Método de login**, escolha **E-mail/senha**, ative a primeira chave (**E-mail/senha**) e salve. (Não é preciso ativar "Link do e-mail".)
+
+**3. Criar a conta da usuária**
+1. Ainda em **Authentication**, abra a aba **Usuários → Adicionar usuário**.
+2. Informe o e-mail e uma senha provisória (mínimo 6 caracteres). Ela pode trocar a senha depois pelo botão **"Esqueci a senha"** do site.
+3. O cadastro pelo site fica desligado (`allowSignup: false` em `firebase-config.js`). Opcionalmente, em **Authentication → Configurações → Ações do usuário**, desmarque **Ativar criação (inscrição)** para bloquear cadastros também pela API.
+
+**4. Ativar o Firestore**
+1. Vá em **Criação → Firestore Database → Criar banco de dados**.
+2. Escolha a localização (ex.: `southamerica-east1` — São Paulo) e inicie no **modo de produção**.
+
+**5. Publicar as regras de segurança**
+1. Em **Firestore Database → Regras**, apague o conteúdo e cole o arquivo [`firestore.rules`](firestore.rules) deste repositório:
+   ```
+   match /users/{uid} {
+     allow read, write: if request.auth != null && request.auth.uid == uid;
+   }
+   ```
+   Assim cada usuária só lê e grava o próprio documento `users/{uid}`; todo o resto fica bloqueado.
+2. Clique em **Publicar**.
+
+**6. Colar a configuração no site**
+1. Em **⚙️ Configurações do projeto → Geral → Seus apps**, clique no ícone **Web (`</>`)**, dê um apelido (ex.: `simulado-web`) e registre o app (não precisa de Firebase Hosting).
+2. Copie os valores do objeto `firebaseConfig` mostrado (`apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`).
+3. Abra o arquivo [`firebase-config.js`](firebase-config.js) e **substitua os valores de exemplo** (`COLE_AQUI_A_API_KEY`, `SEU-PROJETO` etc.) pelos copiados. Faça o commit no `master`.
+   > A `apiKey` do Firebase **não é secreta**: ela só identifica o projeto e pode ficar pública no repositório. Quem protege os dados é o login e as regras do passo 5.
+
+**7. Autorizar o domínio do GitHub Pages**
+1. Em **Authentication → Configurações → Domínios autorizados**, clique em **Adicionar domínio** e informe `alanoversystem.github.io`.
+   (`localhost` já vem autorizado para testes locais.)
+
+### Uso no dia a dia (PC e celular)
+
+1. Abra <https://alanoversystem.github.io/simulado-educacao-infantil/>.
+2. Toque no botão **🔐 Entrar** no canto superior direito, digite e-mail e senha e toque em **Entrar**.
+3. Pronto: o login fica salvo no aparelho (não precisa entrar de novo a cada visita). Faça o mesmo no outro aparelho.
+4. Na mesma janela há **🔄 Sincronizar agora**, **🚪 Sair** e, na tela de login, **Esqueci a senha** (envia um link de redefinição para o e-mail digitado).
+
+### Status da sincronização
+
+| Indicador | Significado |
+| :--- | :--- |
+| 💾 Só neste aparelho | `firebase-config.js` ainda com os valores de exemplo; o login fica desativado. |
+| 🔐 Entrar | Firebase configurado, mas sem login neste aparelho; os resultados ficam guardados localmente e sobem quando a usuária entrar. |
+| 🔄 Sincronizando… | Lendo/gravando no Firestore. |
+| ☁️ Sincronizado | Tudo enviado e atualizado. |
+| ⏳ Pendente | Sem internet; os resultados ficam no aparelho e são enviados automaticamente quando a conexão voltar (ou ao reabrir o site). |
+| ⚠️ Erro na sincronização | Ex.: regras não publicadas ou Firestore não criado. Toque no botão para ver a mensagem. Os resultados continuam salvos no aparelho. |
+
+### Como funciona por dentro
+
+- Arquivos: `firebase-config.js` (configuração), `firebase-sync.js` (login e sincronização), `performance-tracking.js` (cálculo das estatísticas) e `firestore.rules` (regras de segurança).
+- Ao entrar, o documento `users/{uid}` é lido e **mesclado** com o que está no `localStorage`.
+- Ao terminar uma prova, a sessão é salva localmente e enviada ao Firestore com uma **transação** (`runTransaction`): lê o documento, une as sessões pelo id único e recalcula os totais por questão. Se PC e celular gravarem ao mesmo tempo, o Firestore repete a transação — nada é perdido nem contado em dobro.
+- Formato do documento: `sessions` (lista de simulados com o resultado de cada questão: 1 acerto, 0 erro, -1 em branco) e `totals` (acertos/erros/em branco acumulados por questão). O limite de 1 MiB por documento comporta mais de mil simulados de 30 questões.
