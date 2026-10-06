@@ -77,17 +77,52 @@ Agora o candidato pode escolher exatamente como deseja treinar no topo da págin
    - Desempenho categorizado por área temática.
    - Botões para **"🎲 Novo Simulado"**, **"🔁 Refazer Estas Mesmas Questões"** e **"⚙️ Alterar Foco / Quantidade"**.
 
-5. **📈 Rastreamento de Desempenho Personalizado (NOVO!)**:
-   - **Identificação da Usuária**: O sistema identifica automaticamente a usuária do simulado através de uma sessão única (`?session=unique-id` na URL). Para projetos pessoais, isso garante que todos os dados sejam atribuídos corretamente.
-   - **Armazenamento Local**: Resultados são salvos no `localStorage` do navegador, permitindo acompanhar o progresso ao longo do tempo sem precisar de cadastro ou backend.
-   - **Dados Salvos por Simulado**:
-     * ✅ Acertos e ❌ Erros por questão;
-     * 📅 Data e hora de cada resposta;
-     * 🎯 Área temática da questão;
-     * 🏛️ Se a questão é de Blumenau ou SC.
-   - **Estatísticas Personalizadas na Tela de Resultados**:
-     * 👤 **Dados Gerais**: Total de simulados realizados, aproveitamento geral acumulado.
-     * 📐 **Desempenho por Área**: Tabela detalhada com acertos/totais/porcentagem para cada área temática.
-     * 🏛️ **Desempenho por Região**: Comparativo entre Blumenau/SC e Santa Catarina (questões oficiais da FURB).
-     * ⚠️ **Pontos Fracos**: Lista das 5 áreas com menor desempenho, ideais para foco nos estudos.
-   - **Como Usar**: Ao finalizar qualquer simulado ("✅ Finalizar Simulado e Ver Gabarito"), todos os resultados são automaticamente salvos e exibidos na tela de resultados. Basta acessar o site no navegador da usuária (celular ou computador) e usar normalmente!
+5. **📈 Desempenho Acumulado e Sincronização entre Aparelhos**:
+   - Ao finalizar um simulado (ou quando o tempo acaba), o resultado de cada questão é salvo no `localStorage` do aparelho.
+   - Se um token do GitHub estiver configurado, o histórico também é gravado no arquivo **`user-data.json`** deste repositório, para que PC e celular compartilhem as mesmas estatísticas.
+   - A tela de resultados mostra: total de simulados, aproveitamento geral acumulado, desempenho por região (Blumenau × demais municípios) e pontos fracos (áreas abaixo de 60%).
+   - **Sem token o simulado funciona normalmente**; os resultados apenas ficam guardados só naquele aparelho.
+
+---
+
+## ☁️ Sincronização com o GitHub (PC + celular)
+
+O site é estático (GitHub Pages), então não existe servidor nem login com senha. Para gravar os resultados no repositório, cada aparelho usa um **token pessoal do GitHub** (fine-grained personal access token), digitado **uma única vez** e guardado apenas no `localStorage` daquele navegador. O token **nunca** é enviado para o repositório.
+
+### 1. Criar o token (uma vez só, no GitHub do dono do repositório)
+
+1. Entre no GitHub com a conta **alanoversystem**.
+2. Acesse **Settings → Developer settings → Personal access tokens → Fine-grained tokens** (ou direto: <https://github.com/settings/personal-access-tokens/new>).
+3. Clique em **Generate new token** e preencha:
+   - **Token name**: `simulado-sync` (qualquer nome).
+   - **Expiration**: escolha uma validade (por exemplo, 1 ano). Quando expirar, basta gerar outro e trocar nos aparelhos.
+   - **Resource owner**: `alanoversystem`.
+   - **Repository access**: **Only select repositories** → selecione **`alanoversystem/simulado-educacao-infantil`**.
+   - **Permissions → Repository permissions → Contents**: **Read and write**. (A permissão *Metadata: Read-only* é marcada automaticamente.) Não marque mais nada.
+4. Clique em **Generate token** e **copie** o valor (começa com `github_pat_...`). Ele só aparece uma vez; guarde-o num gerenciador de senhas.
+
+### 2. Configurar em cada aparelho (PC e celular)
+
+1. Abra o simulado: <https://alanoversystem.github.io/simulado-educacao-infantil/>.
+2. Toque no botão de status no canto superior direito (**💾 Só neste aparelho**).
+3. Cole o token no campo e toque em **Salvar token**. O site valida o token na API do GitHub e, se estiver tudo certo, já sincroniza os dados.
+4. Repita no outro aparelho. Pronto: os resultados de ambos passam a ser somados no `user-data.json`.
+
+### 3. Status da sincronização
+
+| Indicador | Significado |
+| :--- | :--- |
+| 💾 Só neste aparelho | Nenhum token configurado; os dados ficam apenas no navegador. |
+| 🔄 Sincronizando… | Lendo/gravando o `user-data.json`. |
+| ☁️ Sincronizado | Tudo enviado e atualizado. |
+| ⏳ Pendente | Sem internet; os resultados estão guardados no aparelho e serão enviados automaticamente quando a conexão voltar (ou ao abrir o site de novo). |
+| ⚠️ Erro na sincronização | Token inválido/expirado ou sem permissão. Toque no botão para ver a mensagem e trocar o token. Os resultados continuam guardados no aparelho. |
+
+Na mesma janela é possível **🔄 Sincronizar agora**, **trocar o token** (colando um novo) ou **🚪 Sair (remover token)** daquele aparelho.
+
+### Como funciona por dentro
+
+- Ao abrir o site, o histórico é lido de `user-data.json` pela API do GitHub (com o token, sem cache) e mesclado com o que está no aparelho.
+- Ao terminar uma prova, a nova sessão é adicionada e o arquivo é gravado com `PUT /repos/.../contents/user-data.json`, usando o `sha` atual. Se outro aparelho tiver gravado antes (erro 409/422), o site relê, mescla e tenta de novo.
+- Cada sessão tem um id único, então a mesclagem é uma união: nada é contado duas vezes nem perdido. O campo `totals` (acertos/erros/em branco por questão) é recalculado a partir das sessões.
+- ⚠️ Se o repositório for público, o `user-data.json` também será público (contém apenas estatísticas, nenhum dado sensível). **Nunca** coloque o token em arquivos do repositório.

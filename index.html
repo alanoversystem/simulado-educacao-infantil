@@ -533,6 +533,43 @@
     .hidden { display: none !important; }
     #quiz-screen { display: none; }
 
+    /* ── SINCRONIZAÇÃO GITHUB ── */
+    .header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    #sync-status-btn {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    #sync-status-btn[data-status="ok"]      { background: rgba(46,125,50,0.85); }
+    #sync-status-btn[data-status="pending"] { background: rgba(255,160,0,0.9); color: #212121; }
+    #sync-status-btn[data-status="error"]   { background: rgba(198,40,40,0.9); }
+    #sync-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    #sync-modal .sync-card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 24px; width: 100%; max-width: 440px;
+    }
+    #sync-modal h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: 8px; }
+    #sync-modal p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+    #sync-token-input {
+      width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 8px;
+      font-size: 0.95rem; font-family: monospace; margin-bottom: 10px;
+    }
+    #sync-modal .sync-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    #sync-modal .sync-actions .btn { flex: 1 1 auto; padding: 10px 14px; font-size: 0.9rem; }
+    #sync-status-detail { font-weight: 600; color: var(--text) !important; }
+    #sync-modal-msg { min-height: 1.2em; margin-top: 10px; font-weight: 600; font-size: 0.88rem; }
+
     @media (max-width: 600px) {
       header { padding: 14px 16px; }
       .header-title-box h1 { font-size: 1.05rem; }
@@ -548,8 +585,30 @@
     <h1>📚 Simulado — Professor de Educação Infantil</h1>
     <p>Questões oficiais fiéis da banca FURB e concursos públicos de Santa Catarina</p>
   </div>
-  <div id="timer-box" class="hidden">00:00</div>
+  <div class="header-actions">
+    <button type="button" id="sync-status-btn" data-status="local">💾 Só neste aparelho</button>
+    <div id="timer-box" class="hidden">00:00</div>
+  </div>
 </header>
+
+<!-- ══ CONFIGURAÇÃO DA SINCRONIZAÇÃO (token do GitHub) ══ -->
+<div id="sync-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="sync-modal-title">
+  <div class="sync-card">
+    <h2 id="sync-modal-title">☁️ Sincronizar com o GitHub</h2>
+    <p id="sync-status-detail"></p>
+    <p>Cole o token pessoal do GitHub (fine-grained, com acesso só a este repositório e permissão <strong>Contents: Read and write</strong>). Ele fica salvo apenas neste aparelho. Sem token o simulado funciona normalmente, só não sincroniza.</p>
+    <form id="sync-form" autocomplete="off">
+      <input type="password" id="sync-token-input" placeholder="github_pat_..." autocomplete="off" spellcheck="false">
+      <div class="sync-actions">
+        <button type="submit" id="sync-save-btn" class="btn btn-primary">Salvar token</button>
+        <button type="button" id="sync-now-btn" class="btn btn-secondary hidden">🔄 Sincronizar agora</button>
+        <button type="button" id="sync-remove-btn" class="btn btn-secondary hidden">🚪 Sair (remover token)</button>
+        <button type="button" id="sync-close-btn" class="btn btn-secondary">Fechar</button>
+      </div>
+    </form>
+    <p id="sync-modal-msg" aria-live="polite"></p>
+  </div>
+</div>
 
 <div id="progress-bar-wrap" class="hidden">
   <div id="progress-track"><div id="progress-fill" style="width:0%"></div></div>
@@ -558,73 +617,12 @@
 
 <main>
 
-  <!-- ══ TELA DE LOGIN/REGISTRO ══ -->
-  <div id="login-container" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
-    <div style="background:white;padding:30px;border-radius:12px;text-align:center;max-width:400px;width:90%;">
-      <h2 style="margin-bottom:16px;color:var(--primary);">🔐 Primeiro Login</h2>
-      
-      <!-- Formulário de Registro (primeiro login) -->
-      <form id="registration-form" style="display:none;">
-        <input type="text" id="reg-username" placeholder="Seu nome de usuário" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;" required>
-        <input type="password" id="reg-password" placeholder="Sua senha (mínimo 8 caracteres)" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;" required>
-        <button type="submit" style="width:100%;padding:12px;margin-top:8px;background:var(--primary);color:white;border:none;border-radius:6px;font-size:1rem;font-weight:bold;cursor:pointer;">Criar Conta</button>
-        <button type="button" onclick="hideLoginScreen()" style="width:100%;padding:12px;margin-top:8px;background:transparent;color:var(--text-muted);border:none;border-radius:6px;font-size:1rem;cursor:pointer;">Cancelar</button>
-      </form>
-      
-      <!-- Formulário de Login (usuários existentes) -->
-      <form id="login-form" style="display:none;">
-        <input type="text" id="login-username" placeholder="Nome de usuário" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;" required>
-        <input type="password" id="login-password" placeholder="Senha" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;" required>
-        <button type="submit" style="width:100%;padding:12px;margin-top:8px;background:var(--primary);color:white;border:none;border-radius:6px;font-size:1rem;font-weight:bold;cursor:pointer;">Entrar</button>
-        <p style="margin-top:12px;color:var(--text-muted);font-size:0.85rem;">Não tem conta? <a href="#" onclick="toggleForms()" style="color:var(--primary);">Criar agora</a></p>
-      </form>
-      
-      <div id="login-error" style="margin-top:16px;color:var(--error);font-weight:bold;"></div>
-    </div>
-  </div>
-
   <!-- ══ TELA INICIAL ══ -->
-  <div id="start-screen" data-hide-on-login>
+  <div id="start-screen">
     <h2>🎯 Simulado Oficial de Concursos</h2>
-    
-    <!-- BOTÃO DE LOGIN (se usuário não estiver logado) -->
-    <button id="login-btn" onclick="showLoginScreen()" style="background:var(--primary);color:white;padding:10px 20px;border-radius:6px;margin-top:16px;cursor:pointer;display:none;">🔐 Fazer Login</button>
-
     <p class="subtitle">Banco fiel com questões literais das provas oficiais da <strong>Banca FURB</strong> (Blumenau, Gaspar, Brusque, Timbó e concursos de SC) para <strong>Professor de Educação Infantil</strong>.</p>
-  </div>
 
-</main>
-
-<!-- FORMULÁRIO DE LOGIN (visível quando usuário não está logado) -->
-<div id="login-form-container" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center;">
-  <div style="background:white;padding:30px;border-radius:12px;text-align:center;max-width:400px;width:90%;">
-    <h2 style="margin-bottom:16px;color:var(--primary);">🔐 Login</h2>
-    
-    <form id="login-form" onsubmit="handleLogin(event)">
-      <input type="text" id="login-username" placeholder="Nome de usuário" required style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;">
-      <input type="password" id="login-password" placeholder="Senha" required style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;">
-      <button type="submit" style="width:100%;padding:12px;margin-top:8px;background:var(--primary);color:white;border:none;border-radius:6px;font-size:1rem;font-weight:bold;cursor:pointer;">Entrar</button>
-    </form>
-    
-    <p id="login-error" style="margin-top:12px;color:var(--error);font-weight:bold;"></p>
-  </div>
-</div>
-
-<!-- FORMULÁRIO DE REGISTRO (primeiro login) -->
-<div id="registration-form-container" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center;">
-  <div style="background:white;padding:30px;border-radius:12px;text-align:center;max-width:400px;width:90%;">
-    <h2 style="margin-bottom:16px;color:var(--primary);">🔐 Primeiro Login</h2>
-    
-    <form id="registration-form" onsubmit="handleRegister(event)">
-      <input type="text" id="reg-username" placeholder="Seu nome de usuário" required style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;">
-      <input type="password" id="reg-password" placeholder="Sua senha (mínimo 8 caracteres)" required style="width:100%;padding:12px;margin-bottom:8px;border:2px solid var(--border);border-radius:6px;box-sizing:border-box;">
-      <button type="submit" style="width:100%;padding:12px;margin-top:8px;background:var(--primary);color:white;border:none;border-radius:6px;font-size:1rem;font-weight:bold;cursor:pointer;">Criar Conta</button>
-    </form>
-    
-    <p id="registration-error" style="margin-top:12px;color:var(--error);font-weight:bold;"></p>
-  </div>
-</div>
-
+    <!-- BANNER ANTI-DECOREBA -->
     <div class="antidecoreba-banner">
       <div style="font-size:1.8rem;">🎲</div>
       <div>
@@ -735,10 +733,10 @@
       <tbody id="area-tbody"></tbody>
     </table>
 
-    <h3 style="margin-bottom:12px;">🏛️ Desempenho por Região</h3>
+    <h3 style="margin-bottom:12px;">🏛️ Desempenho por Região (acumulado)</h3>
     <div id="region-stats" style="display: grid; gap: 8px;"></div>
 
-    <h3 style="margin-bottom:12px;">⚠️ Pontos Fracos (Áreas para Focar)</h3>
+    <h3 style="margin-bottom:12px;">⚠️ Pontos Fracos (Áreas para Focar, acumulado)</h3>
     <div id="weak-areas" style="background: #FFF3E0; border-left: 4px solid #FF9800; padding: 12px; margin-bottom: 24px;"></div>
 
     <h3 style="margin-bottom:12px;">📋 Gabarito Oficial deste Simulado</h3>
@@ -757,8 +755,8 @@
 <!-- IMPORTAÇÃO DO BANCO OFICIAL DE QUESTÕES -->
 <script src="questions-bank.js"></script>
 
-<!-- IMPORTAÇÃO DA AUTENTICAÇÃO E CRIPTOGRAFIA -->
-<script src="auth.js"></script>
+<!-- SINCRONIZAÇÃO DOS RESULTADOS COM O GITHUB (token salvo só no aparelho) -->
+<script src="github-sync.js"></script>
 
 <!-- IMPORTAÇÃO DO RASTREAMENTO DE DESEMPENHO -->
 <script src="performance-tracking.js"></script>
@@ -785,27 +783,8 @@ let totalSeconds     = 3 * 60 * 60; // 3h
 let startTime        = null;
 let endTime          = null;
 
-// ════════════════════════════════════════════════════════════════
-//  AUTENTICAÇÃO E USUÁRIO
-// ════════════════════════════════════════════════════════════════
-let currentUser = sessionStorage.getItem('simulado_user');
-
-// Verificar se usuário já está logado ao carregar a página
+// Inicialização da interface
 window.addEventListener('DOMContentLoaded', () => {
-  if (currentUser) {
-    // Usuário logado - mostrar simulado
-    hideLoginScreen();
-    
-    // Carregar dados do usuário
-    loadUserData(currentUser);
-  } else {
-    // Usuário não logado - mostrar tela de login
-    showLoginScreen();
-    
-    // Adicionar formulário de registro (primeiro login)
-    addRegistrationForm();
-  }
-  
   updateUIForFilter();
 });
 
@@ -1112,9 +1091,6 @@ function selectAnswer(qIdx, optIdx) {
   locked[qIdx] = true;
   answers[qIdx] = optIdx;
 
-  // Salvar resultado para rastreamento de desempenho
-  saveQuizResult(qIdx, optIdx);
-
   const q       = activeQuestions[qIdx];
   const correct = q.answer;
   const letters = ['A', 'B', 'C', 'D', 'E'];
@@ -1217,16 +1193,15 @@ function confirmFinish() {
   if (unanswered > 0) {
     if (!confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar o simulado agora?`)) return;
   }
-  
-  // Salvar todos os resultados para rastreamento
-  finalizeWithTracking();
-
   showResult(false);
 }
 
 function showResult(timeUp) {
   clearInterval(timerInterval);
   endTime = Date.now();
+
+  // Registra o simulado (localStorage + GitHub). Também cobre o caso de tempo esgotado.
+  finalizeWithTracking();
   document.getElementById('quiz-screen').style.display = 'none';
   document.getElementById('result-screen').style.display = 'block';
 
@@ -1305,34 +1280,39 @@ function renderPersonalizedData() {
   const regionStats = getRegionStats();
   const weakAreas = getWeakAreas();
 
-  // Dados gerais da usuária
+  // Dados gerais acumulados da usuária (todos os simulados, em todos os aparelhos sincronizados)
   const userStatsEl = document.getElementById('user-stats');
   if (generalStats) {
     userStatsEl.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span><strong>Usuária:</strong></span>
-        <span id="session-id" style="color:#666;font-size:0.85rem;"></span>
-      </div>
-      <hr style="border:none;border-top:1px solid #A5D6A7;margin:8px 0;">
       <div style="display:flex; justify-content:space-between;">
-        <span><strong>Total de Simulados:</strong></span>
+        <span><strong>Simulados realizados:</strong></span>
         <strong>${generalStats.total}</strong>
       </div>
       <div style="display:flex; justify-content:space-between;">
-        <span><strong>Aproveitamento Geral:</strong></span>
+        <span><strong>Questões respondidas (acumulado):</strong></span>
+        <strong>${generalStats.questions}</strong>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <span><strong>Aproveitamento geral:</strong></span>
         <strong style="color:${generalStats.pct >= 60 ? '#2E7D32' : '#C62828'}">${generalStats.pct}%</strong>
       </div>
+      <hr style="border:none;border-top:1px solid #A5D6A7;margin:8px 0;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+        <span><strong>Sincronização:</strong></span>
+        <span id="user-sync-status" style="color:#555;font-size:0.85rem;"></span>
+      </div>
     `;
-    
-    document.getElementById('session-id').textContent = generalStats.total > 0 
-      ? `Sessão: ${localStorage.getItem('simulado_session_id') || 'padrao'}` 
-      : '-';
+    const syncState = GitHubSync.getStatus();
+    const syncLabels = { local: 'Só neste aparelho (sem token)', syncing: 'Sincronizando…', ok: 'Sincronizado ✅', pending: 'Pendente ⏳', error: 'Erro ⚠️ ' + syncState.message };
+    document.getElementById('user-sync-status').textContent = syncLabels[syncState.status] || '';
+  } else {
+    userStatsEl.innerHTML = '<p style="color:#666;font-size:0.85rem;margin:0;">Nenhum simulado registrado ainda.</p>';
   }
 
   // Estatísticas por região (Blumenau vs SC)
   const regionStatsEl = document.getElementById('region-stats');
+  regionStatsEl.innerHTML = '';
   if (Object.keys(regionStats).length > 0) {
-    regionStatsEl.innerHTML = '';
     Object.entries(regionStats).forEach(([region, data]) => {
       const pctClass = data.pct >= 60 ? 'color:#2E7D32' : 'color:#C62828';
       regionStatsEl.innerHTML += `
@@ -1368,263 +1348,12 @@ function renderPersonalizedData() {
   } else {
     weakAreasEl.innerHTML = '<p style="color:#666;font-size:0.85rem;margin:0;">🎉 Excelente! Você não tem áreas com baixo desempenho.</p>';
   }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ════════════════════════════════════════════════════════════════
-//  AUTENTICAÇÃO - LOGIN/REGISTRO
-// ════════════════════════════════════════════════════════════════
-
-/**
- * Mostrar tela de login
- */
-function showLoginScreen() {
-  document.getElementById('login-form-container').style.display = 'flex';
-}
-
-/**
- * Ocultar tela de login
- */
-function hideLoginScreen() {
-  document.getElementById('login-form-container').style.display = 'none';
-  
-  // Mostrar elementos do simulado
-  document.querySelectorAll('[data-hide-on-login]').forEach(el => {
-    el.style.display = '';
-  });
-}
-
-/**
- * Alternar entre login e registro
- */
-function toggleForms() {
-  const loginForm = document.getElementById('login-form-container');
-  const regForm = document.getElementById('registration-form-container');
-  
-  if (loginForm.style.display === 'none') {
-    loginForm.style.display = 'flex';
-    regForm.style.display = 'none';
-  } else {
-    loginForm.style.display = 'none';
-    regForm.style.display = 'flex';
-  }
-}
-
-/**
- * Lidar com registro (primeiro login)
- */
-async function handleRegister(e) {
-  e.preventDefault();
-  
-  const username = document.getElementById('reg-username').value.trim();
-  const password = document.getElementById('reg-password').value;
-  const errorEl = document.getElementById('registration-error');
-  
-  if (!username || !password) {
-    errorEl.textContent = 'Preencha todos os campos';
-    return;
-  }
-  
-  if (password.length < 8) {
-    errorEl.textContent = 'A senha deve ter pelo menos 8 caracteres';
-    return;
-  }
-  
-  try {
-    await createAccount(username, password);
-    
-    alert('Conta criada com sucesso! Faça login.');
-    toggleForms();
-  } catch (e) {
-    errorEl.textContent = e.message || 'Erro ao criar conta';
-  }
-}
-
-/**
- * Lidar com login
- */
-async function handleLogin(e) {
-  e.preventDefault();
-  
-  const username = document.getElementById('login-username').value.trim();
-  const password = document.getElementById('login-password').value;
-  const errorEl = document.getElementById('login-error');
-  
-  try {
-    await authenticate(username, password);
-    
-    // Salvar sessão no localStorage
-    sessionStorage.setItem('simulado_user', username);
-    
-    hideLoginScreen();
-    window.location.reload();
-  } catch (e) {
-    errorEl.textContent = e.message || 'Erro ao fazer login';
-  }
-}
-
-/**
- * Sair do sistema
- */
-function logoutUser() {
-  sessionStorage.removeItem('simulado_user');
-  hideLoginScreen();
-  window.location.reload();
-}
-
-// ════════════════════════════════════════════════════════════════
-//  CARREGAR DADOS DO USUÁRIO
-// ════════════════════════════════════════════════════════════════
-
-/**
- * Carregar dados de desempenho do usuário
- */
-async function loadUserData(username) {
-  try {
-    const userData = await loadUserDataFromGitHub(username);
-    
-    // Salvar no localStorage para uso imediato
-    localStorage.setItem('simulado_user_data_' + username, JSON.stringify(userData));
-    
-    console.log(`📊 Dados carregados para ${username}:`, userData);
-  } catch (e) {
-    console.error('Erro ao carregar dados:', e);
-  }
-}
-
-/**
- * Salvar dados de desempenho no GitHub
- */
-async function saveUserDataToGitHub(username, userData) {
-  try {
-    await saveUserDataToGitHubFile(username, userData);
-    
-    // Atualizar localStorage
-    const existing = JSON.parse(localStorage.getItem('simulado_user_data_' + username) || '{}');
-    Object.assign(existing, userData);
-    localStorage.setItem('simulado_user_data_' + username, JSON.stringify(existing));
-    
-    console.log(`💾 Dados salvos para ${username}`);
-  } catch (e) {
-    console.error('Erro ao salvar dados:', e);
-  }
-}
-
-/**
- * Salvar dados no GitHub
- */
-async function saveUserDataToGitHubFile(username, userData) {
-  const data = await readFromGitHub();
-  
-  // Atualizar userData do usuário
-  if (!data.userData[username]) {
-    data.userData[username] = {};
-  }
-  
-  Object.assign(data.userData[username], userData);
-  data.lastUpdated = new Date().toISOString();
-  
-  await saveToGitHub(data);
-}
-
-/**
- * Ler dados do GitHub
- */
-async function loadUserDataFromGitHub(username) {
-  const data = await readFromGitHub();
-  return data.userData[username] || {};
-}
-
-// ════════════════════════════════════════════════════════════════
-//  RENDERIZAÇÃO DE DADOS PERSONALIZADOS (ATUALIZADA)
-// ════════════════════════════════════════════════════════════════
-
-function renderPersonalizedData() {
-  const generalStats = getGeneralStats();
-  const areaStats = getAreaStats();
-  const regionStats = getRegionStats();
-  const weakAreas = getWeakAreas();
-  
-  // Dados do usuário (do GitHub)
-  const userData = loadUserDataFromGitHub(currentUser || 'taiza');
-  
-  // Dados gerais da usuária
-  const userStatsEl = document.getElementById('user-stats');
-  if (generalStats) {
-    userStatsEl.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span><strong>Usuário:</strong></span>
-        <span id="session-id" style="color:#666;font-size:0.85rem;"></span>
-      </div>
-      <hr style="border:none;border-top:1px solid #A5D6A7;margin:8px 0;">
-      <div style="display:flex; justify-content:space-between;">
-        <span><strong>Total de Simulados:</strong></span>
-        <strong>${generalStats.total}</strong>
-      </div>
-      <div style="display:flex; justify-content:space-between;">
-        <span><strong>Aproveitamento Geral:</strong></span>
-        <strong style="color:${generalStats.pct >= 60 ? '#2E7D32' : '#C62828'}">${generalStats.pct}%</strong>
-      </div>
-      <hr style="border:none;border-top:1px solid #A5D6A7;margin:8px 0;">
-      <div style="display:flex; justify-content:space-between;">
-        <span><strong>Dados Salvos no GitHub:</strong></span>
-        <strong>${Object.keys(userData).length} simulado(s)</strong>
-      </div>
-    `;
-    
-    document.getElementById('session-id').textContent = currentUser 
-      ? `Usuário: ${currentUser}` 
-      : 'padrao';
-  }
-
-  // Estatísticas por região (Blumenau vs SC)
-  const regionStatsEl = document.getElementById('region-stats');
-  if (Object.keys(regionStats).length > 0) {
-    regionStatsEl.innerHTML = '';
-    Object.entries(regionStats).forEach(([region, data]) => {
-      const pctClass = data.pct >= 60 ? 'color:#2E7D32' : 'color:#C62828';
-      regionStatsEl.innerHTML += `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:white;border-radius:8px;">
-          <span><strong>${region}</strong></span>
-          <div style="width:120px;">
-            <div style="font-size:0.75rem;color:#666;margin-bottom:4px;">${data.hits}/${data.total} acertos</div>
-            <div style="height:8px;background:#CFD8DC;border-radius:99px;overflow:hidden;">
-              <div style="width:${data.pct}%;height:100%;background:${data.pct >= 60 ? '#2E7D32' : '#C62828'};"></div>
-            </div>
-          </div>
-          <span style="${pctClass};font-weight:700;font-size:0.9rem;">${data.pct}%</span>
-        </div>`;
-    });
-  }
-
-  // Pontos fracos (áreas para focar)
-  const weakAreasEl = document.getElementById('weak-areas');
-  if (weakAreas.length > 0) {
-    weakAreasEl.innerHTML = '';
-    weakAreas.forEach((area, idx) => {
-      weakAreasEl.innerHTML += `
-        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:white;border-radius:8px;margin-bottom:8px;">
-          <span><strong>${idx + 1}º ${area.area}</strong></span>
-          <div style="text-align:right;">
-            <div style="font-size:0.75rem;color:#666;margin-bottom:4px;">${area.hits}/${area.total} acertos</div>
-            <div style="height:8px;background:#CFD8DC;border-radius:99px;overflow:hidden;">
-              <div style="width:${area.pct}%;height:100%;background:#FF9800;"></div>
-            </div>
-          </div>
-        </div>`;
-    });
-  } else {
-    weakAreasEl.innerHTML = '<p style="color:#666;font-size:0.85rem;margin:0;">🎉 Excelente! Você não tem áreas com baixo desempenho.</p>';
-  }
-
-  // Atualizar tempo total simulado
-  const timeCard = document.getElementById('r-time');
-  if (timeCard) {
-    const totalSimulated = generalStats?.total || 0;
-    timeCard.textContent = `${Math.round(totalSimulated)} simulado(s)`;
-  }
-}
+// Atualiza os dados acumulados na tela de resultado quando a sincronização terminar
+window.onSyncDataUpdated = function () {
+  if (document.getElementById('result-screen').style.display === 'block') renderPersonalizedData();
+};
 
 </script>
 
