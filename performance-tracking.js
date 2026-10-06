@@ -273,7 +273,7 @@ window.saveQuizResult = function(questionIndex, userAnswer) {
 };
 
 /**
- * Finaliza quiz e salva todos os resultados
+ * Finaliza quiz e salva todos os resultados (incluindo no GitHub)
  */
 window.finalizeWithTracking = function() {
   // Salvar todas as respostas
@@ -282,7 +282,28 @@ window.finalizeWithTracking = function() {
       saveQuizResult(i, answers[i]);
     }
   });
-  
+
+  // Calcular estatísticas para salvar no GitHub
+  const username = currentUser || 'taiza';
+  let hits = 0, miss = 0, skip = 0;
+  activeQuestions.forEach((q, i) => {
+    if (answers[i] === -1) skip++;
+    else if (answers[i] === q.answer) hits++;
+    else miss++;
+  });
+
+  const userData = {
+    totalSimulated: activeQuestions.length,
+    hits: hits,
+    miss: miss,
+    skip: skip,
+    pct: Math.round((hits / activeQuestions.length) * 100),
+    answeredAt: new Date().toISOString()
+  };
+
+  // Salvar no GitHub
+  saveUserDataToGitHub(username, userData);
+
   updateLastUpdated();
 };
 
