@@ -76,3 +76,18 @@ Agora o candidato pode escolher exatamente como deseja treinar no topo da págin
    - Gráfico de aproveitamento percentual com mínimo para aprovação (60%).
    - Desempenho categorizado por área temática.
    - Botões para **"🎲 Novo Simulado"**, **"🔁 Refazer Estas Mesmas Questões"** e **"⚙️ Alterar Foco / Quantidade"**.
+
+5. **📈 Rastreamento de Desempenho Personalizado (NOVO!)**:
+   - **Identificação da Usuária**: O sistema identifica automaticamente a usuária do simulado através de uma sessão única (`?session=unique-id` na URL). Para projetos pessoais, isso garante que todos os dados sejam atribuídos corretamente.
+   - **Armazenamento Local**: Resultados são salvos no `localStorage` do navegador, permitindo acompanhar o progresso ao longo do tempo sem precisar de cadastro ou backend.
+   - **Dados Salvos por Simulado**:
+     * ✅ Acertos e ❌ Erros por questão;
+     * 📅 Data e hora de cada resposta;
+     * 🎯 Área temática da questão;
+     * 🏛️ Se a questão é de Blumenau ou SC.
+   - **Estatísticas Personalizadas na Tela de Resultados**:
+     * 👤 **Dados Gerais**: Total de simulados realizados, aproveitamento geral acumulado.
+     * 📐 **Desempenho por Área**: Tabela detalhada com acertos/totais/porcentagem para cada área temática.
+     * 🏛️ **Desempenho por Região**: Comparativo entre Blumenau/SC e Santa Catarina (questões oficiais da FURB).
+     * ⚠️ **Pontos Fracos**: Lista das 5 áreas com menor desempenho, ideais para foco nos estudos.
+   - **Como Usar**: Ao finalizar qualquer simulado ("✅ Finalizar Simulado e Ver Gabarito"), todos os resultados são automaticamente salvos e exibidos na tela de resultados. Basta acessar o site no navegador da usuária (celular ou computador) e usar normalmente!

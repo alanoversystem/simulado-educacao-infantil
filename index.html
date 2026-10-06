@@ -650,6 +650,13 @@
   <!-- ══ TELA DE RESULTADO ══ -->
   <div id="result-screen">
     <h2 id="result-title">📊 Resultado do Simulado</h2>
+    
+    <!-- DADOS PERSONALIZADOS DA USUÁRIA -->
+    <div style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border-radius: 12px; padding: 20px; margin-bottom: 24px; border: 2px solid #A5D6A7;">
+      <h3 style="color: #2E7D32; margin-bottom: 12px; font-size: 1.1rem;">👤 Dados Personalizados</h3>
+      <div id="user-stats" style="display: grid; gap: 8px;"></div>
+    </div>
+
     <div class="score-circle">
       <span class="score-num" id="score-pct">0%</span>
       <span class="score-label">aproveitamento</span>
@@ -667,6 +674,12 @@
       <tbody id="area-tbody"></tbody>
     </table>
 
+    <h3 style="margin-bottom:12px;">🏛️ Desempenho por Região</h3>
+    <div id="region-stats" style="display: grid; gap: 8px;"></div>
+
+    <h3 style="margin-bottom:12px;">⚠️ Pontos Fracos (Áreas para Focar)</h3>
+    <div id="weak-areas" style="background: #FFF3E0; border-left: 4px solid #FF9800; padding: 12px; margin-bottom: 24px;"></div>
+
     <h3 style="margin-bottom:12px;">📋 Gabarito Oficial deste Simulado</h3>
     <div class="gabarito-grid" id="gabarito-grid"></div>
 
@@ -682,6 +695,9 @@
 
 <!-- IMPORTAÇÃO DO BANCO OFICIAL DE QUESTÕES -->
 <script src="questions-bank.js"></script>
+
+<!-- IMPORTAÇÃO DO RASTREAMENTO DE DESEMPENHO -->
+<script src="performance-tracking.js"></script>
 
 <script>
 // ════════════════════════════════════════════════════════════════
@@ -1013,6 +1029,9 @@ function selectAnswer(qIdx, optIdx) {
   locked[qIdx] = true;
   answers[qIdx] = optIdx;
 
+  // Salvar resultado para rastreamento de desempenho
+  saveQuizResult(qIdx, optIdx);
+
   const q       = activeQuestions[qIdx];
   const correct = q.answer;
   const letters = ['A', 'B', 'C', 'D', 'E'];
@@ -1115,6 +1134,10 @@ function confirmFinish() {
   if (unanswered > 0) {
     if (!confirm(`Você ainda tem ${unanswered} questão(ões) sem resposta. Deseja finalizar o simulado agora?`)) return;
   }
+  
+  // Salvar todos os resultados para rastreamento
+  finalizeWithTracking();
+
   showResult(false);
 }
 
@@ -1184,8 +1207,94 @@ function showResult(timeUp) {
       </div>`;
   });
 
+  // Renderizar dados personalizados da usuária
+  renderPersonalizedData();
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// ════════════════════════════════════════════════════════════
+//  RENDERIZAÇÃO DE DADOS PERSONALIZADOS
+// ════════════════════════════════════════════════════════════
+function renderPersonalizedData() {
+  const generalStats = getGeneralStats();
+  const areaStats = getAreaStats();
+  const regionStats = getRegionStats();
+  const weakAreas = getWeakAreas();
+
+  // Dados gerais da usuária
+  const userStatsEl = document.getElementById('user-stats');
+  if (generalStats) {
+    userStatsEl.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span><strong>Usuária:</strong></span>
+        <span id="session-id" style="color:#666;font-size:0.85rem;"></span>
+      </div>
+      <hr style="border:none;border-top:1px solid #A5D6A7;margin:8px 0;">
+      <div style="display:flex; justify-content:space-between;">
+        <span><strong>Total de Simulados:</strong></span>
+        <strong>${generalStats.total}</strong>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <span><strong>Aproveitamento Geral:</strong></span>
+        <strong style="color:${generalStats.pct >= 60 ? '#2E7D32' : '#C62828'}">${generalStats.pct}%</strong>
+      </div>
+    `;
+    
+    document.getElementById('session-id').textContent = generalStats.total > 0 
+      ? `Sessão: ${localStorage.getItem('simulado_session_id') || 'padrao'}` 
+      : '-';
+  }
+
+  // Estatísticas por região (Blumenau vs SC)
+  const regionStatsEl = document.getElementById('region-stats');
+  if (Object.keys(regionStats).length > 0) {
+    regionStatsEl.innerHTML = '';
+    Object.entries(regionStats).forEach(([region, data]) => {
+      const pctClass = data.pct >= 60 ? 'color:#2E7D32' : 'color:#C62828';
+      regionStatsEl.innerHTML += `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:white;border-radius:8px;">
+          <span><strong>${region}</strong></span>
+          <div style="width:120px;">
+            <div style="font-size:0.75rem;color:#666;margin-bottom:4px;">${data.hits}/${data.total} acertos</div>
+            <div style="height:8px;background:#CFD8DC;border-radius:99px;overflow:hidden;">
+              <div style="width:${data.pct}%;height:100%;background:${data.pct >= 60 ? '#2E7D32' : '#C62828'};"></div>
+            </div>
+          </div>
+          <span style="${pctClass};font-weight:700;font-size:0.9rem;">${data.pct}%</span>
+        </div>`;
+    });
+  }
+
+  // Pontos fracos (áreas para focar)
+  const weakAreasEl = document.getElementById('weak-areas');
+  if (weakAreas.length > 0) {
+    weakAreasEl.innerHTML = '';
+    weakAreas.forEach((area, idx) => {
+      weakAreasEl.innerHTML += `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:white;border-radius:8px;margin-bottom:8px;">
+          <span><strong>${idx + 1}º ${area.area}</strong></span>
+          <div style="text-align:right;">
+            <div style="font-size:0.75rem;color:#666;margin-bottom:4px;">${area.hits}/${area.total} acertos</div>
+            <div style="height:8px;background:#CFD8DC;border-radius:99px;overflow:hidden;">
+              <div style="width:${area.pct}%;height:100%;background:#FF9800;"></div>
+            </div>
+          </div>
+        </div>`;
+    });
+  } else {
+    weakAreasEl.innerHTML = '<p style="color:#666;font-size:0.85rem;margin:0;">🎉 Excelente! Você não tem áreas com baixo desempenho.</p>';
+  }
+
+  // Atualizar tempo total simulado
+  const timeCard = document.getElementById('r-time');
+  if (timeCard) {
+    const totalSimulated = generalStats?.total || 0;
+    const avgTimePerQuiz = totalSimulated > 0 ? Math.floor(3 * 60 / totalSimulated) : 3; // ~3 min por simulado
+    timeCard.textContent = `${Math.round(totalSimulated)} simulado(s)`;
+  }
+}
+
 </script>
 
 </body>
