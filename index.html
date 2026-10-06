@@ -533,7 +533,7 @@
     .hidden { display: none !important; }
     #quiz-screen { display: none; }
 
-    /* ── SINCRONIZAÇÃO GITHUB ── */
+    /* ── LOGIN E SINCRONIZAÇÃO (FIREBASE) ── */
     .header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     #sync-status-btn {
       background: rgba(255,255,255,0.18);
@@ -549,26 +549,30 @@
     #sync-status-btn[data-status="ok"]      { background: rgba(46,125,50,0.85); }
     #sync-status-btn[data-status="pending"] { background: rgba(255,160,0,0.9); color: #212121; }
     #sync-status-btn[data-status="error"]   { background: rgba(198,40,40,0.9); }
-    #sync-modal {
+    #auth-modal {
       position: fixed; inset: 0; z-index: 9999;
       background: rgba(0,0,0,0.6);
       display: flex; align-items: center; justify-content: center;
       padding: 16px;
     }
-    #sync-modal .sync-card {
+    #auth-modal .auth-card {
       background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
-      padding: 24px; width: 100%; max-width: 440px;
+      padding: 24px; width: 100%; max-width: 420px;
     }
-    #sync-modal h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: 8px; }
-    #sync-modal p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
-    #sync-token-input {
-      width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 8px;
-      font-size: 0.95rem; font-family: monospace; margin-bottom: 10px;
+    #auth-modal h2 { color: var(--primary); font-size: 1.2rem; margin-bottom: 8px; }
+    #auth-modal p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+    #auth-email, #auth-password {
+      display: block; width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 8px;
+      font-size: 1rem; font-family: inherit; margin-bottom: 10px;
     }
-    #sync-modal .sync-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    #sync-modal .sync-actions .btn { flex: 1 1 auto; padding: 10px 14px; font-size: 0.9rem; }
+    #auth-modal .auth-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    #auth-modal .auth-actions .btn { flex: 1 1 auto; padding: 10px 14px; font-size: 0.9rem; }
+    #auth-modal .auth-link {
+      background: none; border: none; color: var(--primary); text-decoration: underline;
+      cursor: pointer; font-size: 0.85rem; margin-top: 10px; padding: 4px 0; font-family: inherit;
+    }
     #sync-status-detail { font-weight: 600; color: var(--text) !important; }
-    #sync-modal-msg { min-height: 1.2em; margin-top: 10px; font-weight: 600; font-size: 0.88rem; }
+    #auth-modal-msg { min-height: 1.2em; margin-top: 10px; font-weight: 600; font-size: 0.88rem; }
 
     @media (max-width: 600px) {
       header { padding: 14px 16px; }
@@ -586,27 +590,43 @@
     <p>Questões oficiais fiéis da banca FURB e concursos públicos de Santa Catarina</p>
   </div>
   <div class="header-actions">
-    <button type="button" id="sync-status-btn" data-status="local">💾 Só neste aparelho</button>
+    <button type="button" id="sync-status-btn" data-status="loading">⏳ Carregando…</button>
     <div id="timer-box" class="hidden">00:00</div>
   </div>
 </header>
 
-<!-- ══ CONFIGURAÇÃO DA SINCRONIZAÇÃO (token do GitHub) ══ -->
-<div id="sync-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="sync-modal-title">
-  <div class="sync-card">
-    <h2 id="sync-modal-title">☁️ Sincronizar com o GitHub</h2>
+<!-- ══ LOGIN E SINCRONIZAÇÃO (Firebase) ══ -->
+<div id="auth-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+  <div class="auth-card">
+    <h2 id="auth-modal-title">🔐 Entrar para sincronizar</h2>
     <p id="sync-status-detail"></p>
-    <p>Cole o token pessoal do GitHub (fine-grained, com acesso só a este repositório e permissão <strong>Contents: Read and write</strong>). Ele fica salvo apenas neste aparelho. Sem token o simulado funciona normalmente, só não sincroniza.</p>
-    <form id="sync-form" autocomplete="off">
-      <input type="password" id="sync-token-input" placeholder="github_pat_..." autocomplete="off" spellcheck="false">
-      <div class="sync-actions">
-        <button type="submit" id="sync-save-btn" class="btn btn-primary">Salvar token</button>
-        <button type="button" id="sync-now-btn" class="btn btn-secondary hidden">🔄 Sincronizar agora</button>
-        <button type="button" id="sync-remove-btn" class="btn btn-secondary hidden">🚪 Sair (remover token)</button>
-        <button type="button" id="sync-close-btn" class="btn btn-secondary">Fechar</button>
+    <p id="auth-unconfigured" class="hidden">O login ainda não foi configurado: preencha o arquivo <code>firebase-config.js</code> (veja o README). O simulado funciona normalmente sem login.</p>
+
+    <form id="auth-form">
+      <div id="auth-logged-out" class="hidden">
+        <p>Entre com o seu e-mail e senha para juntar os resultados do PC e do celular. Sem login o simulado funciona normalmente, só não sincroniza.</p>
+        <input type="email" id="auth-email" placeholder="E-mail" autocomplete="username" required>
+        <input type="password" id="auth-password" placeholder="Senha" autocomplete="current-password" required>
+        <div class="auth-actions">
+          <button type="submit" id="auth-login-btn" class="btn btn-primary">Entrar</button>
+          <button type="button" id="auth-signup-btn" class="btn btn-secondary hidden">Criar conta</button>
+        </div>
+        <button type="button" id="auth-reset-btn" class="auth-link">Esqueci a senha</button>
       </div>
     </form>
-    <p id="sync-modal-msg" aria-live="polite"></p>
+
+    <div id="auth-logged-in" class="hidden">
+      <p>Conectada como <strong id="auth-user-email"></strong>.</p>
+      <div class="auth-actions">
+        <button type="button" id="sync-now-btn" class="btn btn-primary">🔄 Sincronizar agora</button>
+        <button type="button" id="auth-logout-btn" class="btn btn-secondary">🚪 Sair</button>
+      </div>
+    </div>
+
+    <div class="auth-actions" style="margin-top:8px;">
+      <button type="button" id="auth-close-btn" class="btn btn-secondary">Fechar</button>
+    </div>
+    <p id="auth-modal-msg" aria-live="polite"></p>
   </div>
 </div>
 
@@ -755,8 +775,9 @@
 <!-- IMPORTAÇÃO DO BANCO OFICIAL DE QUESTÕES -->
 <script src="questions-bank.js"></script>
 
-<!-- SINCRONIZAÇÃO DOS RESULTADOS COM O GITHUB (token salvo só no aparelho) -->
-<script src="github-sync.js"></script>
+<!-- LOGIN (FIREBASE) E SINCRONIZAÇÃO DOS RESULTADOS -->
+<script src="firebase-config.js"></script>
+<script src="firebase-sync.js"></script>
 
 <!-- IMPORTAÇÃO DO RASTREAMENTO DE DESEMPENHO -->
 <script src="performance-tracking.js"></script>
@@ -1200,7 +1221,7 @@ function showResult(timeUp) {
   clearInterval(timerInterval);
   endTime = Date.now();
 
-  // Registra o simulado (localStorage + GitHub). Também cobre o caso de tempo esgotado.
+  // Registra o simulado (localStorage + Firestore, se houver login). Também cobre o caso de tempo esgotado.
   finalizeWithTracking();
   document.getElementById('quiz-screen').style.display = 'none';
   document.getElementById('result-screen').style.display = 'block';
@@ -1302,8 +1323,8 @@ function renderPersonalizedData() {
         <span id="user-sync-status" style="color:#555;font-size:0.85rem;"></span>
       </div>
     `;
-    const syncState = GitHubSync.getStatus();
-    const syncLabels = { local: 'Só neste aparelho (sem token)', syncing: 'Sincronizando…', ok: 'Sincronizado ✅', pending: 'Pendente ⏳', error: 'Erro ⚠️ ' + syncState.message };
+    const syncState = CloudSync.getStatus();
+    const syncLabels = { unconfigured: 'Só neste aparelho (login não configurado)', loading: 'Carregando…', local: 'Só neste aparelho (sem login)', syncing: 'Sincronizando…', ok: 'Sincronizado ✅', pending: 'Pendente ⏳', error: 'Erro ⚠️ ' + syncState.message };
     document.getElementById('user-sync-status').textContent = syncLabels[syncState.status] || '';
   } else {
     userStatsEl.innerHTML = '<p style="color:#666;font-size:0.85rem;margin:0;">Nenhum simulado registrado ainda.</p>';

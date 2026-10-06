@@ -1,4 +1,4 @@
-> ⚠️ **Documento desatualizado.** O rastreamento foi reescrito: não há mais `?session=` na URL nem `simulado_performance_data`. Os resultados agora ficam em `simulado_user_data` (localStorage) e, com token configurado, em `user-data.json` no repositório (ver `github-sync.js` e a seção **☁️ Sincronização com o GitHub** do README).
+> ⚠️ **Documento desatualizado.** O rastreamento foi reescrito: não há mais ``?session=`` na URL nem ``simulado_performance_data``. Os resultados agora ficam em ``simulado_user_data`` (localStorage) e, com login, no Firestore (``users/{uid}``) — ver ``firebase-sync.js`` e a seção **🔐 Login e Sincronização (Firebase)** do README.
 
 # 📈 Rastreamento de Desempenho Personalizado - Feature NOVA
 

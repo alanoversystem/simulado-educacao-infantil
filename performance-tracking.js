@@ -1,11 +1,11 @@
 /**
  * RASTREAMENTO DE DESEMPENHO
  * Calcula estatísticas acumuladas a partir do histórico de simulados mantido
- * por github-sync.js (localStorage + user-data.json no GitHub).
+ * por firebase-sync.js (localStorage + Firestore users/{uid}).
  */
 
 function getTrackingData() {
-  return window.GitHubSync ? GitHubSync.getData() : { sessions: [], totals: {} };
+  return window.CloudSync ? CloudSync.getData() : { sessions: [], totals: {} };
 }
 
 /**
@@ -81,15 +81,15 @@ function getStrongAreas() {
 }
 
 /**
- * Registra o simulado finalizado (local + GitHub, se houver token)
+ * Registra o simulado finalizado (localStorage + Firestore, se houver login)
  */
 function finalizeWithTracking() {
-  if (!window.GitHubSync || !activeQuestions.length) return;
+  if (!window.CloudSync || !activeQuestions.length) return;
   const results = {};
   activeQuestions.forEach((q, i) => {
     results[q.id] = answers[i] === -1 ? -1 : (answers[i] === q.answer ? 1 : 0);
   });
-  GitHubSync.addSession({
+  CloudSync.addSession({
     filter: originFilter,
     durationSec: startTime ? Math.round((Date.now() - startTime) / 1000) : null,
     results
