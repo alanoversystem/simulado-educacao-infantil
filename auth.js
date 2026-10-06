@@ -11,9 +11,9 @@
 /**
  * Hash da senha usando SHA-256
  */
-function sha256(message) {
+async function sha256(message) {
   const msgBuffer = new TextEncoder().encode(message);
-  const hashBuffer = crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
@@ -214,10 +214,10 @@ async function authenticate(username, password) {
     throw new Error('Usuário não encontrado ou senha incorreta');
   }
   
-  // Criptografar a senha fornecida com o hash salvo e comparar
-  const encryptedPassword = encrypt(password, data.users[userIndex].passwordHash);
+  // Comparar o hash da senha fornecida com o hash salvo no arquivo
+  const providedHash = await sha256(password);
   
-  if (encryptedPassword !== sha256(password)) {
+  if (providedHash !== data.users[userIndex].passwordHash) {
     throw new Error('Senha incorreta');
   }
   
